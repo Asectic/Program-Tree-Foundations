@@ -10,7 +10,7 @@ Project Idea: “Programming” Tree Style Education System
 About this Project
 --------------------
 
-Our project revolves around implementing a “programming trees” system, which will be used to incrementally teach students different disciplines of programming. For this project our primary language we will be using to teach is C. Our project will be aimed towards helping students who are either learning the language for the first time, or will be wishing to review and have more practise in grasping certain aspects of the language.
+Our project revolves around implementing a “programming trees” system, which will be used to incrementally teach students different disciplines of programming. For this project our primary language we will be using to teach is C. This project will be aimed towards helping students who are either learning the language for the first time, or will be wishing to review and have more practise in grasping certain aspects of the language.
 
 - <b>Platform</b>: website
 - <b>Language(s)</b>: HTML & CSS, JavaScript
@@ -18,7 +18,7 @@ Our project revolves around implementing a “programming trees” system, which
 Rationale
 -----------
 
-The main focus of our website is to supplement the user’s knowledge on C programming, to help better their understanding of the language. Where with our interactive system of being able to track their learning progress through the programming tree system and through the various exercises and tests, users will be able to learn more efficiently as supposed to learning through a lecture style at school. With the visual interface and interactive system we will implement, a combination of spatial and kinesethic learning is incorporated.
+The main focus of our website is to supplement the user’s knowledge on C programming, to help better their understanding of the language. Where with our interactive system of being able to track the user’s learning progress through the programming tree and through the exercises and tests, users will be able to understand the concepts more efficiently as supposed to learning through a lecture environment at school. With the visual interface and interactive system we will implement, a combination of spatial and kinesethic learning is incorporated.
 
 ----------------------------------
 Logistics of the Programming Tree
