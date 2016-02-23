@@ -2,16 +2,15 @@
 Components Needed
 ==================
 
-¢	Programming Tree Data Structure
-Ò	Main Tree
-Ò	Subtrees per each node
-¢	User Accounting System (Optional)
-Ò	User and password database
-¢	Home Page
-¢	Exercises and Testing System
-¢	Content of the Material:
-Ò	Explanations
-Ò	Behind the Scenes
+-	Programming Tree Data Structure
+	-> Main Tree
+	-> Subtrees per each node
+-	User Accounting System (Optional)
+-	User and password database
+-	Home Page
+-	Exercises and Testing System
+-	Content of the Material:
+-	Explanations Behind the Scenes
 
 Tasks Breakdown between the Members
 ====================================
@@ -30,9 +29,9 @@ Phases Outline
 ================
 
 Phase Two:
-¢	Content of the Educational Material
-¢	Design of the main page (excluding home)
-¢	Programming Tree implementation (main tree and few subtrees)
+-	Content of the Educational Material
+-	Design of the main page (excluding home)
+-	Programming Tree implementation (main tree and few subtrees)
 
 Phase Three:
 -	Programming Tree implementation (rest of the subtrees)
