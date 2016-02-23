@@ -1,0 +1,8 @@
+
+SCRUM UPDATE FILE: FLORA
+[Will add onto this file periodically]
+
+February 23:
+=============
+  - Added the phases outline files and the planning step details (rough)
+  - Organizing repository for the project team 8
