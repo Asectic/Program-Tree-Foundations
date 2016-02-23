@@ -1,36 +1,46 @@
 
-Implementations of the Programming Tree Webpage
+Components Needed
+==================
 
-======
-NOTES:
-======
+¢	Programming Tree Data Structure
+Ò	Main Tree
+Ò	Subtrees per each node
+¢	User Accounting System (Optional)
+Ò	User and password database
+¢	Home Page
+¢	Exercises and Testing System
+¢	Content of the Material:
+Ò	Explanations
+Ò	Behind the Scenes
 
-:: A rough draft of the phases for our purposes of keeping track - edit for any changes and indicating who will implement which part of the phases
-:: Challenge: Connecting the pages together in the main interface
-:: Challenge: Deciding how much content we're going to cover and in what order we're presenting them
-:: Assume that "Contents" and "Exercises & tests" will have to be implemented at separate phases due to complexity and time consumption of both
+Tasks Breakdown between the Members
+====================================
 
-==========
+Back End: (Webpage Design and Animations)
+-	Flora
+-	Allen
+-	Wengfeng
+
+Front End: (Content of the webpage and Exercise System)
+-	Daniel
+-	Justin 
+-	Shamama
+
+Phases Outline
+================
+
 Phase Two:
-==========
+¢	Content of the Educational Material
+¢	Design of the main page (excluding home)
+¢	Programming Tree implementation (main tree and few subtrees)
 
-- Decide on the name of the webpage
-- User account system (Database)
-- Main interface system setup, with a few nodes and its subtrees completed
-	-> Content & "Behind the scenes"
-- Implement the "main tree" of the Programming Tree (And only the subtrees for the covered content nodes)
-
-
-=============
 Phase Three:
-=============
+-	Programming Tree implementation (rest of the subtrees)
+-	Exercises and testing system
 
-- Exercise & testing systems (And tests for the answers)
-- Implementing the rest of the programming tree & its subtrees
+Phase Four:
+-	Home Page Design and content
+-	User Account and Login System
 
-============
-Last Phase
-===========
 
-- Homepage
-- ...
+
