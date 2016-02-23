@@ -1,0 +1,14 @@
+
+Tasks List (Phase 2):
+======================
+
+(Subject to change)
+
+1. Figure out the content material & its order 
+    -> For the main tree implementation (What to include in main nodes)
+    -> And to start working on which 
+
+2. [Front End] Implement the content pages of some subtrees
+   [Back End] Implement the programming tree
+
+3. [Back End] Implement the main teaching interface layout & coordinate the content pages to the programming tree
