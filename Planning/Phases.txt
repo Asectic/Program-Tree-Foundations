@@ -41,5 +41,20 @@ Phase Four:
 -	Home Page Design and content
 -	User Account and Login System
 
+Tasks Lists - Member Breakdown:
+================================
+
+Allen and Wengfeng:
+- Working on a C compiler for the exercises and code
+
+Justin and Daniel:
+- Content: A game system for malloc & memory
+- Two other content topics
+
+Shamama and Flora:
+- Programming Tree implementation (minimum of 3 nodes - so minimum of 3 content topics covered.)
+
+Flora:
+- Base layout for the main programming tree page
 
 
