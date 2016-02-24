@@ -19,11 +19,11 @@ Back End: (Webpage Design and Animations)
 -	Flora
 -	Allen
 -	Wengfeng
+-	Shamama
 
 Front End: (Content of the webpage and Exercise System)
 -	Daniel
 -	Justin 
--	Shamama
 
 Phases Outline
 ================
