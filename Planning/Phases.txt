@@ -48,7 +48,7 @@ Allen and Wengfeng:
 - Working on a C compiler for the exercises and code
 
 Justin and Daniel:
-- Content: A game system for malloc & memory
+- Content: A game/quiz system for malloc & memory
 - Two other content topics
 
 Shamama and Flora:
