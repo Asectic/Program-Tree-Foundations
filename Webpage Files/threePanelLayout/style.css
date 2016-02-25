@@ -1,0 +1,49 @@
+.treeNode{
+    color: white;
+    background-color: lightblue; 
+    border-radius: 100%;
+    width: 80px; 
+    height: 80px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    
+}
+
+body {
+    background-color: black;
+    color: white;    
+}
+
+.top {
+    position: absolute;
+    left:50px; top: 20px; bottom: 0px; right:50px;
+    height: 92px;
+    background: blue;
+    align-content: center;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    background-color: aquamarine;
+    background-position: center;
+}
+
+.left {
+    position: absolute;
+    left:50px; top:120px; bottom: 50px;
+    width: 430px;
+    background: white;
+    color: white;
+    align-content: center;
+
+}
+
+.main {
+    position: absolute;
+    left: 500px; top:120px; right:50px; bottom:50px;
+    background: white;
+    color: black;
+    align-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
