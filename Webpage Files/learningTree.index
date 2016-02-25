@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learning Tree</title>
+		<link href="style.css" type="text/css" rel="stylesheet" /> 
+	</head>
+	<body>
+		<div id="tree">
+		</div>
+	</body>
+	<script type = "text/javascript" 
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type = "text/javascript" src="tree.js"></script>
+</html>
+
