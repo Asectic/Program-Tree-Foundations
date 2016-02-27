@@ -1,19 +1,10 @@
-
-/* Color Schema:
-    Node color: #DF9496
-    Body: #727B84
-    Main Color: #F6F4DA
-    Text Color: #D9E2E1
-    Popup Color: #F4F3EE
-*/
-
 body {
     background-color: #DF9496;
 }
 
+/* Title and Navigation of the page */
 .top {
     
-    /* Border for the Website name panel */
     /* TL TR BR BL */
     border-radius: 10px 10px 10px 10px; /* Rounds the headers */
 	border-style: solid !important;
@@ -35,7 +26,6 @@ body {
 
 
 /* Stylings of the popup boxes for the content */
-
 .node-position {
 
     display: none;
@@ -59,7 +49,7 @@ body {
     align-content: center;
 }
 
-
+/* For the text links found on the main */
 #wrapper {
     width: 500px;
     margin: 100px auto;
