@@ -6,3 +6,9 @@ February 23:
 =============
   - Added the phases outline files and the planning step details (rough)
   - Organizing repository for the project team 8
+  
+February 26:
+=============
+  - Adding basic style to main interface page
+  - Working on basic popups (complete)
+  - Working on popupboxes linking to Tree node JS objects instead of text links
