@@ -1,0 +1,14 @@
+
+SCRUM UPDATE FILE: Allen
+[Will add onto this file periodically]
+
+February 28:
+=============
+-created the express website body(the hierarchy of the website) which organizes all the files that will be used
+-did research with Wenfeng on how to compile c code with the nodejs framework
+-created an html page to let the user enter code and send it to the server
+-in the server, written up 2 routes: 1) GET route to direct the client to the html page to enter the code
+                                     2) POST route to take in the submitted code request to be compiled from the client
+-plan to connect the webpages developed by teammates and try to make working prototype website
+
+
