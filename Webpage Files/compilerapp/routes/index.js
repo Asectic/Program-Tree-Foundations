@@ -31,8 +31,8 @@ router.post('/compile', function(req, res, next){
 	});
 
 	//calls compiler to compile the code sent by client
-	compiler(fileName);
-
+	var result = compiler(fileName);
+	
 	res.send(code);
 
 });

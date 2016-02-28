@@ -7,9 +7,14 @@ module.exports = function compiler(filename){
 
 	//compiles the code with gcc and then executes the code
 	var child = exec('gcc ' + filename + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
-	console.log(stdout)
+	if (stderr){
+		console.log(stderr)
+		return(stderr);
+	}else{
+		console.log(stdout)
+		return(stdout);
+	}
 	});
 
-	return;
 
 }
