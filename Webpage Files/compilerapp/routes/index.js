@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-var string = "Hello World";
+//var string = "Hello World";
 
 
 
@@ -18,15 +18,21 @@ router.get('/compile', function(req, res, next){
 
 //handle request to compile the code
 router.post('/compile', function(req, res, next){
+
+	//save the users code that wants to be compiled
+	var code = req.body.code;
+	//save the user's name
+	var name = req.body.name + ".c"; 
 	
-	fs.writeFile("code.c", string, function(err){
+	//write the code to the file
+	fs.writeFile(name, code, function(err){
 		if(err){
 			return console.log(err);
 		}
 		console.log("The file was saved");
 	});
 	
-	var code = req.body.code;
+
 	res.send(code);
 
 });
