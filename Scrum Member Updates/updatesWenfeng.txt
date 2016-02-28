@@ -9,3 +9,6 @@ February 28:
 - more work split:
 	- Allen : get user input from client side to server
 	- me : write the input to a file so we can compile 
+- got writing code to file woring 
+	- merged with Allen's get user input
+- working on error handling for code compiling & show code result to client-side
