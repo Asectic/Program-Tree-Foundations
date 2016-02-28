@@ -1,4 +1,15 @@
 var exec = require('child_process').exec;
-var child = exec('gcc temp.c && a.exe', function(err, stdout, stderr){
+
+module.exports = function compiler(filename){
+
+	//parse filename and add .exe to the end
+	var name = filename.substring(0, filename.length - 2) + '.exe';
+
+	//compiles the code with gcc and then executes the code
+	var child = exec('gcc ' + filename + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
 	console.log(stdout)
-});
+	});
+
+	return;
+
+}
