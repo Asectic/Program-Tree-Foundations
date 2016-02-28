@@ -1,0 +1,11 @@
+SCRUM UPDATE FILE: WENFENG JIANG	
+
+February 28:
+=============
+- talked to Allen on Skype on compiling C code
+- discussed which to use : exec or spawn
+- decide on exec for now:
+	problem: saves to buffer so if exceeds buffer(code too long) process will fail. 
+- more work split:
+	- Allen : get user input from client side to server
+	- me : write the input to a file so we can compile 
