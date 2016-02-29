@@ -10,5 +10,6 @@ February 28:
 -in the server, written up 2 routes: 1) GET route to direct the client to the html page to enter the code
                                      2) POST route to take in the submitted code request to be compiled from the client
 -plan to connect the webpages developed by teammates and try to make working prototype website
+-moved solution for compiler to work from index(compiler) to main file index: compiler is now within index routes and not in seperate files
 
 
