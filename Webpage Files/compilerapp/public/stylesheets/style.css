@@ -1,8 +1,8 @@
 body {
-    background-color: #DF9496;
+    background-color: lightgrey;
 }
 
-/* Title and Navigation of the page */
+/* Main elements of the page s*/
 .top {
     
     /* TL TR BR BL */
@@ -23,36 +23,11 @@ body {
     background-position: center;
 }
 
-
-/* Stylings of the popup boxes for the content */
-.node-position {
-
-    display: none;
-    position: fixed;
-    top: 0; left: 0; background-color: rgba(0,0,0,0.7); 
-    width: 100%; height: 100%;
-    
-}
-
-#node1-wrapper {
-    width: 900px; height: 600px;
-    margin: 50px auto; 
-    /* This controls how the text inside the boxes are alligned */
-    text-align: center;
-    overflow-y: auto; overflow-x: hidden;
-}
-
-/* Changes background of the popbox */
-#node-container {
-    background-color: #F4F3EE; padding: 20px; border-radius: 20px;
-    align-content: center;
-}
-
 .main {
     position: absolute;
     left: 10px; top:120px; right:10px; bottom:10px;
-    background-color: #F6F4DA;
-    color: #DF9496;
+    background-color: white;
+    color: #FCF4D9;
     /* TL TR BR BL */
     border-radius: 10px 10px 10px 10px; /* Rounds the headers */
 	border-style: solid !important;
@@ -90,80 +65,11 @@ body {
 }
 /* ========================================================*/
 
-/* Stylings for the Tree Nodes Option 2: Connected to a Popup
-    - Manually edit the position of each nodes: Top by 10. Play around with left for "left, center, right"
-      arrangment
-*/
-
-/* Node 1 Configurations */
-#wrapper1 {
- position:static;
- top:40vh;
- margin-top:-78px;
- left:55vw;
- margin-left:-78px;
- display:inline-block;
- text-align:center;
- background-color:#DF9496;
- padding:20px;
-  
- font-size:14px;
- 
- border-radius:100px;
- 
-  transition:all 1s;
-  -webkit-transition:all 1s;
-}
-
-/* Node 2 Configurations */
-#wrapper2 {
- position:static;
- top:60vh;
- margin-top:-78px;
- left:45vw;
- margin-left:-78px;
- display:inline-block;
- text-align:center;
- background-color:#DF9496;
- padding:20px;
-  
- font-size:14px;
- 
- border-radius:100px;
- 
-  transition:all 1s;
-  -webkit-transition:all 1s;
-}
-
-
-/* Node 3 Configurations */
-#wrapper3 {
- position:static;
- top:80vh;
- margin-top:-78px;
- left:55vw;
- margin-left:-78px;
- display:inline-block;
- text-align:center;
- background-color:#DF9496;
- padding:20px;
-  
- font-size:14px;
- 
- border-radius:100px;
- 
-  transition:all 1s;
-  -webkit-transition:all 1s;
-}
-=======
-
-/* If using tree.js, stylistics*/
 .treeNode{
     color: white;
     background-color: lightblue; 
     border-radius: 100%;
-    width: 100px; 
-    height: 100px;
+    width: 100px; height: 100px;
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -173,3 +79,5 @@ body {
 .treeNode:hover { 
     background-color: #C2EDF8; 
 }
+
+

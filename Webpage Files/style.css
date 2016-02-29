@@ -12,3 +12,23 @@
 .treeNode:hover { 
 	background-color: #C2EDF8; 
 }
+
+.level{
+	clear: both; 
+}
+
+#level1{
+	float: center; 
+}
+
+#nodeFloatsRight {
+	float: right; 
+}
+
+#nodeFloatsLeft {
+	float: left;  
+} 
+
+#nodeFloatsCenter { 
+	float: center; 
+} 
