@@ -2,3 +2,8 @@ February 23
   - Looked into ways to compile code online
   - Devised strategy for programming learning trees
   - Created initial HTML, CSS, JavaScript files that are capable of creating one learning node per level of tree
+
+February 29
+  - Continued working on the C Learning Tree. 
+  - Found way to implement new levels and add nodes to those new levels
+  - Looked into how to draw lines between elements to create tree structure
