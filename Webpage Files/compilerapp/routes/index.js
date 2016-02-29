@@ -64,6 +64,12 @@ router.get('/signup', function(req, res, next){
 
 });
 
+router.post('/signup', function(req, res, next){
+
+	res.redirect('/');
+});
+
+
 router.get('/login', function(req, res, next){
 
 	res.render('login', {title: 'Progamming Tree Foundations'});
