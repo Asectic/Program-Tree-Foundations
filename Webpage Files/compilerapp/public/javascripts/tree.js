@@ -3,7 +3,7 @@
 	
 	// Initializing values
 	tree = document.getElementById("tree"); 
-	node1 = createNode("Hello", "/compilerapp/views/contentCh1"); 
+	node1 = createNode("Hello", "/views/contentCh1"); 
 	node2 = createNode("There", "http://www.facebook.com");
 	level1 = createLevel();
 	level2 = createLevel();
