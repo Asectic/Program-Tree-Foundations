@@ -6,7 +6,7 @@ var exec = require('child_process').exec;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Progamming Tree Foundations' });
 });
 
 //display the textbox page where the code will be typed
@@ -44,6 +44,24 @@ router.post('/compile', function(req, res, next){
 		res.send(stdout.toString());
 	}
 	});
+});
+
+router.get('/lessons', function(req, res, next){
+
+	res.render('lessons', {title: 'Progamming Tree Foundations'});
+
+});
+
+router.get('/signup', function(req, res, next){
+
+	res.render('signup', {title: 'Progamming Tree Foundations'});
+
+});
+
+router.get('/login', function(req, res, next){
+
+	res.render('login', {title: 'Progamming Tree Foundations'});
+
 });
 
 module.exports = router;
