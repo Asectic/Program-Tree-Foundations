@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>test</title>
+		<link href="/stylesheets/style.css" type="text/css" rel="stylesheet" /> 
+        
+        <script type="text/javascript">
+            <!--
+            function toggle_visibility(id) {
+               var e = document.getElementById(id);
+               if(e.style.display == 'block')
+                  e.style.display = 'none';
+               else
+                  e.style.display = 'block';
+            }
+            //-->
+        </script>  
+        
+	</head>
+    
+<!-- Website Title and Navigation Bar -->
+<div class="top"><br>
+    <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+    <a href="/">Home</a> | <a href="/lessons">Start Learning!</a> | <a href="/signup">Login/Register</a> 
+</div> 
+    
+    
+<!-- Content Itself, opens when user clicks something:
+    Edit after <center> tag in order to include in any custom content -->
+<div class="main">
+    <br><br><br>    
+    
+    <!-- CONTENT OF THE PAGES:
+        This class is essentially controls layout of all boxes:
+        Only need to change the id -->
+    <div id="node1" class="node-position"> 
+        <div id="node1-wrapper"> <!-- POsitioning of the box-->
+            <div id="node-container"> <!-- Backgrounf of box-->
+                
+                
+                <h3>Chapter 1: Memory Allocation</h3>
+                <p>Since long content works for boxes, replace whatever used to be here.</p>
+
+                <p style="text-align: right"><a href="javascript:void(0)" onclick="toggle_visibility('node1')">CLOSE</a></p>
+            </div><!-- ENd of node container-->
+        </div> <!-- node1-wrapper end -->
+    </div><!-- Node end-->
+
+    <div id="node2" class="node-position"> 
+        <div id="node1-wrapper"> <!-- POsitioning of the box-->
+            <div id="node-container"> <!-- Backgrounf of box-->
+                
+                
+                <h3>Chapter 2: Pointers</h3>
+                <p>Why can't I find this easily?!</p>
+                <p>Well fear not! Pointers enable you to store information and be able to access from it from another location!</p>
+                
+                <p style="text-align: right"><a href="javascript:void(0)" onclick="toggle_visibility('node2')">CLOSE</a></p>
+            </div><!-- ENd of node container-->
+        </div> <!-- node1-wrapper end -->
+    </div><!-- Node end-->
+
+    <div id="node3" class="node-position"> 
+        <div id="node1-wrapper"> <!-- POsitioning of the box-->
+            <div id="node-container"> <!-- Background of box-->
+                
+                
+                <h3>Chapter 3: Recursion</h3>
+                <p>Recursion is something that is to be used over and over again</p>
+                
+                <p style="text-align: right"><a href="javascript:void(0)" onclick="toggle_visibility('node3')">CLOSE</a></p>
+            </div><!-- ENd of node container-->
+        </div> <!-- node1-wrapper end -->
+    </div><!-- Node end-->
+
+
+    <!-- THE BUTTONS OR NODE STYLINGS WOULD GO HERE -->
+    <div id="wrapper1"><p><a href="javascript:void(0)" onclick="toggle_visibility('node1')">Node 1</a></p></div>
+    <br><br><br><br>
+    <div id="wrapper2"><p><a href="javascript:void(0)" onclick="toggle_visibility('node2')">Node 2</a></p></div>
+    <br><br><br><br>
+    <div id="wrapper3"><p><a href="javascript:void(0)" onclick="toggle_visibility('node3')">Node 3</a></p></div>
+    
+</div><!-- End of main -->
+
+    
+</html>
