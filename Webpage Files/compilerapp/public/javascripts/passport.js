@@ -49,7 +49,7 @@ module.exports = function (passport){
 						//save the fields of the user(username, email, password)
 						newUser.username = req.body.username;
 						newUser.email = req.body.email;
-						newUser.password = req.body.password;
+						newUser.password = newUser.generateHash(req.body.password);
 
 						//save the user and fields to the database
 						newUser.save(function(err){
@@ -70,6 +70,49 @@ module.exports = function (passport){
     }));
 
 	//login strategy for the user
+
+	    passport.use('local-login', new LocalStrategy({
+
+    	usernameField = 'email', // let our username and password fields be determined by email and password sent by user
+    	passwordField = 'password',
+    	passReqToCallback: true // passes the callback to the request handler
+    	
+    	},
+    	function(req, email, password, done){
+
+    		process.nextTick(function(){
+    			//makes find one function only run once data is sent from client
+    			//in database look for user with that email,
+    			User.findOne('email' : email, function(err, data){
+
+    				if(err){
+    					//error occured
+    					return done(err);
+    				}
+
+    				if(!data){
+    					//user does not exist
+    					return done(null, false);
+    				}
+    				else{
+						//user exists in the database
+
+						if(!data.validPassword){
+							//user entered the wrong password
+							return done(null, false);
+						}
+
+						//return the user
+						return done(null, data);
+
+
+
+    				}
+    			});
+    		});
+    	}
+
+    }));
 
 	return passport;
 }
