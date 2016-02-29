@@ -7,7 +7,7 @@
 	node2 = createNode("There", "http://www.facebook.com");
 	level1 = createLevel();
 	level2 = createLevel();
-	addToLevel(2, node1);
+	addToLevel(1, node1);
 	addToLevel(2, node2);
 
 
