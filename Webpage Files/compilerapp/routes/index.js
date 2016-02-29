@@ -32,7 +32,12 @@ router.post('/compile', function(req, res, next){
 	});
 
 	//compiles the code and send result to client
+	var system = req.headers['user-agent'].split(" ")[1];
+
 	var name = fileName.substring(0, fileName.length - 2) + '.exe';
+	if(system != "Windows"){
+		name = "./" + fileName.substring(0, fileName.length - 2) + '.exe';
+	}
 	
 	//compiles the code with gcc and then executes the code
 	var child = exec('gcc ' + fileName + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
