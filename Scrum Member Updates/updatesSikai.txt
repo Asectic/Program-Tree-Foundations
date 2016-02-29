@@ -1,0 +1,12 @@
+SCRUM UPDATE FILE: Sikai Li
+[Will add onto this file periodically]
+
+February 27:
+=============
+- Started to learn basic HTML and java script
+- Learn to use HTML and java script to create simple interactive web game
+
+February 28:
+=============
+- Finished the base requirements for the planned memory allocation game
+- Learn how to input and implement the use of pictures within the game
