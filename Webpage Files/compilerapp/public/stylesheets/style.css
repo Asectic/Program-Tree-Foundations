@@ -64,7 +64,6 @@ body {
     left: 10px; top:120px; right:10px; bottom:10px;
     background-color: #F6F4DA;
     color: #DF9496;
-    
     /* TL TR BR BL */
     border-radius: 10px 10px 10px 10px; /* Rounds the headers */
 	border-style: solid !important;
@@ -101,3 +100,19 @@ body {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 /* ========================================================*/
+
+.treeNode{
+    color: white;
+    background-color: lightblue; 
+    border-radius: 100%;
+    width: 100px; 
+    height: 100px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 30px;
+}
+
+.treeNode:hover { 
+    background-color: #C2EDF8; 
+}
