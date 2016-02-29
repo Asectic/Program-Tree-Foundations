@@ -12,3 +12,5 @@ February 28:
 - got writing code to file woring 
 	- merged with Allen's get user input
 - working on error handling for code compiling & show code result to client-side
+	- added spawn version of compiler for testing
+	- added compiler inside index.js 
