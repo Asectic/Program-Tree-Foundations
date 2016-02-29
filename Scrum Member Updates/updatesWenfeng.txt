@@ -14,3 +14,9 @@ February 28:
 - working on error handling for code compiling & show code result to client-side
 	- added spawn version of compiler for testing
 	- added compiler inside index.js 
+SCRUM UPDATE FILE: WENFENG JIANG	
+
+February 29:
+=============
+- combined Shamama's node javascript and css into the website
+- replaced lesson page hyperlink with really nodes and connexted to compiler
