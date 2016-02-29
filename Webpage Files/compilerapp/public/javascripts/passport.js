@@ -1,4 +1,4 @@
-var passport = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var User = require('/javascripts/user.js');
 
 module.exports = function (passport){
@@ -104,8 +104,6 @@ module.exports = function (passport){
 
 						//return the user
 						return done(null, data);
-
-
 
     				}
     			});
