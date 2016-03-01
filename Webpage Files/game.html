@@ -13,15 +13,18 @@ canvas {
 <script>
 
 var A1;
-var eventt = "click";
-var colour = "yellow";
+var A2;
+var A3;
 var clickedd = false;
 var bool = false;
+var cur = "none"
 
 
 function startGame() {
     
-    A1 = new component(30, 30, colour, 100, 120);
+    A1 = new component(30, 30, "red", 100, 120);
+    A2 = new component(30, 30, "purple", 100, 200);
+    A3 = new component(30, 30, "green", 100, 10);
     myGameArea.start();
 }
 
@@ -30,20 +33,24 @@ var myGameArea = {
     start : function() {
         this.canvas.width = 480;
         this.canvas.height = 270;
-        A1.x = 100;
-        A1.y = 100; 
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
         window.addEventListener("mousedown", function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-            if (clickedd == false && A1.clicked()){
+            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked())){
                 clickedd = true;
-                colour = "red";
+                if (A1.clicked()){
+                    cur = "1";
+                } else if (A2.clicked()){
+                    cur = "2";
+                } else if (A3.clicked()){
+                    cur = "3";
+                }
             } else if (bool == true){
                 clickedd = false;
-                colour = "blue";
+                cur = "none";
             }
             
         })
@@ -59,10 +66,10 @@ function component(width, height, color, x, y) {
     this.speedX = 0;
     this.speedY = 0;    
     this.x = x;
-    this.y = y;    
+    this.y = y;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = colour;
+        ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
     this.clicked = function() {
@@ -86,16 +93,23 @@ function updateGameArea() {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
             })
-        colour = "green";
         bool = true;
     }
     if (bool && clickedd){
-        A1.x = myGameArea.x - 15;
-        A1.y = myGameArea.y - 15; 
-
+        if (cur == "1") {
+            A1.x = myGameArea.x - 25;
+            A1.y = myGameArea.y - 25;           
+        } else if (cur == "2"){
+            A2.x = myGameArea.x - 25;
+            A2.y = myGameArea.y - 25;            
+        } else if (cur == "3"){
+            A3.x = myGameArea.x - 25;
+            A3.y = myGameArea.y - 25;            
+        }
     }
-    
     A1.update();
+    A2.update();
+    A3.update();
 }
 
 </script>
