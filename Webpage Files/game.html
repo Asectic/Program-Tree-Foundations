@@ -12,7 +12,7 @@ canvas {
 <body onload="startGame()">
 <script>
 
-var myGamePiece;
+var A1;
 var eventt = "click";
 var colour = "yellow";
 var clickedd = false;
@@ -21,7 +21,7 @@ var bool = false;
 
 function startGame() {
     
-    myGamePiece = new component(30, 30, colour, 10, 120);
+    A1 = new component(30, 30, colour, 100, 120);
     myGameArea.start();
 }
 
@@ -30,15 +30,15 @@ var myGameArea = {
     start : function() {
         this.canvas.width = 480;
         this.canvas.height = 270;
-        myGamePiece.x = 100;
-        myGamePiece.y = 100; 
+        A1.x = 100;
+        A1.y = 100; 
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
         window.addEventListener("mousedown", function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-            if (clickedd == false){
+            if (clickedd == false && A1.clicked()){
                 clickedd = true;
                 colour = "red";
             } else if (bool == true){
@@ -65,6 +65,18 @@ function component(width, height, color, x, y) {
         ctx.fillStyle = colour;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
+    this.clicked = function() {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var clicked = true;
+        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
+         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+            clicked = false;
+        }
+        return clicked;
+    }
 }
 
 function updateGameArea() {
@@ -77,13 +89,13 @@ function updateGameArea() {
         colour = "green";
         bool = true;
     }
-    if (clickedd && bool){
-        myGamePiece.x = myGameArea.x - 25;
-        myGamePiece.y = myGameArea.y - 25; 
+    if (bool && clickedd){
+        A1.x = myGameArea.x - 15;
+        A1.y = myGameArea.y - 15; 
 
     }
     
-    myGamePiece.update();
+    A1.update();
 }
 
 </script>
