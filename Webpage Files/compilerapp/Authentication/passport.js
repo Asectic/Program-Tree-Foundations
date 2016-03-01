@@ -1,5 +1,5 @@
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../Schema/user');
+var User = require('../Schema/user.js');
 
 module.exports = function (passport){
 
@@ -19,8 +19,8 @@ module.exports = function (passport){
 
     passport.use('local-signup', new LocalStrategy({
 
-    	usernameField = 'email', // let our username and password fields be determined by email and password sent by user
-    	passwordField = 'password',
+    	usernameField :'email', // let our username and password fields be determined by email and password sent by user
+    	passwordField : 'password',
     	passReqToCallback: true // passes the callback to the request handler
     	
     	},
@@ -29,7 +29,7 @@ module.exports = function (passport){
     		process.nextTick(function(){
     			//makes find one function only run once data is sent from client
     			//in database look for user with that email,
-    			User.findOne({'email': email}, function(err, data){
+    			User.findOne({'email' : email}, function(err, data){
 
     				if(err){
     					//error occured
@@ -61,10 +61,9 @@ module.exports = function (passport){
 							return done(null, newUser);
 
 						});
-
-    				}
-    			});
-    		});
+                    }
+                });
+            });
         }
     ));
 
@@ -72,8 +71,8 @@ module.exports = function (passport){
 
 	    passport.use('local-login', new LocalStrategy({
 
-    	usernameField = 'email', // let our username and password fields be determined by email and password sent by user
-    	passwordField = 'password',
+    	usernameField :'email', // let our username and password fields be determined by email and password sent by user
+    	passwordField : 'password',
     	passReqToCallback: true // passes the callback to the request handler
     	
     	},
@@ -82,7 +81,7 @@ module.exports = function (passport){
     		process.nextTick(function(){
     			//makes find one function only run once data is sent from client
     			//in database look for user with that email,
-    			User.findOne({'email': email}, function(err, data){
+    			User.findOne({'email' : email}, function(err, data){
 
     				if(err){
     					//error occured
@@ -104,11 +103,11 @@ module.exports = function (passport){
 						//return the user
 						return done(null, data);
 
-					}
-				});
-			});
-		}
-	));
+    				}
+    			});
+            });
+        }
+    ));
 
 	return passport;
 };

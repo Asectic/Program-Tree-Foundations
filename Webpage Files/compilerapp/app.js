@@ -6,9 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var session = require('express-session');
 
-
-var routes = require('./routes/index')(passport);
 
 mongoose.connect('mongodb://localhost:27017/csc301Project');
 
@@ -27,6 +26,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//initialize passport
+app.use(session({ secret: 'csc301' }));
+app.use(passport.initialize());
+app.use(passport.session()); 
+
+require('./Authentication/passport')(passport);
+var routes = require('./routes/index')(passport);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
