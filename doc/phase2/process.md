@@ -1,2 +1,20 @@
+Initial Planning:
+=================
 
-To be updated...
+
+Sprint Backlog:
+===============
+
+
+Update Meetings:
+================
+
+
+Burndown Chart:
+===============
+
+
+
+Review & Retrospective:
+========================
+
