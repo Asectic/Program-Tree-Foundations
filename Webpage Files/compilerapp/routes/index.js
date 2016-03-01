@@ -72,11 +72,10 @@ module.exports = function(passport){
      }));
 
 
-	router.get('/login', function(req, res, next){
-
-		res.render('login', {title: 'Progamming Tree Foundations'});
-
-	});
+	router.get('/login', passport.authenticate('local-signup', {
+        successRedirect : '/', // redirect to the home page if signup is successful
+        failureRedirect : '/error' // redirect to error page if signup failed
+	}));
 
 	router.get('/error', function(req, res, next){
 		//render the error page to the client
