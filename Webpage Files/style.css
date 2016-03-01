@@ -5,7 +5,8 @@
     width: 100px; 
     height: 100px;
     display: flex;
-    justify-content: center; 
+	margin: 10px;
+    justify-content: center;
     align-items: center; 
 }
 
@@ -14,21 +15,20 @@
 }
 
 .level{
-	clear: both; 
-}
+    width:100%;
 
-#level1{
-	float: center; 
-}
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
 
-#nodeFloatsRight {
-	float: right; 
-}
+    /* Safari and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
 
-#nodeFloatsLeft {
-	float: left;  
-} 
-
-#nodeFloatsCenter { 
-	float: center; 
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
 } 
