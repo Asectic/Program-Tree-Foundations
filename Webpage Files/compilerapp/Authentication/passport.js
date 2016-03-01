@@ -95,7 +95,7 @@ module.exports = function (passport){
     				else{
 						//user exists in the database
 
-						if(!data.validPassword){
+						if(!data.validPassword(password)){
 							//user entered the wrong password
 							return done(null, false);
 						}
