@@ -94,7 +94,7 @@ module.exports = function(passport){
 
 	router.get('/memoryGame', function(req, res, next){
 
-		res.render('', {title: 'Memory Model Game'});
+		res.render('memorygame', {title: 'Memory Model Game'});
 	});
 
 	return router;

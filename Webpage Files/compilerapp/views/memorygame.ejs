@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var A1;
+var A2;
+var A3;
+var clickedd = false;
+var bool = false;
+var cur = "none"
+
+
+function startGame() {
+    
+    A1 = new component(30, 30, "red", 100, 120);
+    A2 = new component(30, 30, "purple", 100, 200);
+    A3 = new component(30, 30, "green", 100, 10);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener("mousedown", function (e) {
+            myGameArea.x = e.pageX;
+            myGameArea.y = e.pageY;
+            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked())){
+                clickedd = true;
+                if (A1.clicked()){
+                    cur = "1";
+                } else if (A2.clicked()){
+                    cur = "2";
+                } else if (A3.clicked()){
+                    cur = "3";
+                }
+            } else if (bool == true){
+                clickedd = false;
+                cur = "none";
+            }
+            
+        })
+
+    }, 
+    clear : function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.clicked = function() {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var clicked = true;
+        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
+         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+            clicked = false;
+        }
+        return clicked;
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    if (bool == false && clickedd) {
+        window.addEventListener("mousemove", function (e) {
+            myGameArea.x = e.pageX;
+            myGameArea.y = e.pageY;
+            })
+        bool = true;
+    }
+    if (bool && clickedd){
+        if (cur == "1") {
+            A1.x = myGameArea.x - 25;
+            A1.y = myGameArea.y - 25;           
+        } else if (cur == "2"){
+            A2.x = myGameArea.x - 25;
+            A2.y = myGameArea.y - 25;            
+        } else if (cur == "3"){
+            A3.x = myGameArea.x - 25;
+            A3.y = myGameArea.y - 25;            
+        }
+    }
+    A1.update();
+    A2.update();
+    A3.update();
+}
+
+</script>
+<p>Move the cursor inside the canvas to move the red square.</p>
+</body>
+</html>
