@@ -72,3 +72,12 @@ Burndown Chart:
 Review & Retrospective:
 ========================
 
+Flora
+---------
+
+For this phase the basic webpage layout and CSS were implemented. Where the webpage for at this stage just contains a top div element containing the website name and serves as a navigational bar. Below that is the main div element where the content for all the pages of the website will appear on.
+
+Since I had an idea in mind where upon clicking a tree node the user is able to see the content material through an in-browser popup, I proceeded to implement the in-browser popup and have them appear whenever a tree node is clicked. First was just implementing the popups with basic text links, and then changing around HTML and CSS elements to have the text link turned into a tree node form. There were some issues regarding the properties of the node div element conflicting with the popup div element (where the node would still show up even though the popup appears) but that was fixed after some changes to CSS code.
+
+The tasks that were not done was this idea in general, since upon discussion group members decided to have the tree implemented in JavaScript instead and on click redirect to a new page, for a better user interaction with the interface. Tasks that were split was continuing to work on the tree implementation in JavaScript.
+
