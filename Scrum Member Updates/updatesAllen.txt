@@ -13,3 +13,14 @@ February 28:
 -moved solution for compiler to work from index(compiler) to main file index: compiler is now within index routes and not in seperate files
 -connected the front end pages for home, signup, login, lessons
 
+February 29:
+=============
+-designed login and sign up system
+-implemented login and sign up system
+-linked all the view pages and routes together
+
+March 1:
+=============
+-polishing up the login, sign up pages 
+-also connected the main components to each other on the website: the nodes, compiler, content page, and memory allocation game
+
