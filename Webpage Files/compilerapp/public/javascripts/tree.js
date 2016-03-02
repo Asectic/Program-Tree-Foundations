@@ -3,12 +3,15 @@
 	
 	// Initializing values
 	tree = document.getElementById("tree"); 
-	node1 = createNode("Hello", "../../../views/contentCh1"); 
-	node2 = createNode("There", "http://www.facebook.com");
+	node1 = createNode("Chapter 1: Memory Allocation", "/contentCh1"); 
+	node2 = createNode("Visualization of Memory Model Game", "/memoryGame");
+	node3 = createNode("C Compiler", '/compile');
 	level1 = createLevel();
 	level2 = createLevel();
+	level3 = createLevel();
 	addToLevel(1, node1);
 	addToLevel(2, node2);
+	addToLevel(3, node3);
 
 
 	function createLevel(){
