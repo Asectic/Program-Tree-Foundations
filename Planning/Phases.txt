@@ -19,11 +19,11 @@ Back End: (Webpage Design and Animations)
 -	Flora
 -	Allen
 -	Wengfeng
--	Shamama
 
 Front End: (Content of the webpage and Exercise System)
 -	Daniel
 -	Justin 
+-	Shamama
 
 Phases Outline
 ================
@@ -31,10 +31,10 @@ Phases Outline
 Phase Two:
 -	Content of the Educational Material
 -	Design of the main page (excluding home)
--	Programming Tree implementation (main tree and few subtrees)
+-	Programming Tree implementation 
+-	Webpage Layout
 
 Phase Three:
--	Programming Tree implementation (rest of the subtrees)
 -	Exercises and testing system
 
 Phase Four:
@@ -47,11 +47,10 @@ Tasks Lists - Member Breakdown:
 Allen and Wengfeng:
 - Working on a C compiler for the exercises and code
 
-Justin and Daniel:
+Justin:
 - Content: A game/quiz system for malloc & memory
-- Two other content topics
 
-Shamama and Flora:
+Shamama and Daniel:
 - Programming Tree implementation (minimum of 3 nodes - so minimum of 3 content topics covered.)
 
 Flora:
