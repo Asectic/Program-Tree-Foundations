@@ -17,10 +17,10 @@ The main design struggles for the compiler are:
 1) child_process.exec or child_process.spawn?  
 	There were two choices for spawning a child_process, exec and spawn. The main difference being exec returns a buffer, and spawn return a stream (data, image). Basically spawn are capable of returning large amount of data but due to the nature of our feature (just returning simple outputs from c code) a buffer containing the result String would be sufficient. 
 
-2) Result not displayed after compile and run 
+2) Result not displayed after compile and run                                                                                        
 	At first the child_process.exec and shell command was written as module and imported as needed. The module works but when the result (standard output or standard error) of the module was sent back to the user by a response.send() the result won't display. Many approaches were made to the code: string (stderr or stdout), using child_process.spawn instead of exec, but all failed. The final solution is to have the JavaScript together with the main code instead of importing it as a module.     
 
-3) Change syntax when OS is different
+3) Change syntax when OS is different                                                                                                 
 	The initial environment for the server-side was windows so all syntaxes were developed for a windows command line. The syntax obviously failed on other Operating System server-side. New codes were added to check the server's Operating System so appropriate syntax could be used. This is done by parsing the system info and check if it is windows. 
 
 
