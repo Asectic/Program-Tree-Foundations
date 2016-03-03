@@ -15,16 +15,20 @@ canvas {
 var A1;
 var A2;
 var A3;
+var B;
+var S;
 var clickedd = false;
 var bool = false;
-var cur = "none"
-
+var cur = "none";
+var points = 0;
 
 function startGame() {
     
     A1 = new component(30, 30, "red", 100, 120);
     A2 = new component(30, 30, "purple", 100, 200);
-    A3 = new component(30, 30, "green", 100, 10);
+    A3 = new component(30, 30, "green", 100, 40);
+    B = new stack(60, 60, 300, 60);
+    S = new score("30px", "Consolas", "black", 280, 30);
     myGameArea.start();
 }
 
@@ -67,6 +71,7 @@ function component(width, height, color, x, y) {
     this.speedY = 0;    
     this.x = x;
     this.y = y;
+    this.point = false;
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
@@ -83,6 +88,51 @@ function component(width, height, color, x, y) {
             clicked = false;
         }
         return clicked;
+    }
+}
+
+function score(width,height,color,x,y){
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.font = this.width + " " + this.height;
+        ctx.fillStyle = color;
+        ctx.fillText(this.text, this.x, this.y);
+    }
+}
+
+function stack(width, height, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = "purple";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "green";
+        ctx.fillRect(this.x, this.y+60, this.width, this.height);
+        ctx.fillStyle = "red";
+        ctx.fillRect(this.x, this.y+120, this.width, this.height);
+        if (this.x < A1.x && this.x + width > A1.x && this.y + 120 < A1.y && this.y + 180 > A1.y && A1.point == false){
+            points += 10;
+            A1.point = true;
+        }
+        if (this.x < A2.x && this.x + width > A2.x && this.y < A2.y && this.y + 60 > A2.y && A2.point == false){
+            points += 10;
+            A2.point = true;
+        }
+        if (this.x < A3.x && this.x + width > A3.x && this.y + 60 < A3.y && this.y + 120 > A3.y && A3.point == false){
+            points += 10;
+            A3.point = true;
+        }
     }
 }
 
@@ -110,9 +160,12 @@ function updateGameArea() {
     A1.update();
     A2.update();
     A3.update();
+    B.update();
+    S.text = "Score: " + points;
+    S.update();
 }
 
 </script>
-<p>Move the cursor inside the canvas to move the red square.</p>
+<p>Click on the pieces on the left and move them into their colour corresponding location to the right</p>
 </body>
 </html>
