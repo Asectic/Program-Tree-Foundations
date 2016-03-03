@@ -276,10 +276,3 @@ All the outputs were using console.log () so everything is shown on the server, 
 
 Overall this phase was smooth; I and Allen were familiar with web developing so we got the approaches to the problems fast. The task splitting was also great, in other courses I tried using nodejs but failed but Allen was experienced with the tool and I worked other parts that involved only JavaScript. I have also learned how nodejs works from Allen during this phase. The next phase we will focus on the content of the website by making question and decide on how we are going to test the results. 
 
-Justin
-
-	For this phase, the basic code required to have our memory allocation game was implemented. This included the functions moving game pieces around via clicking, place said game pieces, and receiving points for placing them in the correct location on the stack object. 
-	
-	These were implemented through the use of objects for the game pieces and the stack, a couple event listeners and a number of Boolean checks. The creation of objects and the use of Boolean checks had no significant hurdles as it did not differ much from languages I had experience in. Most of the issues that were encountered stemmed from the use of event listeners as they were a significantly different component of java scrip. It took much research and trial and error to have the event listeners behave in the way I required them to and is now working for the submitted build.
-	
-	It was hard estimate the amount of time required to complete this part of the site due once again to a lack of experience. We knew we wanted the functionality to be out of the way and that was achieved, if possible, we wanted the full memory representation (game pieces as addresses, stack as memory stack) but this proved to be unfeasible in light of the issues encountered in the code of the functional components for the game and our time constraint.
