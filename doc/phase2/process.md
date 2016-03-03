@@ -142,7 +142,7 @@ In order to estimate the size of each task, our group took into account several 
 Sprint Backlog
 ==============================================================================================================================================
 
-	Initially we planned to build a website that would be capable of teaching users C through a variety of methods. This website would have had to have been capable of compiling and testing C code, arranging topics in a hierarchical tree structure that linked to other pages, have interactive games, and more. After we designated tasks that we would have liked to accomplish in order to finish our product (listed above), we assigned deadlines and individuals to each tasks. We decided to implement a subset of our initial tasks in order to produce a functional MVP for this phase. 
+Initially we planned to build a website that would be capable of teaching users C through a variety of methods. This website would have had to have been capable of compiling and testing C code, arranging topics in a hierarchical tree structure that linked to other pages, have interactive games, and more. After we designated tasks that we would have liked to accomplish in order to finish our product (listed above), we assigned deadlines and individuals to each tasks. We decided to implement a subset of our initial tasks in order to produce a functional MVP for this phase. 
 The tasks for this phase were divided and estimated as follows:
 1.	User Account System [Left for later phase]  
 1.	This should contain a log-in page for existing users
