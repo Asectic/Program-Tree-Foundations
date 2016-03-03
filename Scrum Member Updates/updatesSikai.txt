@@ -10,3 +10,13 @@ February 28:
 =============
 - Finished the base requirements for the planned memory allocation game
 - Learn how to input and implement the use of pictures within the game
+
+February 29:
+=============
+- Added stack object as well as score
+- Had the game piece objects interact with the stack
+
+March 1:
+=============
+- Fixed bug with score so it displays the proper score
+- Learn how to implement pictures to use over objects
