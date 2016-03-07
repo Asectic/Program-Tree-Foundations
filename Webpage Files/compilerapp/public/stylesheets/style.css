@@ -27,7 +27,7 @@ body {
     position: absolute;
     left: 10px; top:120px; right:10px; bottom:10px;
     background-color: white;
-    color: #FCF4D9;
+    color: black;
     /* TL TR BR BL */
     border-radius: 10px 10px 10px 10px; /* Rounds the headers */
 	border-style: solid !important;
