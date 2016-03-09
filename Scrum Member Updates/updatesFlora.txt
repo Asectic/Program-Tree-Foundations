@@ -16,3 +16,7 @@ February 26:
 February 29:
 ============
 - Changed popup links to circular nodes via CSS, and completed proper popup behavior so that nodes do no appear through popup boxes
+
+March 9:
+========
+- Started the content of pointers page content
