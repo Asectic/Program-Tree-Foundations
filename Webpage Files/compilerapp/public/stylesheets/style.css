@@ -80,4 +80,14 @@ body {
     background-color: #C2EDF8; 
 }
 
+h1 {
+    color: navy;
+    font-size: 16px;
+    background-color: transparent;
+}
 
+h2, h3 {
+    color: cornflowerblue;
+    font-size: 12px;
+    background-color: transparent;
+}
