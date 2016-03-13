@@ -1,10 +1,16 @@
 //import mongoose
 var mongoose = require('mongoose');
 
+//each lesson has a name, description to tell us what the coruse is , lessonNumber to represent the node, completed status and the grade
 
 var lessonSchema = mongoose.Schema({
 	
-	lessonNumber: String
+	name: String,
+	description: String,
+	lessonNumber: String,
+	completed: Boolean,
+	grade: Number
+
 
 });
 
