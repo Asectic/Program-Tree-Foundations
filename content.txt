@@ -1,0 +1,78 @@
+Node Lesson Tree Content
+Types of trees: 
+	1. Basic C Syntax 
+		- Functions
+			- Variables
+				- arithmetic types, strings and chars, booleans
+		- Commonly used statements
+			- if statments, printf, scanf, case statements, iteration statements(while, do, for), jump statements(break, continue, goto)
+
+	2. C Memory Model 
+		- Pointers 
+		- Stack vs. heap
+		- Garbage collection 
+		- Multidimensional array
+
+C Syntax Introduction 
+	- Explain what a directive is 
+	- Explain what a statement is 
+	- Explain what a function is 
+	- Explain how to comment 
+
+Basic Structure of a C program: 
+	Simple C programs have the form: 
+		directives 
+	
+		int main(void){ 
+			statements 
+		}
+
+	Directives are commands that editing commands thaat modify the program prior to compilation 
+	Functions - are blocks of executable codes 
+	Statements - are commands to be performed when the program is run. 
+
+	For now, it is enough to know that the only directive we will be using is: #include <stdio.h> 
+	and that the only function we will be using is int main(void){}
+		- In C, the main function is mandatory. main is special because it gets called automatically when the program is executed. 
+		- The main function returns a value 0. This is a status code that is given to the operating system when the program terminates. It's okay if you do not fully understand this right now. It is most important to note that the "return 0;" will be the end of your main function for any of the programs that you write for these tutorials. 
+
+	A statement is a command to be executed when the program runs. C requires that statements end with a semicolon. We've seen an example of a statement - the return statement in the main function in which we return a zero. Another common statement is the printf statement. The printf statements looks like the following: printf("Are you learning yet? "); 
+	- This will print the string - or in other words, it will make visible the information in the quotations - to the user of your program.  
+	
+	Here is an example of a basic program that prints Hello world: 
+	#include <stdio.h>
+
+	int main(void){
+		printf("Hello world!"); 
+		return 0; 
+	} 
+
+	1. Write a program that prints "I am practicing coding" 
+
+Variables: 
+	Most programs need to perform a series of calculation before producing output, and thus, need a way to store data temporarily during program execution. In C, as in most programming languages, these storage locations are called variables. 
+	- Every variable has a type, which specifies what kind of data it will hold. C has a wide variety of types. These include: 
+		-
+		- 
+		-
+		- 
+
+In order to use a variable in a program, its type must be declared before using the variables. To declare a type you must specify the type of the variable and then give that variable a name. Here are some examples of declaring types: 
+	- int height; 
+	- float profit; 
+(Have a try it yourself button here? - just make sure that they match the string)
+
+After we have declared the variable, we can then assign it a value. A variable can be assigned any value provided that it is of the same type. Integers are specified as digits, strings in quotations, floats as decimals using decimals or just an integer, characters (a single letter) in single quotes, etc. for more types. Here are some examples of how the statement for instantiating variables in C should look like: 
+	- int height = 10; 
+	- float profit = 12.3; 
+	- etc. 
+(Have a try it yourself button here? - just make sure that they match the string)
+
+Exercises: 
+	1. Create a program that will compute x + y when x = 4, y = 5 
+		- Note: in order to add two numbers together in c, you can just use the statement x + y; 
+	2. Create a program that will compute x*y when x = 4, y = 5 
+	3. Create a program that will compute x/y when x = 6, y = 3 
+
+For Allen and Wenfeng: 
+	- just create a compiler exercise where a person programs a "calculator" for now - that will definitely be used later anyway. As well as the exercises above.
