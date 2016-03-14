@@ -66,8 +66,21 @@ module.exports = function (passport){
 
                         //console.log(newUser._id);
                         var lesson1 = new Lesson();
+                        lesson1.name = "MemoryAllocation";
+                        lesson1.description="Memory Allocation...";
+                        lesson1.lessonNumber = "1";
+
                         var lesson2 = new Lesson();
+                        lesson2.name = "Pointers";
+                        lesson2.description="Pointers...";
+                        lesson2.lessonNumber = "2";
+
                         var lesson3 = new Lesson();
+
+                        var lesson3 = new Lesson();
+                        lesson2.name = "Placeholder";
+                        lesson2.description="Placeholder...";
+                        lesson2.lessonNumber = "3";
                     }
                 });
             });
