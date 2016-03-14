@@ -20,3 +20,9 @@ February 29:
 =============
 - combined Shamama's node javascript and css into the website
 - replaced lesson page hyperlink with really nodes and connexted to compiler
+
+March 12
+============
+- responseble for exercise and test cases
+- found a light weight unit test framework, "minunit"
+- searched for meaningful pointer exercises
