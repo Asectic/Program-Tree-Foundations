@@ -97,6 +97,11 @@ module.exports = function(passport){
 		res.render('memorygame', {title: 'Memory Model Game'});
 	});
 
+	//new addon
+	router.get('/pointers', function(req, res, next){
+
+		res.render('pointer_exercise', {title: 'Memory Model Game'});
+	});
 	return router;
 }
 
