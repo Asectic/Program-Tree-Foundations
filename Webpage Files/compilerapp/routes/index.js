@@ -100,7 +100,13 @@ module.exports = function(passport){
 	//new addon
 	router.get('/pointers', function(req, res, next){
 
-		res.render('pointer_exercise', {title: 'Memory Model Game'});
+		res.render('pointer_exercise', {title: 'Pointer'});
+	});
+
+	//basic syntax
+	router.get('/basic', function(req, res, next){
+
+		res.render('basic_syntax', {title: 'Basic Syntax'});
 	});
 	return router;
 }
