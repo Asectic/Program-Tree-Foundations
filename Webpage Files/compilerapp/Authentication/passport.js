@@ -1,5 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../Schema/user.js');
+var Lesson = require('../Schema/lessons.js');
+var Exercise = require('../Schema/exercise.js');
 
 module.exports = function (passport){
 
@@ -61,6 +63,11 @@ module.exports = function (passport){
 							return done(null, newUser);
 
 						});
+
+                        //console.log(newUser._id);
+                        var lesson1 = new Lesson();
+                        var lesson2 = new Lesson();
+                        var lesson3 = new Lesson();
                     }
                 });
             });

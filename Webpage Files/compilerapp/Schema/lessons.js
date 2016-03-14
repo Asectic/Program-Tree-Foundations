@@ -10,7 +10,7 @@ var lessonSchema = mongoose.Schema({
 	lessonNumber: String,
 	grade: String,
 	exercises: Array,
-	completed: Boolean
+	completed: {type: Boolean, default: false}
 
 
 });
