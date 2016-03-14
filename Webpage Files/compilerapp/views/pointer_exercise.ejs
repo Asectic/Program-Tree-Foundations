@@ -162,12 +162,12 @@
       <button type="submit"> Submit</button>
 
       </form>
-      <textarea rows="15" cols="50" name="code" form="q1">#include <stdio.h>
+      <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
 void main(){
 
   // function that prints the memory address of input 
   void print_addr(int x){
-    ....
+    ...
   }
 
   int x = 5;
@@ -179,24 +179,56 @@ void main(){
     <br><br>
     <q2>
         <h1>Q2.</h1>
-      Complete a function swap() to swap the value stored at x and y. 
+      Complete the function swap() to swap the value stored at x and y. 
       <br>
       <form action="/compile"method="post" id="q2">
       Name: <input type="text" name="name">
       <button type="submit"> Submit</button>
       </form>
-      <textarea rows="15" cols="50" name="code" form="q2">#include <stdio.h>
+      <textarea rows="15" cols="70" name="code" form="q2">#include <stdio.h>
 void main(){
 
   int x = 3;
   int y = 8;
-  // function that prints the memory address of input 
-  void swap(<input>, <input>){
-    ....
+
+  // function that prints the memory address of input
+  void swap(<input1>, <input2>){
+    ...
   }
-  printf("x value: %d \n, y value: %d", x, y);
+  swap(<input1>, <input2>);
+  printf("x value: %d , y value: %d", x, y);
 }</textarea>
     </q2>
+    <br><br>
+    <q3>
+        <h1>Q3.</h1>
+      Complete the function *new_student() for creating new struct Student.   
+      <br>
+      <form action="/compile"method="post" id="q3">
+      Name: <input type="text" name="name">
+      <button type="submit"> Submit</button>
+      </form>
+      <textarea rows="15" cols="70" name="code" form="q3">#include <stdio.h>
+#include <stdlib.h>
+void main(){
+
+  struct Student {
+      char *name;
+      int u_id;
+      int year;
+      char *program;
+  };
+
+  //a function that creates a Student
+  struct Student *new_student(<name>, <u_id>, <year>, <program>){
+    ...
+  }
+
+  //create a new student using the completed function and return the u_id
+  ...
+  
+}</textarea>
+    </q3>
 
 </div>
      
