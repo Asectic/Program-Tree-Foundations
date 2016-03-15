@@ -232,9 +232,9 @@ module.exports = function (passport){
                         });
 
                         //link the lessons to the users
-                        newUser.exercises.push(lesson1._id);
-                        newUser.exercises.push(lesson2._id);
-                        newUser.exercises.push(lesson3._id);
+                        newUser.lessons.push(lesson1._id);
+                        newUser.lessons.push(lesson2._id);
+                        newUser.lessons.push(lesson3._id);
 
                         //save the user and fields to the database
                         newUser.save(function(err){
