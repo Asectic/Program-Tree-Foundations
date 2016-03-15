@@ -53,17 +53,6 @@ module.exports = function (passport){
 						newUser.email = email;
 						newUser.password = newUser.generateHash(password);
 
-						//save the user and fields to the database
-						newUser.save(function(err){
-							if(err){
-								//throw error if cannot save to database
-								throw err;
-							}
-							//return the new user that is saved
-							return done(null, newUser);
-
-						});
-
                         //console.log(newUser._id);
                         //lesson 1
                         var lesson1 = new Lesson();
@@ -240,6 +229,22 @@ module.exports = function (passport){
                                 //throw error if cannot save to database
                                 throw err;
                             }
+                        });
+
+                        //link the lessons to the users
+                        newUser.exercises.push(lesson1._id);
+                        newUser.exercises.push(lesson2._id);
+                        newUser.exercises.push(lesson3._id);
+
+                        //save the user and fields to the database
+                        newUser.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                            //return the new user that is saved
+                            return done(null, newUser);
+
                         });
                     }
                 });
