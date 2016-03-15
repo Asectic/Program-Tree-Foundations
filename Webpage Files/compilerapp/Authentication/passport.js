@@ -219,6 +219,28 @@ module.exports = function (passport){
                         lesson3.exercises.push(l3exercise2._id);
                         lesson3.exercises.push(l3exercise3._id);
                         //====//
+
+                        //save the lessons and fields to the database
+                        lesson1.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        lesson2.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        lesson3.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
                     }
                 });
             });
