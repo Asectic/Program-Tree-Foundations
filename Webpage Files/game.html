@@ -38,7 +38,7 @@ background.onload = function(){
 
 function startGame() {
     
-    A1 = new component(30, 30, "red", 250, 400);
+    A1 = new component(30, 30, "19.jpg", 250, 400, "image");
     A2 = new component(30, 30, "purple", 350, 400);
     A3 = new component(30, 30, "green", 450, 400);
     A4 = new component(30, 30, "blue", 550, 400);
@@ -81,7 +81,12 @@ var myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
-function component(width, height, color, x, y) {
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -91,8 +96,15 @@ function component(width, height, color, x, y) {
     this.point = false;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        if (type == "image") {
+            ctx.drawImage(this.image, 
+            this.x, 
+            this.y,
+            this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
     this.clicked = function() {
         var myleft = this.x;
@@ -108,7 +120,7 @@ function component(width, height, color, x, y) {
     }
 }
 
-function score(width,height,color,x,y){
+function score(width, height, color, x, y){
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -186,13 +198,13 @@ function updateGameArea() {
         
 
     }
+    B.update();
+    S.text = "Score: " + points;
+    S.update();
     A1.update();
     A2.update();
     A3.update();
     A4.update();
-    B.update();
-    S.text = "Score: " + points;
-    S.update();
 }
 
 </script>
