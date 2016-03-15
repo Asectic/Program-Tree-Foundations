@@ -42,7 +42,7 @@ module.exports = function(passport){
 		if(system != "(Windows"){
 			name = "./" + fileName.substring(0, fileName.length - 2) + '.exe';
 		}
-	
+	console.log(name);
 		//compiles the code with gcc and then executes the code
 		var child = exec('gcc ' + fileName + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
 		if (stderr){
@@ -136,7 +136,9 @@ module.exports = function(passport){
 		var name = quest_test.substring(0, quest_test.length - 2) + '.exe';
 		if(system != "(Windows"){
 			name = "./" + quest_test.substring(0, quest_test.length - 2) + '.exe';
+			quest_test = "./" + quest_test;
 		}
+		console.log("Maki:" + name);
 		//compiles the code with gcc and then executes the code
 		var child = exec('gcc ' + quest_test + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
 		if (stderr){
@@ -146,6 +148,8 @@ module.exports = function(passport){
 		}else{
 			console.log("Successful");
 			console.log(stdout.toString());
+
+
 			res.send({state: true, result: stdout.toString(), code: code.toString()});
 		}
 		});
