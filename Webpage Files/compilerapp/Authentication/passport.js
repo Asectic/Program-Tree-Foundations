@@ -65,13 +65,52 @@ module.exports = function (passport){
 						});
 
                         //console.log(newUser._id);
+                        //lesson 1
                         var lesson1 = new Lesson();
                         lesson1.name = "MemoryAllocation";
                         lesson1.description="Memory Allocation...";
                         lesson1.lessonNumber = "1";
+
+                        //exercise 1
                         var l1exercise1 = new Exercise();
+                        l1exercise1.name ="exercise1";
+                        l1exercise1.description = "An exercise to test understanding of memory allocation";
+                        l1exercise1.lessonNumber = "1";
+
+                        //save the exercise and fields to the database
+                        l1exercise1.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        //exercise 2
                         var l1exercise2 = new Exercise();
+                        l1exercise2.name ="exercise2";
+                        l1exercise2.description = "An exercise to test understanding of memory allocation";
+                        l1exercise2.lessonNumber = "1";
+
+                        //save the exercise and fields to the database
+                        l1exercise2.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
                         var l1exercise3 = new Exercise();
+                        l1exercise3.name ="exercise3";
+                        l1exercise3.description = "An exercise to test understanding of memory allocation";
+                        l1exercise3.lessonNumber = "1";
+
+                        //save the exercise and fields to the database
+                        l1exercise3.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
 
 
                         var lesson2 = new Lesson();
