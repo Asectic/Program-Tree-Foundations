@@ -112,12 +112,62 @@ module.exports = function (passport){
                             }
                         });
 
+                        lesson1.exercises.push(l1exercise1._id);
+                        lesson1.exercises.push(l1exercise2._id);
+                        lesson1.exercises.push(l1exercise3._id);
+
 
                         var lesson2 = new Lesson();
                         lesson2.name = "Pointers";
                         lesson2.description="Pointers...";
                         lesson2.lessonNumber = "2";
 
+                        //
+                                                //exercise 1
+                        var l2exercise1 = new Exercise();
+                        l2exercise1.name ="exercise1";
+                        l2exercise1.description = "An exercise to test understanding of pointers.";
+                        l2exercise1.lessonNumber = "2";
+
+                        //save the exercise and fields to the database
+                        l2exercise1.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        //exercise 2
+                        var l2exercise2 = new Exercise();
+                        l2exercise2.name ="exercise2";
+                        l2exercise2.description = "An exercise to test understanding of pointers.";
+                        l2exercise2.lessonNumber = "2";
+
+                        //save the exercise and fields to the database
+                        l2exercise2.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        var l2exercise3 = new Exercise();
+                        l2exercise3.name ="exercise3";
+                        l2exercise3.description = "An exercise to test understanding of pointers";
+                        l2exercise3.lessonNumber = "2";
+
+                        //save the exercise and fields to the database
+                        l2exercise3.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        lesson2.exercises.push(l2exercise1._id);
+                        lesson2.exercises.push(l2exercise2._id);
+                        lesson2.exercises.push(l2exercise3._id);
+                        //
                         var lesson3 = new Lesson();
                         lesson3.name = "Placeholder";
                         lesson3.description="Placeholder...";
