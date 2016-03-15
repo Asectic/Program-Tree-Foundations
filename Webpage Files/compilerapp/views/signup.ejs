@@ -3,6 +3,11 @@
 	<head>
 		<title><%= title %></title>
 		<link href="/stylesheets/style.css" type="text/css" rel="stylesheet" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         
         <script type="text/javascript">
             <!--
@@ -17,31 +22,57 @@
         </script>  
 
         
-	</head>
+</head>
     
-<!-- Website Title and Navigation Bar -->
-<div class="top"><br>
-    <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-    <a href="/">Home</a> | <a href="/lessons">Start Learning!</a> 
-</div> 
+<body>
+  <!-- Website Title and Navigation Bar -->
+  <div class="row"><br>
+    <div class = "col-lg-12 top text-center">
+        <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+        <div class="btn-group">
+          <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+          <a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
+      </div>
+    </div>
+  </div> 
     
-<!-- Content Itself, opens when user clicks something.-->
-<div class="main">
-    <center><br><br><br>
-    This is where the user login and register system will be implemented
+  <div class="row">
+      <div class="col-lg-12 main text-center">
 
-    <form action="/signup" method="post">
+        <form class="form-horizontal" role="form" action="/signup" method="post">
+          <div class="form-group">
+            <label class="control-label col-lg-2" for="email">Email address:</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" name="email" id="email" placeholder="allen@hotmail.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-2" for="username">Username:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="username" id="username" placeholder="Please Enter a nickname.">
+            </div>          
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-2" for="pwd">Password:</label>
+            <div class="col-sm-10">
+            <input type="password" class="form-control" name="password" id="pwd" placeholder="Please Enter Your Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-2" for="pwd2">Confirm Password:</label>
+            <div class="col-sm-10">
+            <input type="password" class="form-control" name="password1" id="pwd2" placeholder="Please Enter Your Password Again.">
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit"> Submit </button>
 
-      Email: <input type="email" name="email" placeholder="allen@hotmail.com"><br>
-      Username: <input type="text" name="username" placeholder="Enter a nickname."><br>
-      Password: <input type="password" name="password" placeholder="Please Enter Your Password"><br>
-      Confirm Password: <input type="password" name="password1" placeholder="Please Enter Your Password Again."><br>
-      <button type="submit"> Submit </button>
-
-    </form>
+       </form>
     
-</center>
-</div>
+      </div>
+  </div>
+</body>   
+
+</html>
     
     
     
