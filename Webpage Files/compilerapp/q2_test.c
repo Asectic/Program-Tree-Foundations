@@ -5,9 +5,12 @@
  int tests_run = 0;
  
  static char * test_1() {
+     printf("Test Case: 1\n");
      int t1_p1 = 7;
      int t1_p2 = 4;
+     printf("X value before: %d, Y value before: %d\n", t1_p1, t1_p2);
      swap(&t1_p1, &t1_p2);
+     printf("X value after: %d, Y value after: %d\n", t1_p1, t1_p2);
      mu_assert("error, p1 != 4", t1_p1 == 4);
      return 0;
  }

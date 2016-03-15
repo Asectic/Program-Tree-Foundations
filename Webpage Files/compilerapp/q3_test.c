@@ -5,11 +5,13 @@
  int tests_run = 0;
  
  static char * test_1() {
+     printf("Test Case: 1\n");
      struct Student *Allen = new_student("Allen", 9756, 3, "computer science");
-     mu_assert("error, name not correct", Allen->name == "Allen");
-     mu_assert("error, u_id not correct", Allen->u_id == 9756);
-     mu_assert("error, year not correct", Allen->year == 3);
-     mu_assert("error, program not correct", Allen->program == "computer science");
+     printf("Name: %s\nU_id: %d\nYear: %d\nProgram: %s\n",Allen->name,Allen->u_id,Allen->year,Allen->program);
+     mu_assert("error, name not Allen", Allen->name == "Allen");
+     mu_assert("error, u_id not 9756", Allen->u_id == 9756);
+     mu_assert("error, year not 3", Allen->year == 3);
+     mu_assert("error, program not computer science", Allen->program == "computer science");
      return 0;
  }
  

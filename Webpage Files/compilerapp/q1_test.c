@@ -5,10 +5,11 @@
  int tests_run = 0;
 
  static char * test_1() {
+     printf("Test Case:1\n");
  	 int x = 5;
  	 int *result;
  	 result = print_addr(x);
-     printf("original variable memory address: %d \nresult of print_addr(): %d\n", &x, result);
+     printf("original variable memory address: %p \nresult of print_addr(): %p\n", &x, result);
      mu_assert("error, matched", &x != result);
      return 0;
  }
