@@ -4,12 +4,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
+    position: absolute;
     border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
+    style="z-index: 5;
 }
+
 </style>
 </head>
 <body onload="startGame()">
+
+<canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
+</canvas>
 <script>
 
 var A1;
@@ -21,6 +26,14 @@ var clickedd = false;
 var bool = false;
 var cur = "none";
 var points = 0;
+var canvas = document.getElementById("myCanvas"),
+ctx = canvas.getContext("2d");
+var background = new Image();
+background.src = "3.jpg";
+
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
 
 function startGame() {
     
@@ -35,8 +48,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = 600;
+        this.canvas.height = 463;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
@@ -166,6 +179,5 @@ function updateGameArea() {
 }
 
 </script>
-<p>Click on the pieces on the left and move them into their colour corresponding location to the right</p>
 </body>
 </html>
