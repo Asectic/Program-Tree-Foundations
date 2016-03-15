@@ -20,6 +20,7 @@ canvas {
 var A1;
 var A2;
 var A3;
+var A4;
 var B;
 var S;
 var clickedd = false;
@@ -37,11 +38,12 @@ background.onload = function(){
 
 function startGame() {
     
-    A1 = new component(30, 30, "red", 100, 120);
-    A2 = new component(30, 30, "purple", 100, 200);
-    A3 = new component(30, 30, "green", 100, 40);
+    A1 = new component(30, 30, "red", 250, 400);
+    A2 = new component(30, 30, "purple", 350, 400);
+    A3 = new component(30, 30, "green", 450, 400);
+    A4 = new component(30, 30, "blue", 550, 400);
     B = new stack(110, 25, 465, 90);
-    S = new score("30px", "Consolas", "black", 280, 30);
+    S = new score("30px", "Consolas", "black", 440, 50);
     myGameArea.start();
 }
 
@@ -56,7 +58,7 @@ var myGameArea = {
         window.addEventListener("mousedown", function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked())){
+            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked() || A4.clicked())){
                 clickedd = true;
                 if (A1.clicked()){
                     cur = "1";
@@ -64,6 +66,8 @@ var myGameArea = {
                     cur = "2";
                 } else if (A3.clicked()){
                     cur = "3";
+                } else if (A4.clicked()){
+                    cur = "4";
                 }
             } else if (bool == true){
                 clickedd = false;
@@ -170,11 +174,17 @@ function updateGameArea() {
         } else if (cur == "3"){
             A3.x = myGameArea.x - 25;
             A3.y = myGameArea.y - 25;            
+        } else if (cur == "4"){
+            A4.x = myGameArea.x - 25;
+            A4.y = myGameArea.y - 25;            
         }
+        
+
     }
     A1.update();
     A2.update();
     A3.update();
+    A4.update();
     B.update();
     S.text = "Score: " + points;
     S.update();
