@@ -19,12 +19,13 @@ module.exports = function(passport){
 
 	//handle request to compile the code
 	router.post('/compile', function(req, res, next){
-
 		//save the users code that wants to be compiled
 		var code = req.body.code;
 		//save the user's name
 		var fileName = req.body.name.trim() + ".c"; 
-	
+		
+		var quest_num = req.body.question.trim() + ".c";
+		console.log(quest_num);
 		//write the code to the file
 		fs.writeFile(fileName, code, function(err){
 			if(err){
@@ -109,6 +110,13 @@ module.exports = function(passport){
 
 		res.render('basic_syntax', {title: 'Basic Syntax'});
 	});
+
+	//handle ajax post
+	router.post('/ajax_compile', function(req, res, next){
+		//console.log(req.body.name);
+		res.send(req.body.code);
+	});
+
 	return router;
 }
 

@@ -3,6 +3,23 @@
   <head>
     <title> <%= title %> </title>
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $("#q1").submit(function(e){
+          var url = $(this).attr("action"); // the script where you handle the form input.
+          $.post(url,
+          $("#q1").serialize(),
+          function(data,status){
+              alert("Data: " + data + "\nStatus: " + status);
+          });
+
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+      });
+
+      $("#q1button").click(function(){$("#q1").submit()});
+    });
+    </script>
   </head>
     
 <!-- Website Title and Navigation Bar -->
@@ -157,10 +174,10 @@
       Complete the function print_addr() and print the memory address of x using both printf and print_addr.
       <br>Compare the results. 
       <br>
-      <form action="/compile"method="post" id="q1">
+      <form action="/ajax_compile" method="post" id="q1">
+      <br>
       Name: <input type="text" name="name">
-      <button type="submit"> Submit</button>
-
+      <button name = "q1button"type="submit"> Submit</button>
       </form>
       <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
 void main(){
@@ -176,6 +193,7 @@ void main(){
   ...
 }</textarea>
     </q1>
+
     <br><br>
     <q2>
         <h1>Q2.</h1>
