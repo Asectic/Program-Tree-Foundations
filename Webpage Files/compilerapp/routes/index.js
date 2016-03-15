@@ -113,8 +113,41 @@ module.exports = function(passport){
 
 	//handle ajax post
 	router.post('/ajax_compile', function(req, res, next){
-		//console.log(req.body.name);
-		res.send(req.body.code);
+		//save the users code that wants to be compiled
+		var code = req.body.code;
+		//save the user's name
+		var quest_test = req.body.question + "_test.c";
+		var quest_Name = req.body.question.trim() + ".c";
+		console.log(quest_Name);
+		console.log(quest_test);
+		//write the code to the file
+		fs.writeFile(quest_Name, code, function(err){
+			if(err){
+				return console.log(err);
+			}
+			console.log("The file was saved");
+		});
+
+		//compiles the code and send result to client
+		var system = req.headers['user-agent'].split(" ")[1];
+		console.log(system);
+
+		var name = quest_test.substring(0, quest_test.length - 2) + '.exe';
+		if(system != "(Windows"){
+			name = "./" + quest_test.substring(0, quest_test.length - 2) + '.exe';
+		}
+	
+		//compiles the code with gcc and then executes the code
+		var child = exec('gcc ' + quest_test + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
+		if (stderr){
+			console.log(stderr.toString());
+			res.send(stderr.toString());
+		}else{
+			console.log(stdout.toString());
+			res.send(stdout.toString());
+		}
+		});
+		//res.send(req.body.code);
 	});
 
 	return router;

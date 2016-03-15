@@ -11,7 +11,8 @@
           $.post(url,
           $("#q1").serialize(),
           function(data,status){
-              alert("Data: " + data + "\nStatus: " + status);
+              //alert("Data: " + data + "\nStatus: " + status);
+              $("#q1_result").text(data);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -176,9 +177,10 @@
       <br>
       <form action="/ajax_compile" method="post" id="q1">
       <br>
-      Name: <input type="text" name="name">
+      Name: <input type="text" name="name"><br>
       <button name = "q1button"type="submit"> Submit</button>
       </form>
+      <textarea name = "question" form="q1" style="display:none;">q1</textarea>
       <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
 void main(){
 
@@ -192,6 +194,12 @@ void main(){
   // print the memory address of variable x
   ...
 }</textarea>
+    <br><br>
+    <h1>Result</h1>
+    <center>
+    <div id="q1_result">Check your solution</div>
+    </center>
+    <br><br>
     </q1>
 
     <br><br>

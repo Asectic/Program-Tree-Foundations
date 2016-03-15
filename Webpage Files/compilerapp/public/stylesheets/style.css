@@ -91,3 +91,9 @@ h2, h3 {
     font-size: 12px;
     background-color: transparent;
 }
+
+#q1_result{
+    border: solid;
+    padding: 30px;
+    width: 600px;
+}

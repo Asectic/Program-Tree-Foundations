@@ -1,6 +1,6 @@
  #include <stdio.h>
  #include "minunit.h"
- #include "new_student.c"
+ #include "q3.c"
  
  int tests_run = 0;
  

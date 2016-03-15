@@ -1,6 +1,6 @@
  #include <stdio.h>
  #include "minunit.h"
- #include "swap.c"
+ #include "q2.c"
  
  int tests_run = 0;
  
