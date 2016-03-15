@@ -5,14 +5,11 @@
 	tree = document.getElementById("tree"); 
 	node1 = createNode("Chapter 1: Memory Allocation", "/basic"); 
 	node2 = createNode("Chapter 2: Pointers", "/pointers");
-	node3 = createNode("C Compiler", '/compile');
 	level1 = createLevel();
 	level2 = createLevel();
 	level3 = createLevel();
 	addToLevel(1, node1);
 	addToLevel(2, node2);
-	addToLevel(3, node3);
-
 
 	function createLevel(){
 		var newLevel = document.createElement("div");
