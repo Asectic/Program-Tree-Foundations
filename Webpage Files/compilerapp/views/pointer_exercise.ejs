@@ -6,44 +6,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
-      $("#q1").submit(function(e){
+      $("#lesson2_e1").submit(function(e){
           var url = $(this).attr("action"); // the script where you handle the form input.
           $.post(url,
-          $("#q1").serialize(),
+          $("#lesson2_e1").serialize(),
           function(data,status){
-              $("#q1_result").text(data.result);
+              $("#lesson2_e1_result").text(data.details);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
       });
 
-      $("#q2").submit(function(e){
+      $("#lesson2_e2").submit(function(e){
           var url = $(this).attr("action"); // the script where you handle the form input.
           $.post(url,
-          $("#q2").serialize(),
-          function(data,status){
-              //alert("Data: " + data + "\nStatus: " + status);
-              $("#q2_result").text(data.result);
-          });
-
-          e.preventDefault(); // avoid to execute the actual submit of the form.
-      });
-
-      $("#q3").submit(function(e){
-          var url = $(this).attr("action"); // the script where you handle the form input.
-          $.post(url,
-          $("#q3").serialize(),
+          $("#lesson2_e2").serialize(),
           function(data,status){
               //alert("Data: " + data + "\nStatus: " + status);
-              $("#q3_result").text(data.result);
+              $("#lesson2_e2_result").text(data.details);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
       });
 
-      $("#q1button").click(function(){$("#q1").submit()});
-      $("#q2button").click(function(){$("#q2").submit()});
-      $("#q3button").click(function(){$("#q3").submit()});
+      $("#lesson2_e3").submit(function(e){
+          var url = $(this).attr("action"); // the script where you handle the form input.
+          $.post(url,
+          $("#lesson2_e3").serialize(),
+          function(data,status){
+              //alert("Data: " + data + "\nStatus: " + status);
+              $("#lesson2_e3_result").text(data.details);
+          });
+
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+      });
+
+      $("#lesson2_e1_bt").click(function(){$("#lesson2_e1").submit()});
+      $("#lesson2_e2_bt").click(function(){$("#lesson2_e2").submit()});
+      $("#lesson2_e3_bt").click(function(){$("#lesson2_e3").submit()});
     });
     </script>
   </head>
@@ -196,40 +196,46 @@
     <p>}</p><br>
     </center>
     <q1>
-        <h1>Q1.</h1>
+        <h1>EX.1</h1>
       Complete the function print_addr() and print the memory address of x using both printf and print_addr.
       <br>Compare the results. 
       <br>
-      <form action="/ajax_compile" method="post" id="q1">
+      <form action="/ajax_compile" method="post" id="lesson2_e1">
       <br>
       Name: <input type="text" name="name"><br>
-      <button name = "q1button" type="submit"> Submit</button>
+      <button name = "lesson2_e1_bt" type="submit"> Submit</button>
       </form>
-      <textarea name = "question" form="q1" style="display:none;">q1</textarea>
-      <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
+      <textarea name = "lesson_name" form="lesson2_e1" style="display:none;">Pointer</textarea>
+      <textarea name = "lesson_number" form="lesson2_e1" style="display:none;">2</textarea>
+      <textarea name = "exercise_number" form="lesson2_e1" style="display:none;">1</textarea>
 
-void print_addr(int x){
+      <textarea rows="15" cols="70" name="code" form="lesson2_e1">#include <stdio.h>
+
+int * print_addr(int x){
   ...
 }</textarea>
     <br><br>
     <h1>Result</h1>
     <center>
-    <div class = "result" id="q1_result">Check your solution</div>
+    <div class = "result" id="lesson2_e1_result">Check your solution</div>
     </center>
     <br><br>
     </q1>
 
     <br><br>
     <q2>
-        <h1>Q2.</h1>
+        <h1>EX.2</h1>
       Complete the function swap() to swap the value stored at input1 and input2. 
       <br>
-      <form action="/ajax_compile"method="post" id="q2">
+      <form action="/ajax_compile"method="post" id="lesson2_e2">
       Name: <input type="text" name="name">
-      <button name = "q2button" type="submit"> Submit</button>
+      <button name = "lesson2_e2_bt" type="submit"> Submit</button>
       </form>
-      <textarea name = "question" form="q2" style="display:none;">q2</textarea>
-      <textarea rows="15" cols="70" name="code" form="q2">#include <stdio.h>
+      <textarea name = "lesson_name" form="lesson2_e2" style="display:none;">Pointer</textarea>
+      <textarea name = "lesson_number" form="lesson2_e2" style="display:none;">2</textarea>
+      <textarea name = "exercise_number" form="lesson2_e2" style="display:none;">2</textarea>
+
+      <textarea rows="15" cols="70" name="code" form="lesson2_e2">#include <stdio.h>
         
   void swap(<input1>, <input2>){
     ...
@@ -237,21 +243,23 @@ void print_addr(int x){
     <br><br>
     <h1>Result</h1>
     <center>
-    <div class = "result" id="q2_result">Check your solution</div>
+    <div class = "result" id="lesson2_e2_result">Check your solution</div>
     </center>
     <br><br>
     </q2>
     <br><br>
     <q3>
-        <h1>Q3.</h1>
+        <h1>Ex.3</h1>
       Complete the function *new_student() for creating new struct Student.   
       <br>
-      <form action="/ajax_compile"method="post" id="q3">
+      <form action="/ajax_compile"method="post" id="lesson2_e3">
       Name: <input type="text" name="name">
-      <button name = "q2button" type="submit"> Submit</button>
+      <button name = "lesson2_e3_bt" type="submit"> Submit</button>
       </form>
-      <textarea name = "question" form="q3" style="display:none;">q3</textarea>
-      <textarea rows="15" cols="70" name="code" form="q3">#include <stdio.h>
+      <textarea name = "lesson_name" form="lesson2_e3" style="display:none;">Pointer</textarea>
+      <textarea name = "lesson_number" form="lesson2_e3" style="display:none;">2</textarea>
+      <textarea name = "exercise_number" form="lesson2_e3" style="display:none;">3</textarea>
+      <textarea rows="15" cols="70" name="code" form="lesson2_e3">#include <stdio.h>
 #include <stdlib.h>
 
 struct Student {
@@ -268,7 +276,7 @@ struct Student *new_student(<name>, <u_id>, <year>, <program>){
     <br><br>
     <h1>Result</h1>
     <center>
-    <div class = "result" id="q3_result">Check your solution</div>
+    <div class = "result" id="lesson2_e3_result">Check your solution</div>
     </center>
     <br><br>
     </q3>

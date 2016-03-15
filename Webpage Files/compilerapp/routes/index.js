@@ -113,44 +113,47 @@ module.exports = function(passport){
 
 	//handle ajax post
 	router.post('/ajax_compile', function(req, res, next){
-		
+		//infos for data base
+		var lesson_name = req.body.lesson_name;
+		var lesson_number = req.body.lesson_number;
+		var exercise_number = req.body.exercise_number;
 		//save the users code that wants to be compiled
 		var code = req.body.code;
-		//save the user's name
-		var quest_test = req.body.question + "_test.c";
-		var quest_Name = req.body.question.trim() + ".c";
-		console.log(quest_Name);
-		console.log(quest_test);
+		//save user's code to .c
+		var write_to = "lesson" + lesson_number + "_" + "ex" + exercise_number + ".c";
+		
 		//write the code to the file
-		fs.writeFile(quest_Name, code, function(err){
+		fs.writeFile(write_to, code, function(err){
 			if(err){
 				return console.log(err);
 			}
 			console.log("The file was saved");
 		});
 
+		//name for corresponding test cases
+		var test_name = write_to.substring(0, write_to.length - 2) + "_test.c";
+
 		//compiles the code and send result to client
 		var system = req.headers['user-agent'].split(" ")[1];
 		console.log(system);
 
-		var name = quest_test.substring(0, quest_test.length - 2) + '.exe';
+		//test case after compiling
+		var output_file = test_name.substring(0, test_name.length - 2) + '.exe';
+		console.log("outfile: " + output_file);
 		if(system != "(Windows"){
-			name = "./" + quest_test.substring(0, quest_test.length - 2) + '.exe';
-			quest_test = "./" + quest_test;
+			output_file = "./" + test_name.substring(0, quest_test.length - 2) + '.exe';
 		}
-		console.log("Maki:" + name);
+
 		//compiles the code with gcc and then executes the code
-		var child = exec('gcc ' + quest_test + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
+		var child = exec('gcc ' + test_name + ' -o' + output_file + '&& ' + output_file, function(err, stdout, stderr){
 		if (stderr){
 			console.log("Failure");
 			console.log(stderr.toString());
-			res.send({state: false, result: stderr.toString(), code: code.toString()});
+			res.send({result:"fail", details: stderr.toString(), code: code.toString()});
 		}else{
 			console.log("Successful");
 			console.log(stdout.toString());
-
-
-			res.send({state: true, result: stdout.toString(), code: code.toString()});
+			res.send({result:"pass", details: stdout.toString(), code: code.toString()});
 		}
 		});
 	});
