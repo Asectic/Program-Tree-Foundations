@@ -11,7 +11,7 @@
           $.post(url,
           $("#q1").serialize(),
           function(data,status){
-              $("#q1_result").text(data);
+              $("#q1_result").text(data.result);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -23,7 +23,7 @@
           $("#q2").serialize(),
           function(data,status){
               //alert("Data: " + data + "\nStatus: " + status);
-              $("#q2_result").text(data);
+              $("#q2_result").text(data.result);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -35,7 +35,7 @@
           $("#q3").serialize(),
           function(data,status){
               //alert("Data: " + data + "\nStatus: " + status);
-              $("#q3_result").text(data);
+              $("#q3_result").text(data.result);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -207,16 +207,8 @@
       </form>
       <textarea name = "question" form="q1" style="display:none;">q1</textarea>
       <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
-void main(){
 
-  // function that prints the memory address of input 
-  void print_addr(int x){
-    ...
-  }
-
-  int x = 5;
-
-  // print the memory address of variable x
+void print_addr(int x){
   ...
 }</textarea>
     <br><br>
@@ -238,6 +230,7 @@ void main(){
       </form>
       <textarea name = "question" form="q2" style="display:none;">q2</textarea>
       <textarea rows="15" cols="70" name="code" form="q2">#include <stdio.h>
+        
   void swap(<input1>, <input2>){
     ...
 }</textarea>
@@ -260,23 +253,17 @@ void main(){
       <textarea name = "question" form="q3" style="display:none;">q3</textarea>
       <textarea rows="15" cols="70" name="code" form="q3">#include <stdio.h>
 #include <stdlib.h>
-void main(){
 
-  struct Student {
-      char *name;
-      int u_id;
-      int year;
-      char *program;
-  };
+struct Student {
+    char *name;
+    int u_id;
+    int year;
+    char *program;
+};
 
   //a function that creates a Student
-  struct Student *new_student(<name>, <u_id>, <year>, <program>){
-    ...
-  }
-
-  //create a new student using the completed function and return the u_id
+struct Student *new_student(<name>, <u_id>, <year>, <program>){
   ...
-  
 }</textarea>
     <br><br>
     <h1>Result</h1>

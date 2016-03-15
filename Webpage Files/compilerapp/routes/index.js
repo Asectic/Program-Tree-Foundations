@@ -142,11 +142,11 @@ module.exports = function(passport){
 		if (stderr){
 			console.log("Failure");
 			console.log(stderr.toString());
-			res.send(stderr.toString());
+			res.send({state: false, result: stderr.toString(), code: code.toString()});
 		}else{
 			console.log("Successful");
 			console.log(stdout.toString());
-			res.send(stdout.toString());
+			res.send({state: true, result: stdout.toString(), code: code.toString()});
 		}
 		});
 	});

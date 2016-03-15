@@ -26,3 +26,9 @@ March 12
 - responseble for exercise and test cases
 - found a light weight unit test framework, "minunit"
 - searched for meaningful pointer exercises
+- finished 3 for pointers
+
+March 13
+============
+- implementing minunit test on exercise
+- used jquery ajax to do compiler
