@@ -92,7 +92,7 @@ h2, h3 {
     background-color: transparent;
 }
 
-#q1_result{
+.result{
     border: solid;
     padding: 30px;
     width: 600px;

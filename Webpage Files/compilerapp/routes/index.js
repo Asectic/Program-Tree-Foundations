@@ -8,7 +8,7 @@ module.exports = function(passport){
 	
 	/* GET home page. */
 	router.get('/', function(req, res, next) {
-  	res.render('index', { title: 'Progamming Tree Foundations' });
+  		res.render('index', { title: 'Progamming Tree Foundations' });
 	});
 
 	//display the textbox page where the code will be typed
@@ -113,6 +113,7 @@ module.exports = function(passport){
 
 	//handle ajax post
 	router.post('/ajax_compile', function(req, res, next){
+		
 		//save the users code that wants to be compiled
 		var code = req.body.code;
 		//save the user's name
@@ -136,18 +137,18 @@ module.exports = function(passport){
 		if(system != "(Windows"){
 			name = "./" + quest_test.substring(0, quest_test.length - 2) + '.exe';
 		}
-	
 		//compiles the code with gcc and then executes the code
 		var child = exec('gcc ' + quest_test + ' -o' + name + '&& ' + name, function(err, stdout, stderr){
 		if (stderr){
+			console.log("Failure");
 			console.log(stderr.toString());
 			res.send(stderr.toString());
 		}else{
+			console.log("Successful");
 			console.log(stdout.toString());
 			res.send(stdout.toString());
 		}
 		});
-		//res.send(req.body.code);
 	});
 
 	return router;

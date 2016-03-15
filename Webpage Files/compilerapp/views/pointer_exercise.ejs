@@ -11,14 +11,39 @@
           $.post(url,
           $("#q1").serialize(),
           function(data,status){
-              //alert("Data: " + data + "\nStatus: " + status);
               $("#q1_result").text(data);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
       });
 
+      $("#q2").submit(function(e){
+          var url = $(this).attr("action"); // the script where you handle the form input.
+          $.post(url,
+          $("#q2").serialize(),
+          function(data,status){
+              //alert("Data: " + data + "\nStatus: " + status);
+              $("#q2_result").text(data);
+          });
+
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+      });
+
+      $("#q3").submit(function(e){
+          var url = $(this).attr("action"); // the script where you handle the form input.
+          $.post(url,
+          $("#q3").serialize(),
+          function(data,status){
+              //alert("Data: " + data + "\nStatus: " + status);
+              $("#q3_result").text(data);
+          });
+
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+      });
+
       $("#q1button").click(function(){$("#q1").submit()});
+      $("#q2button").click(function(){$("#q2").submit()});
+      $("#q3button").click(function(){$("#q3").submit()});
     });
     </script>
   </head>
@@ -178,7 +203,7 @@
       <form action="/ajax_compile" method="post" id="q1">
       <br>
       Name: <input type="text" name="name"><br>
-      <button name = "q1button"type="submit"> Submit</button>
+      <button name = "q1button" type="submit"> Submit</button>
       </form>
       <textarea name = "question" form="q1" style="display:none;">q1</textarea>
       <textarea rows="15" cols="70" name="code" form="q1">#include <stdio.h>
@@ -197,7 +222,7 @@ void main(){
     <br><br>
     <h1>Result</h1>
     <center>
-    <div id="q1_result">Check your solution</div>
+    <div class = "result" id="q1_result">Check your solution</div>
     </center>
     <br><br>
     </q1>
@@ -205,35 +230,34 @@ void main(){
     <br><br>
     <q2>
         <h1>Q2.</h1>
-      Complete the function swap() to swap the value stored at x and y. 
+      Complete the function swap() to swap the value stored at input1 and input2. 
       <br>
-      <form action="/compile"method="post" id="q2">
+      <form action="/ajax_compile"method="post" id="q2">
       Name: <input type="text" name="name">
-      <button type="submit"> Submit</button>
+      <button name = "q2button" type="submit"> Submit</button>
       </form>
+      <textarea name = "question" form="q2" style="display:none;">q2</textarea>
       <textarea rows="15" cols="70" name="code" form="q2">#include <stdio.h>
-void main(){
-
-  int x = 3;
-  int y = 8;
-
-  // function that prints the memory address of input
   void swap(<input1>, <input2>){
     ...
-  }
-  swap(<input1>, <input2>);
-  printf("x value: %d , y value: %d", x, y);
 }</textarea>
+    <br><br>
+    <h1>Result</h1>
+    <center>
+    <div class = "result" id="q2_result">Check your solution</div>
+    </center>
+    <br><br>
     </q2>
     <br><br>
     <q3>
         <h1>Q3.</h1>
       Complete the function *new_student() for creating new struct Student.   
       <br>
-      <form action="/compile"method="post" id="q3">
+      <form action="/ajax_compile"method="post" id="q3">
       Name: <input type="text" name="name">
-      <button type="submit"> Submit</button>
+      <button name = "q2button" type="submit"> Submit</button>
       </form>
+      <textarea name = "question" form="q3" style="display:none;">q3</textarea>
       <textarea rows="15" cols="70" name="code" form="q3">#include <stdio.h>
 #include <stdlib.h>
 void main(){
@@ -254,6 +278,12 @@ void main(){
   ...
   
 }</textarea>
+    <br><br>
+    <h1>Result</h1>
+    <center>
+    <div class = "result" id="q3_result">Check your solution</div>
+    </center>
+    <br><br>
     </q3>
 
 </div>
