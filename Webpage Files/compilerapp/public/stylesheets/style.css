@@ -39,21 +39,6 @@ body {
     overflow-x: hidden;
 }
 
-.game {
-    position: absolute;
-    left: 855px; top:120px; right:10px; bottom:10px;
-    background-color: white;
-    color: black;
-    /* TL TR BR BL */
-    border-radius: 10px 10px 10px 10px; /* Rounds the headers */
-	border-style: solid !important;
-	border-width: 1px;
-	border-color: white;
-    text-align:center;
-    align-content: center;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
 
 /* ====================================================================== */
 
