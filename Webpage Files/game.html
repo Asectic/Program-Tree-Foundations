@@ -38,10 +38,10 @@ background.onload = function(){
 
 function startGame() {
     
-    A1 = new component(30, 30, "19.jpg", 250, 400, "image");
+    A1 = new component(30, 30, "19.png", 250, 400, "image");
     A2 = new component(30, 30, "purple", 350, 400);
     A3 = new component(30, 30, "green", 450, 400);
-    A4 = new component(30, 30, "19.jpg", 550, 400, "image");
+    A4 = new component(30, 30, "19.png", 550, 400, "image");
     B = new stack(110, 25, 465, 90);
     S = new score("30px", "Consolas", "black", 440, 50);
     myGameArea.start();
@@ -144,14 +144,14 @@ function stack(width, height, x, y) {
     this.y = y;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "purple";
-        ctx.fillRect(this.x, this.y+115, this.width, this.height);
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y+173, this.width, this.height);
-        ctx.fillStyle = "blue";
-        ctx.fillRect(this.x, this.y+259, this.width, this.height);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 115 + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 173 + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 259 + 10, this.width - 15, this.height - 10);
         if (this.x - 10 < A1.x && this.x + this.width - 10 > A1.x && this.y - 10 < A1.y && this.y + this.height - 10 > A1.y && A1.point == false && cur != 1){
             points += 10;
             A1.point = true;
