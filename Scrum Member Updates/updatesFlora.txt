@@ -28,3 +28,4 @@ March 13:
 March 15:
 =========
 - Added short content on memory model to go along with the memory model game
+- Added "content_pages.css" to apply the 2 way split for "main" div found under navigation bar
