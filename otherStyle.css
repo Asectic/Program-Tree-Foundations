@@ -54,6 +54,11 @@ h1 {
 	color: #224C56; 
 }
 
+h2 {
+	margin: 10px;
+	color: #224C56; 
+}
+
 pre {
     white-space: pre-wrap;       /* CSS 3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -62,7 +67,7 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	margin-left: 30px;
 	margin-right: 30px
-	font-size: 20px; 
+	font-size: 20px;  
 }
 
 ul{
@@ -74,5 +79,46 @@ ul{
 p { 
 	margin-left: 30px;
 	margin-right: 30px;
-	font-size: 20px; 
+	font-size: 16px; 
+}
+
+
+.nextbutton {
+	float: right; 
+	margin-left: 10px;
+	margin-right: 10px; 
+	border-radius: 20px; 
+	background: white;
+	width: 100px;
+	height: 35px;
+  	display: flex;
+    justify-content: center; 
+    align-items: center; 
+	border-style: solid; 
+	border-color: #D3E4E9;
+}
+
+.backbutton { 
+	float: right; 
+	margin-left: 10px;
+	margin-right: 10px; 
+	border-radius: 20px; 
+	background: white;
+	width: 100px;
+	height: 35px;
+  	display: flex;
+    justify-content: center; 
+    align-items: center; 
+	border-style: solid; 
+	border-color: #D3E4E9;
+	position:absolute;
+   	bottom:0;
+}
+
+.nextbutton:hover {
+	background-color: gray; 
+}
+
+.backbutton:hover {
+	background-color: gray; 
 }
