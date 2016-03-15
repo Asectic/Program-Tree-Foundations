@@ -40,7 +40,7 @@ function startGame() {
     A1 = new component(30, 30, "red", 100, 120);
     A2 = new component(30, 30, "purple", 100, 200);
     A3 = new component(30, 30, "green", 100, 40);
-    B = new stack(60, 60, 300, 60);
+    B = new stack(110, 25, 465, 90);
     S = new score("30px", "Consolas", "black", 280, 30);
     myGameArea.start();
 }
@@ -131,9 +131,11 @@ function stack(width, height, x, y) {
         ctx.fillStyle = "purple";
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y+60, this.width, this.height);
+        ctx.fillRect(this.x, this.y+115, this.width, this.height);
         ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y+120, this.width, this.height);
+        ctx.fillRect(this.x, this.y+173, this.width, this.height);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(this.x, this.y+259, this.width, this.height);
         if (this.x < A1.x && this.x + width > A1.x && this.y + 120 < A1.y && this.y + 180 > A1.y && A1.point == false){
             points += 10;
             A1.point = true;
