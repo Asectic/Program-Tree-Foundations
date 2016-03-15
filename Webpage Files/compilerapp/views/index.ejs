@@ -3,21 +3,34 @@
 	<head>
 		<title> <%= title %> </title>
 		<link href="/stylesheets/style.css" type="text/css" rel="stylesheet" /> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    	<!-- Latest compiled and minified CSS -->
+    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    	<!-- Latest compiled JavaScript -->
+    	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    	
 	</head>
+<body>
+	<!-- Website Title and Navigation Bar -->
+	<div class="row"><br>
+		<div class = "col-lg-12 top text-center">
+    		<font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+    		<div class="btn-group">
+  				<a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+  				<a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
+  				<a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
+  				<a href="/login"><button type="button" class="btn btn-success">Login</button></a>
+			</div>
+		</div>
+	</div> 
     
-<!-- Website Title and Navigation Bar -->
-<div class="top"><br>
-    <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-    <a href="/">Home</a> | <a href="/lessons">Start Learning!</a> | <a href="/signup">Register</a> | <a href="/login">Login</a> 
-</div> 
-    
-<!-- Programming Tree Interface Panel -->
-    
-<!-- Content Itself, opens when user clicks something.-->
-<div class="main">
-    <center><br><br><br>
-    Welcome to the Programming Tree webpage!
-    </center>
-</div>
-     
+	<div class="row">
+  		<div class="col-lg-12 main text-center">
+
+  			Welcome to the Programming Tree webpage!
+  	
+  		</div>
+	</div>
+</body>   
+
 </html>
