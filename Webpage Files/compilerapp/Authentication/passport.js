@@ -172,6 +172,53 @@ module.exports = function (passport){
                         lesson3.name = "Placeholder";
                         lesson3.description="Placeholder...";
                         lesson3.lessonNumber = "3";
+
+                        //====//
+                                                //exercise 1
+                        var l3exercise1 = new Exercise();
+                        l3exercise1.name ="exercise1";
+                        l3exercise1.description = "An exercise to test understanding of pointers.";
+                        l3exercise1.lessonNumber = "3";
+
+                        //save the exercise and fields to the database
+                        l3exercise1.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        //exercise 2
+                        var l3exercise2 = new Exercise();
+                        l3exercise2.name ="exercise2";
+                        l3exercise2.description = "An exercise to test understanding of pointers.";
+                        l3exercise2.lessonNumber = "3";
+
+                        //save the exercise and fields to the database
+                        l3exercise2.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        var l3exercise3 = new Exercise();
+                        l3exercise3.name ="exercise3";
+                        l3exercise3.description = "An exercise to test understanding of pointers";
+                        l3exercise3.lessonNumber = "3";
+
+                        //save the exercise and fields to the database
+                        l3exercise3.save(function(err){
+                            if(err){
+                                //throw error if cannot save to database
+                                throw err;
+                            }
+                        });
+
+                        lesson3.exercises.push(l3exercise1._id);
+                        lesson3.exercises.push(l3exercise2._id);
+                        lesson3.exercises.push(l3exercise3._id);
+                        //====//
                     }
                 });
             });
