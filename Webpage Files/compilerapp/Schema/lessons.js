@@ -8,7 +8,7 @@ var lessonSchema = mongoose.Schema({
 	name: String,
 	description: String,
 	lessonNumber: String,
-	grade: String,
+	grade: {type: String, default: "0"},
 	exercises: Array,
 	completed: {type: Boolean, default: false}
 
