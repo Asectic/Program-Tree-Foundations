@@ -98,6 +98,12 @@ module.exports = function(passport){
 
 	});
 
+	router.get('/chapter1', function(req, res, next){
+
+		res.render('chapter1', {title: 'Chapter 1'});
+
+	});
+
 	router.get('/error', function(req, res, next){
 		//render the error page to the client
 		res.render('error');
@@ -233,7 +239,7 @@ module.exports = function(passport){
 */
 			//send them results only
 			res.send({result:validate, details: stdout.toString(), code: code.toString()});
-		}
+			}
 		});
 	});
 
