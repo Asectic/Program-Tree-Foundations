@@ -3,6 +3,10 @@ var router = express.Router();
 var fs = require('fs');
 //var compiler = require('../compilerjs/exec.js');
 var exec = require('child_process').exec;
+var User = require('../Schema/user.js');
+var Lesson = require('../Schema/lessons.js');
+var Exercise = require('../Schema/exercise.js');
+
 
 module.exports = function(passport){
 	
