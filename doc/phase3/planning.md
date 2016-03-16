@@ -16,7 +16,7 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 	
 	<b>Nodes Implemented:</b>
 	- Two main chapter nodes ("Basic Syntax in C" and "Memory Allocation and Pointers")
-	- Two sub nodes for each chapter (Chapter 1: Basic Syntax, Variables; Chapter 2: Pointers, Memory Model)
+	- Two sub nodes for each chapter (<b>Chapter 1:</b> Basic Syntax, Variables; <b>Chapter 2:</b> Pointers, Memory Model)
 
 2. To implement the content of the webpage in two page formats
 
@@ -29,7 +29,7 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 	- Basic Syntax (Under Chapter 2)
 	- Variables (Under Chapter 2)
 
-3. Finising the games for the content pages: memory model allocation
+3. Finishing the games for the content pages: memory model allocation
 4. Complete the login and register forms, enabling the page to redirect upon login or register user success 
 5. Change the style of the webpage for the user, and applying it across all pages
 6. Implementing the exercises for the content pages and their test cases to check answers
@@ -37,6 +37,8 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 	<b>Exercises Implemented:</b>
 	- Pointer Exercises (Under Chapter 2)
 	- Variable Exercises (Under Chapter 1)
+
+7. Implementing database changes to the server
 
 Goals that weren't met in this phase:
 -------------------------------------
