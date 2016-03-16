@@ -120,6 +120,11 @@ module.exports = function(passport){
 		res.render('memory_model', {title: 'Memory Model'});
 	});
 
+	router.get('/variable', function(req, res, next){
+
+		res.render('variable', {title: 'Variable'});
+	});
+
 	//handle ajax post
 	router.post('/ajax_compile', function(req, res, next){
 		//infos for data base
@@ -175,10 +180,15 @@ module.exports = function(passport){
 			if(req.isAuthenticated()){
 
 				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
+						console.log(req.user_id);
+						console.log(lesson_number);
+						console.log(exercise_name);
+					
 					if(err){
 						throw err;
 					}
 					if(!userExercise){
+						console.log(exercise_name);
 						throw new Error("exercise does not exist.");
 					}
 					//saves user's state on exercise(passed or failed)
