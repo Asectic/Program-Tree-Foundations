@@ -180,8 +180,9 @@ module.exports = function(passport){
 			output_file = "./" + test_name.substring(0, quest_test.length - 2) + '.exe';
 		}
 
+
 		//compiles the code with gcc and then executes the code
-		var child = exec('gcc ' + test_name + ' -o' + output_file + '&& ' + output_file + "&& rm " + output_file, function(err, stdout, stderr){
+		var child = exec('gcc ' + test_name + ' -o' + output_file + '&& ' + output_file, function(err, stdout, stderr){
 		if (stderr){
 			console.log("Failed at compiling");
 			console.log(stderr.toString());
@@ -196,7 +197,7 @@ module.exports = function(passport){
 			};
 			//user is logged in
 			console.log(req.isAuthenticated());
-			/*
+			
 			if(req.isAuthenticated()){
 
 				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
@@ -228,15 +229,16 @@ module.exports = function(passport){
                             //throw error if cannot save to database
                             throw err;
                         }
+                        console.log(The exercises are saved in here);
                     });
-/*
+
 					//notify the lesson that the exercise is completed
-                    Lesson.findOne();
+                   // Lesson.findOne();
                     
 				});
 
 			}
-*/
+
 			//send them results only
 			res.send({result:validate, details: stdout.toString(), code: code.toString()});
 			}
