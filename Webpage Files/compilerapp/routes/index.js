@@ -175,3 +175,12 @@ module.exports = function(passport){
 	return router;
 }
 
+
+function checkLogin(req, res, next) {
+
+	return req.isAuthenticated();
+
+}
+
+
+
