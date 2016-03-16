@@ -17,7 +17,7 @@
 <div class="main">
     <center>
 
-   <h1>Pointers: Overview</h1>
+    <h1>Pointers: Overview</h1>
         
     <p>Pointers are in C, undoubtedly, one of the most important concepts found in the language that are often misunderstood or challenging to grasp at a first glance. In this chapter, we will explore what they are in depth and will explore some of their applications used in both basic and advanced concepts of code.</p> 
         
@@ -143,9 +143,9 @@
     <p><strong><u>Result of printf Statement:</u></strong> </p> 
     <p> Address of x: 0x007fe, Pointer p is: 9</p> 
         
-    <p> Look at the above example: does anything seem rather odd about the result of the print statement? The print value of x is as expected, using the & operator to show the address of variable x. But what about the second instance involving pointer p? Why doesn’t this print out the address of the variable x it is assigned as? </p> 
+    <p> Look at the above example: does anything seem rather odd about the result of the print statement? The print value of x is as expected, using the &amp; operator to show the address of variable x. But what about the second instance involving pointer p? Why doesnt this print out the address of the variable x it is assigned as? </p> 
         
-    <p> The answer to this question presents the second use of the asterisk in pointer notation, is that the operator is used to access the “value” of the variable the pointer points to. Consider the following example from Figure 2, reshown below.</p>
+    <p> The answer to this question presents the second use of the asterisk in pointer notation, is that the operator is used to access the 'value' of the variable the pointer points to. Consider the following example from Figure 2, reshown below.</p>
         
     <p> int x = 9, *p = &amp;x;</p>
         
@@ -157,7 +157,7 @@
         
     <img src="http://i240.photobucket.com/albums/ff108/dwakira/Dereferencing_zpskup5epf1.png"> <br><br>
         
-    <p> This second use of the asterisk details as “dereference the address of var_name of what my_pointer points to, and show me what the contents of var_name are”. In the case of Figure 4, variable showVal stores the value of integer x, the variable whose address pointer p was pointing to.</p>
+    <p> This second use of the asterisk details as dereference the address of var_name of what my_pointer points to, and show me what the contents of var_name are. In the case of Figure 4, variable showVal stores the value of integer x, the variable whose address pointer p was pointing to.</p>
         
     <p> <strong><u>Differences in Annotations:</u></strong></p> 
     <p> int *p = &amp x; // pointer declared and initialized.</p> 
@@ -218,8 +218,8 @@
     }
     
     struct Student *student_one;
-    return student->name;
-    return student->age;
+    char[15] name = student_one->name;
+    int curr_age = student_one->age;
 
 				</pre>
             </td>
@@ -255,6 +255,7 @@
 </center>
     </tbody>
     </table> 
+        
         
     </center>
 </div>
