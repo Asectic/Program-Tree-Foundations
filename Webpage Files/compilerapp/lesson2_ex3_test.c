@@ -24,11 +24,12 @@
      char *result = all_tests();
      if (result != 0) {
          printf("%s\n", result);
+         printf("Tests run: %d\n", tests_run);
      }
      else {
+         printf("Tests run: %d\n", tests_run);
          printf("ALL TESTS PASSED\n");
      }
-     printf("Tests run: %d\n", tests_run);
  
      return result != 0;
  }

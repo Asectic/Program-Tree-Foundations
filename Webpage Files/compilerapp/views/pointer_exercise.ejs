@@ -15,7 +15,8 @@
           $.post(url,
           $("#lesson2_e1").serialize(),
           function(data,status){
-              $("#lesson2_e1_result").text(data.details);
+              $("#lesson2_e1_result").text(data.result);
+              $("#lesson2_e1_result").append(data.details);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -27,7 +28,8 @@
           $("#lesson2_e2").serialize(),
           function(data,status){
               //alert("Data: " + data + "\nStatus: " + status);
-              $("#lesson2_e2_result").text(data.details);
+              $("#lesson2_e2_result").text(data.result);
+              $("#lesson2_e2_result").append(data.details);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -39,7 +41,8 @@
           $("#lesson2_e3").serialize(),
           function(data,status){
               //alert("Data: " + data + "\nStatus: " + status);
-              $("#lesson2_e3_result").text(data.details);
+              $("#lesson2_e3_result").text(data.result);
+              $("#lesson2_e3_result").append(data.details);
           });
 
           e.preventDefault(); // avoid to execute the actual submit of the form.
