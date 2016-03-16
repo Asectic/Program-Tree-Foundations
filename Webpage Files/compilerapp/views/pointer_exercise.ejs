@@ -73,141 +73,245 @@
     <div class="col-lg-6 main text-center">
       <center>
 
-      <h1>Overview</h1>
+    <h1>Pointers: Overview</h1>
         
-      <p>Pointers are in C, undoubtedly, one of the most important concepts found in the language that are often misunderstood or challenging to grasp at a first glance. In this chapter, we will explore what they are in depth and will explore some of their applications used in both basic and advanced concepts of code.</p> 
+    <p>Pointers are in C, undoubtedly, one of the most important concepts found in the language that are often misunderstood or challenging to grasp at a first glance. In this chapter, we will explore what they are in depth and will explore some of their applications used in both basic and advanced concepts of code.</p> 
         
-      <h1>Section 1: So what are Pointers?</h1>
+    <h1>Section 1: So what are Pointers?</h1>
         
-      <p>Pointers are in C, undoubtedly, one of the most important concepts found in the language that are often misunderstood or challenging to grasp at a first glance. In this chapter, we will explore what they are in depth and will explore some of their applications used in both basic and advanced concepts of code.</p> <br><br>
+    <p>Pointers are in C, undoubtedly, one of the most important concepts found in the language that are often misunderstood or challenging to grasp at a first glance. In this chapter, we will explore what they are in depth and will explore some of their applications used in both basic and advanced concepts of code.</p>
         
-      <!-- FORMAT: <p> </p> <br><br>-->    
+    <!-- FORMAT: <p> </p> <br><br>-->    
         
-      <p><b><u>Abstract:</u></b> A pointer is a variable container for storing memory address(es), where once a pointer is declared and assigned a value the pointer is simply represents a memory address as its value.</p>
+    <p><b><u>Abstract:</u></b> A pointer is a variable container for storing memory address(es), where once a pointer is declared and assigned a value the pointer is simply represents a memory address as its value.</p>
         
-      <h2> Logistics </h2>  <br><br>  
+    <h2> Logistics </h2>    
         
-      <p>   What does the abstract above mean? As any experienced programmer in a language knows, when in the runtime of the code there are various actions that occur behind the scenes in terms of memory allocation. Where with the local variables and invoked function calls being allocated on the Stack at runtime; and dynamically allocated variables and calls using malloc() and free() in C are being allocated in the Heap of the virtual memory address space. Whenever a variable is being declared at runtime, information about the variable is stored in memory by assigning it a specific number in the address space as follows.</p> <br><br>
+    <p> 	What does the abstract above mean? As any experienced programmer in a language knows, when in the runtime of the code there are various actions that occur behind the scenes in terms of memory allocation. Where with the local variables and invoked function calls being allocated on the Stack at runtime; and dynamically allocated variables and calls using malloc() and free() in C are being allocated in the Heap of the virtual memory address space. Whenever a variable is being declared at runtime, information about the variable is stored in memory by assigning it a specific number in the address space as follows.</p> <br><br>
         
-      <img src="http://i240.photobucket.com/albums/ff108/dwakira/Address%20Space%20Basic%20no%20Pointers_zps10qvcz9b.png"><br><br>
+    <img src="http://i240.photobucket.com/albums/ff108/dwakira/Address%20Space%20Basic%20no%20Pointers_zps10qvcz9b.png"><br><br>
         
-      <p> While addresses in memory are represented as numbers in memory, their range of values may differ from that of integers. So in such cases where the address names cannot be stored in a regular integer variable, they are stored in integer pointer variables where in the image below the declared pointer p “points to” the integer variable x.</p> <br><br>
+    <p> While addresses in memory are represented as numbers in memory, their range of values may differ from that of integers. So in such cases where the address names cannot be stored in a regular integer variable, they are stored in integer pointer variables where in the image below the declared pointer p 'points to' the integer variable x.</p> 
     
-      <img src="http://i240.photobucket.com/albums/ff108/dwakira/Address%20Space%20Basic%20with%20Pointers_zpsnhaumgod.png"><br><br>
-      <img src="http://i240.photobucket.com/albums/ff108/dwakira/Pointer%20Abstractions_zpsqsqxghyw.png"><br><br>
+    <img src="http://i240.photobucket.com/albums/ff108/dwakira/Address%20Space%20Basic%20with%20Pointers_zpsnhaumgod.png"><br><br>
+    <img src="http://i240.photobucket.com/albums/ff108/dwakira/Pointer%20Abstractions_zpsqsqxghyw.png"><br>
     
-      <h1>Pointer Declarations and Assignment</h1><br><br>
+    <h1>Pointer Declarations and Assignment</h1>
         
-      <p>As one might have noticed in Figure 2, the declaration of pointers are similar to of a regular variable – with the exception of an asterisk that is found before the variable name. In pointers there are two main uses of the asterisk, one which is used for the pointer variable declaration, and the other for dereferencing a variable which we will explore in the coming section. Before using the pointer in any context it is important that one must initialize it. </p> <br><br>
+    <p>As one might have noticed in Figure 2, the declaration of pointers are similar to of a regular variable – with the exception of an asterisk that is found before the variable name. In pointers there are two main uses of the asterisk, one which is used for the pointer variable declaration, and the other for dereferencing a variable which we will explore in the coming section. Before using the pointer in any context it is important that one must initialize it. </p> 
 
-      <p><b><u>Variations in Code: Asterisk Declarations</u></b> </p> <br>
-          <p>int*  int_pointer; </p> <br>
-          <p> int  *int_pointer_two;</p> <br><br>
+    <p><b><u>Variations in Code: Asterisk Declarations</u></b> </p> 
+        
+    <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+    <pre id="code">
+    int*  int_pointer; 
+    int  *int_pointer_two;
+				</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table> 
+
+    <p>Just as there are different types of variables found in any C program, pointers also come with the corresponding type of what data structures' or variables' address it points to.  </p>
+        
+    <p> <b><u>Variations in Code:  Declarations and Assignments with live Variables</u></b></p>
+
+    <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+    <pre id="code">
+    char y = 's';
     
-      <p>Just as there are different types of variables found in any C program, pointers also come with the corresponding type of what data structure’s or variable’s address it points to.  </p> <br><br>
+    // Declaring & initializing a pointer at same instance
+    char *q = &amp; y;   
         
-      <p> <b><u>Variations in Code:  Declarations & Assignments with live Variables</u></b></p> <br>
-          <p> char y = “s”;</p> <br>
-          <p> char *q = &amp; y;   // Declaring & initializing a pointer at same instance</p> <br><br>
-        
-          <p> char y = “s”, *q = &amp; y;  // In the same line: the variable must come first in such a case</p> <br>
-          <p>   char *r = y;                   // Incorrect pointer initialization!</p> <br><br>
-        
-      <p> When assigning a value to the pointer, it is found that pointers are not initialized simply by having the variable name itself. In the above examples shown so far, the indirection operator (&) is used just before the variable name. In C this operator is used to indicate that the pointer stores “the address of variable var_name”, which by definitions of a pointer is what we need. </p> <br>
-      <br>
-        
-      <table>
-          <tbody>
-          <tr>
-          <td width="623">
-          <h3>Annotations</h3>
-          This operator is used to indicate a memory address of any variable, where this notation is not strictly limited to the use of just pointers. Whenever the programmer wishes to view the address of any variable for their program, the &amp; operator is placed before the variable of their desire.</td>
-          </tr>
-          </tbody>
-      </table>    
+    // In the same line: the variable must come first in such a case
+    char y = 's', *q = &amp; y;  
     
-      <h2>Pointer upon Pointers</h2><br><br>
-        
-      <p> One can also copy the contents of a pointer to another pointer, as shown below. But note that in the below example, the contents of one pointer cannot be initialized to another pointer as shown below. </p> <br><br>
-        
-      <p>int *p = &amp;x; </p> <br>
-      <p> int *q;</p> <br>
-      <p> q = p;     // Copies the contents of p into q, so both pointers point to &amp;x</p> <br><br>
-        
-      <p> *q = *p;    // Incorrect pointer initializations </p> <br><br>
-        
-      <h2>Derefencing Pointers</h2><br><br>    
-        
-      <p><strong><u>Example:</u></strong></p> <br>
-      <p>printf(“Address of x: %d, Pointer p is: %d \n”, &amp;x, *p); </p> <br><br>
-        
-      <p><strong><u>Result of printf Statement:</u></strong> </p> <br>
-      <p> Address of x: 0x007fe, Pointer p is: 9</p> <br><br>
-        
-      <p> Look at the above example: does anything seem rather odd about the result of the print statement? The print value of x is as expected, using the & operator to show the address of variable x. But what about the second instance involving pointer p? Why doesn’t this print out the address of the variable x it is assigned as? </p> <br><br>
-        
-      <p> The answer to this question presents the second use of the asterisk in pointer notation, is that the operator is used to access the “value” of the variable the pointer points to. Consider the following example from Figure 2, reshown below.</p> <br><br>
-        
-      <p> int x = 9, *p = &amp;x;</p> <br><br>
-        
-      <p>   The variable x and value of the pointer p has been initialized correctly. But now ask yourself, is there any way to see the value of x through p? Instead of seeing what the address of x is, can we physically see the value 9? Consider the following code line below.</p> <br><br>
-        
-      <p>int show_value = *p; </p> <br><br>
-        
-      <p> Here we have declared a new integer variable, and have assigned it as “*p”. Does this return the address value of x? No. Pointers provide a second use of the asterisk, where this instance of the asterisk is commonly used <b>after a pointer</b> is declared and initialized. </p> <br><br>
-        
-      <img src="http://i240.photobucket.com/albums/ff108/dwakira/Dereferencing_zpskup5epf1.png"> <br><br>
-        
-      <p> This second use of the asterisk details as “dereference the address of var_name of what my_pointer points to, and show me what the contents of var_name are”. In the case of Figure 4, variable showVal stores the value of integer x, the variable whose address pointer p was pointing to.</p> <br><br>
-        
-      <p> <strong><u>Differences in Annotations:</u></strong></p> <br>
-      <p> int *p = … // pointer declared and initialized.</p> <br>
-      <p> printf(“Address of p: %d, Pointer value is: %d \n”, p, *p); </p> <br><br>
-        
-      <p> <strong><u>Result of print Statement:</u></strong></p> <br>
-      <p> Address of p: 0x007fe, Pointer value is: 9</p> <br><br>
-        
-      <p> So as expected, the results of the print statement returns the value as intended. Manually passing p shows the address value of the variable pointer p stores, while the second argument of the statement returns a dereferenced pointer. </p> <br><br>
+    // Incorrect pointer initialization 
+    char *r = y;</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table>
         
         
         
+    <p> When assigning a value to the pointer, it is found that pointers are not initialized simply by having the variable name itself. In the above examples shown so far, the indirection operator (&) is used just before the variable name. In C this operator is used to indicate that the pointer stores 'the address of variable var_name', which by definitions of a pointer is what we need. </p> 
+        
+    <h3>Annotations</h3>
+    <table>
+        <tbody>
+
+        <tr>
+        <td width="623">
+
+        This operator is used to indicate a memory address of any variable, where this notation is not strictly limited to the use of just pointers. Whenever the programmer wishes to view the address of any variable for their program, the &amp; operator is placed before the variable of their desire.</td>
+        </tr>
+
+        </tbody>
+    </table>    
+    
+    <h2>Pointer upon Pointers</h2>
+        
+    <p> One can also copy the contents of a pointer to another pointer, as shown below. But note that in the below example, the contents of one pointer cannot be initialized to another pointer as shown below. </p>
+        
+
+    <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+    <pre id="code">
+    int *p = &amp;x; 
+    int *q;
+    
+    // Copies the contents of p into q, so both pointers point to &amp;x
+    q = p;
+        
+    // Incorrect pointer initializations 
+    *q = *p;                       
+
+				</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table>
         
         
-      <h1>Section Two: Return Values and Function Parameters</h1><br><br>
+    <h2>Derefencing Pointers</h2>
         
-      <p>To pass a pointer into a function, is the same thing as would happen for any regular variable.</p><br><br>
+    <p><strong><u>Example:</u></strong></p> 
+    <p>printf('Address of x: %d, Pointer p is: %d \n', &amp;x, *p); </p> 
         
-      <p>int tri_sum(int x, int y, int *p, int *sum) { … }</p><br><br>
+    <p><strong><u>Result of printf Statement:</u></strong> </p> 
+    <p> Address of x: 0x007fe, Pointer p is: 9</p> 
         
-      <p>Return values follow the along the same lines, where returning a pointer in its regular notation would return a memory address.</p><br><br>
+    <p> Look at the above example: does anything seem rather odd about the result of the print statement? The print value of x is as expected, using the &amp; operator to show the address of variable x. But what about the second instance involving pointer p? Why doesnt this print out the address of the variable x it is assigned as? </p> 
         
-      <p>Char *pointer;</p><br>
-      <p>return pointer;    // Returns memory address</p><br><br>
-      <p>return *pointer;    // Dereference: returns the value of the variable it points to</p><br><br>
+    <p> The answer to this question presents the second use of the asterisk in pointer notation, is that the operator is used to access the 'value' of the variable the pointer points to. Consider the following example from Figure 2, reshown below.</p>
         
-      <p>However when passing and initializing pointer variables to structs in C, take care of some special notations that occur. When calling a struct parameter of a pointer that points to a struct, a “->” operator is used instead of the usual “.” </p><br><br>
+    <p> int x = 9, *p = &amp;x;</p>
         
-      <p>typedef struct Student {</p><br>
-      <p>char[15] name;</p><br>
-      <p>int age;</p><br>
-      <p>}</p><br><br>
+    <p> 	The variable x and value of the pointer p has been initialized correctly. But now ask yourself, is there any way to see the value of x through p? Instead of seeing what the address of x is, can we physically see the value 9? Consider the following code line below.</p> 
         
-      <p>struct Student *student_one;</p><br>
-      <p>return student->name;</p><br><br>
-      <p>return student->age;</p><br><br>
+    <p>int show_value = *p; </p> 
+        
+    <p> Here we have declared a new integer variable, and have assigned it as '*p'. Does this return the address value of x? No. Pointers provide a second use of the asterisk, where this instance of the asterisk is commonly used <b>after a pointer</b> is declared and initialized. </p> 
+        
+    <img src="http://i240.photobucket.com/albums/ff108/dwakira/Dereferencing_zpskup5epf1.png"> <br><br>
+        
+    <p> This second use of the asterisk details as dereference the address of var_name of what my_pointer points to, and show me what the contents of var_name are. In the case of Figure 4, variable showVal stores the value of integer x, the variable whose address pointer p was pointing to.</p>
+        
+    <p> <strong><u>Differences in Annotations:</u></strong></p> 
+    <p> int *p = &amp x; // pointer declared and initialized.</p> 
+    <p> printf('Address of p: %d, Pointer value is: %d \n', p, *p); </p> 
+        
+    <p> <strong><u>Result of print Statement:</u></strong></p> 
+    <p> Address of p: 0x007fe, Pointer value is: 9</p> 
+        
+    <p> So as expected, the results of the print statement returns the value as intended. Manually passing p shows the address value of the variable pointer p stores, while the second argument of the statement returns a dereferenced pointer. </p> 
         
         
         
-      <h1>Section 3: Pointers and Arrays </h1><br><br>
-      <p> Pointers provide the functionality of pointing to an array, complete with indexing through an array using pointer notation. When initializing an array of elements and having a pointer pointing to it, the pointer first points to the first element of the array.</p><br><br>
-      <p>int[10] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};</p><br>
-      <p>int*p = numbers;</p><br><br>
+    <h1>Section Two: Return Values and Function Parameters</h1>
         
-      <p>Where this is essentially equivalent to, and can be used in a concept such as the for loop.</p><br><br>
-      <p>sum = 0;</p><br>
-      <p>for(p = &amp;number[0]; p &lt; &amp;numbers[10]; p++) {</p><br>
-      <p>sum += *p;</p><br>
-      <p>}</p><br>
+    <p>To pass a pointer into a function, is the same thing as would happen for any regular variable.</p>
+        
+    <p>int tri_sum(int x, int y, int *p, int *sum) { }</p>
+        
+    <p>Return values follow the along the same lines, where returning a pointer in its regular notation would return a memory address.</p>
+        
+        <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+    <pre id="code">
+    char *pointer;
+    
+    // Returns memory address
+    return pointer;    
+    
+    // Dereference: returns the value of the variable it points to  
+    return *pointer;                    
+
+				</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table>    
+        
+        
+
+        
+    <p>However when passing and initializing pointer variables to structs in C, take care of some special notations that occur. When calling a struct parameter of a pointer that points to a struct, a '->' operator is used instead of the usual '.' </p>
+        
+    <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+            <pre id="code">
+    typedef struct Student {
+        char[15] name;
+        int age;
+    }
+    
+    struct Student *student_one;
+    char[15] name = student_one->name;
+    int curr_age = student_one->age;
+
+				</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table>    
+    
+        
+    <h1>Section 3: Pointers and Arrays </h1>
+    <p>	Pointers provide the functionality of pointing to an array, complete with indexing through an array using pointer notation. When initializing an array of elements and having a pointer pointing to it, the pointer first points to the first element of the array.</p>
+        
+    <table>
+    <tbody>
+        <center>
+    <tr>
+        
+    <td width="623">
+    <pre id="code">
+    int[10] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p = numbers;
+        
+    //Where this is essentially equivalent to, and can be used in a concept 
+    // such as the for loop.
+    sum = 0;
+    for(p = &amp;number[0]; p &lt; &amp;numbers[10]; p++) {
+        sum += *p;
+    }
+
+				</pre>
+            </td>
+        </tr>
+</center>
+    </tbody>
+    </table> 
+        
       </center>
 
     </div><!-- End of content -->
