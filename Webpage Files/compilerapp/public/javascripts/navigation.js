@@ -1,7 +1,7 @@
 	var navigationLinks = document.getElementById("nav"); 
 
-	createNavigationLink("Home", "https://www.google.com");
-	createNavigationLink("Lessons", "https://www.twitter.com"); 
+	createNavigationLink("Home", "/");
+	createNavigationLink("Lessons", "/lessons"); 
 	
 	function createNavigationLink(name, redirect){
 		var newLink = document.createElement("div"); 
