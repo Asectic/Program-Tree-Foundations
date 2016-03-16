@@ -12,6 +12,11 @@ module.exports = function(passport){
 	
 	/* GET home page. */
 	router.get('/', function(req, res, next) {
+
+		if(req.isAuthenticated()){
+
+			res.render('index', { title: 'Progamming Tree Foundations', user: req.user });
+		}
   		res.render('index', { title: 'Progamming Tree Foundations' });
 	});
 
@@ -61,11 +66,21 @@ module.exports = function(passport){
 
 	router.get('/lessons', function(req, res, next){
 
+		if(req.isAuthenticated()){
+
+			res.render('lessons', {title: 'Progamming Tree Foundations', user: req.user});
+		}
+
 		res.render('lessons', {title: 'Progamming Tree Foundations'});
 
 	});
 
 	router.get('/signup', function(req, res, next){
+
+		if(req.isAuthenticated()){
+			
+			res.render('signup', {title: 'Progamming Tree Foundations', user: req.user});
+		}
 
 		res.render('signup', {title: 'Progamming Tree Foundations'});
 
@@ -77,6 +92,10 @@ module.exports = function(passport){
      }));
 
 	router.get('/login', function(req, res, next){
+
+		if(req.isAuthenticated()){
+			res.render('login', {title: 'Progamming Tree Foundations', user: req.user});
+		}
 		res.render('login', {title: 'Progamming Tree Foundations'});
 	});
 
@@ -100,11 +119,19 @@ module.exports = function(passport){
 
 	router.get('/chapter1', function(req, res, next){
 
+		if(req.isAuthenticated()){
+			res.render('chapter1', {title: 'Chapter 1', user: req.user_id});
+		}
+
 		res.render('chapter1', {title: 'Chapter 1'});
 
 	});
 
 	router.get('/chapter2', function(req, res, next){
+
+		if(req.isAuthenticated()){
+			res.render('chapter2', {title: 'Chapter 2', user: req.user_id});
+		}
 
 		res.render('chapter2', {title: 'Chapter 2'});
 
@@ -125,22 +152,38 @@ module.exports = function(passport){
 	//new addon
 	router.get('/pointers', function(req, res, next){
 
+		if(req.isAuthenticated()){
+			res.render('pointer_exercise', {title: 'Pointer', user: req.user_id});
+		}
+
 		res.render('pointer_exercise', {title: 'Pointer'});
 	});
 
 	//basic syntax
 	router.get('/basic', function(req, res, next){
 
+		if(req.isAuthenticated()){
+			res.render('basic_syntax', {title: 'Basic Syntax', user: req.user_id});
+		}
+
 		res.render('basic_syntax', {title: 'Basic Syntax'});
 	});
 
 	router.get('/memorymodel', function(req, res, next){
+
+		if(req.isAuthenticated()){
+			res.render('memory_model', {title: 'Memory Model', user: req.user_id});
+		}
+
 
 		res.render('memory_model', {title: 'Memory Model'});
 	});
 
 	router.get('/variable', function(req, res, next){
 
+		if(req.isAuthenticated()){
+			res.render('variable', {title: 'Variable', user: req.user_id});
+		}
 		res.render('variable', {title: 'Variable'});
 	});
 
@@ -197,6 +240,7 @@ module.exports = function(passport){
 			};
 			//user is logged in
 			console.log(req.isAuthenticated());
+			con
 			
 			if(req.isAuthenticated()){
 
