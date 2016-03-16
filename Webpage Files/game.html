@@ -147,9 +147,7 @@ function score(width, height, color, x, y){
 
 function stack(width, height, x, y) {
     this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
+    this.height = height;  
     this.x = x;
     this.y = y;
     this.update = function() {
@@ -218,16 +216,7 @@ function updateGameArea() {
     if (points == 40)  {
         C.update();
         setTimeout(function(){
-            points = 0;
-            A1.point = false;
-            A2.point = false;
-            A3.point = false;
-            A4.point = false;
-            //A1 = new component(30, 30, N.src, 250, 400, "image");
-            //A2 = new component(110, 25, a1.src, 300, 400, "image");
-            //A3 = new component(110, 25, a2.src, 420, 415, "image");
-            //A4 = new component(30, 30, N.src, 530, 400, "image");
-            mygameArea.start();
+            location.reload();
         },3000);
     }
 }
