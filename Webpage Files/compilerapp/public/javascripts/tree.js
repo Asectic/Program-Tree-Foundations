@@ -3,8 +3,8 @@
 	
 	// Initializing values
 	tree = document.getElementById("tree"); 
-	node1 = createNode("Chapter 1: Memory Allocation", "/basic"); 
-	node2 = createNode("Chapter 2: Pointers", "/pointers");
+	node1 = createNode("Chapter 1: Basic Syntax of C", "/basic"); 
+	node2 = createNode("Chapter 2: Memory Allocation and Pointers", "/pointers");
 	level1 = createLevel();
 	level2 = createLevel();
 	level3 = createLevel();
