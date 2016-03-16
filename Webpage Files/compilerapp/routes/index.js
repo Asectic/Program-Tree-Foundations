@@ -239,15 +239,14 @@ module.exports = function(passport){
 				validate = true;
 			};
 			//user is logged in
-			console.log(req.isAuthenticated());
-			con
-			
+			console.log("isAuthenticated: " + req.isAuthenticated());
+		
 			if(req.isAuthenticated()){
 
-				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
-						console.log(req.user_id);
-						console.log(lesson_number);
-						console.log(exercise_name);
+				Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
+						console.log("req.user._id: " + req.user._id);
+						console.log("lesson num: " + lesson_number);
+						console.log("exercise name: " + exercise_name);
 					
 					if(err){
 						throw err;
