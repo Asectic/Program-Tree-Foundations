@@ -22,6 +22,7 @@ var A2;
 var A3;
 var A4;
 var B;
+var C;
 var S;
 var clickedd = false;
 var bool = false;
@@ -33,10 +34,12 @@ var background = new Image();
 var a1 = new Image();
 var a2 = new Image();
 var N = new Image();
-background.src = "/img/3.jpg";
-a1.src = "/img/a1.png"
-a2.src = "/img/a2.png"
-N.src = "/img/19.png"
+var c = new Image();
+background.src = "img/3.jpg";
+a1.src = "img/a1.png";
+a2.src = "img/a2.png";
+N.src = "img/19.png";
+c.src = "img/Yes.png";
 
 background.onload = function(){
     ctx.drawImage(background,0,0);   
@@ -48,6 +51,7 @@ function startGame() {
     A2 = new component(110, 25, a1.src, 300, 400, "image");
     A3 = new component(110, 25, a2.src, 420, 415, "image");
     A4 = new component(30, 30, N.src, 530, 400, "image");
+    C = new component(200, 200, c.src, 200, 120, "image");
     B = new stack(110, 25, 465, 90);
     S = new score("30px", "Consolas", "black", 440, 50);
     myGameArea.start();
@@ -143,9 +147,7 @@ function score(width, height, color, x, y){
 
 function stack(width, height, x, y) {
     this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
+    this.height = height;  
     this.x = x;
     this.y = y;
     this.update = function() {
@@ -211,6 +213,12 @@ function updateGameArea() {
     A2.update();
     A3.update();
     A4.update();
+    if (points == 40)  {
+        C.update();
+        setTimeout(function(){
+            location.reload();
+        },3000);
+    }
 }
 
 </script>
