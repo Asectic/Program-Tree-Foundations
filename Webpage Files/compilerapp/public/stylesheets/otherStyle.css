@@ -2,6 +2,7 @@ body {
 	background-color: #E6F0F3;
 	margin: 0px; 
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .top {
@@ -38,8 +39,9 @@ body {
 
 .main {
 	background: white; 
-	width: 450px;
-	height: 500px;
+	min-width: 650px;
+	height: 73%;
+    width: 48%;
 	border-style: solid; 
 	border-color: #D3E4E9;
     
@@ -56,17 +58,20 @@ body {
 .game {
     
     position: absolute;
-    left:650px; top:120px; right:10px; bottom:10px;
+    min-width: 660px;
+	height: 73%;
+    width: 48%;
+    left:690px; top:170px; right:10px; bottom:10px;
+    border-style: solid; 
+	border-color: #D3E4E9;
     border-radius: 10px 10px 10px 10px; / Rounds the headers /
-    background: white;
+    background: black;
     color: black;
     align-content: center;
     overflow-y: auto;
     overflow-x: hidden;
     
 }
-
-
 
 h1 { 
 	margin: 10px;
