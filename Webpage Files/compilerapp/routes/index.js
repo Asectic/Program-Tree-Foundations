@@ -121,9 +121,12 @@ module.exports = function(passport){
 		//infos for data base
 		var lesson_name = req.body.lesson_name;
 		var lesson_number = req.body.lesson_number;
-		var exercise_number = req.body.exercise_number;
+		var exercise_name = req.body.exercise_name;
+		var exercise_number = req.body.exercise_name.substring(8, req.body.exercise_name.length);
 		//save the users code that wants to be compiled
 		var code = req.body.code;
+
+		console.log(lesson_name + " " + lesson_number + " " + exercise_name);
 		//save user's code to .c
 		var write_to = "lesson" + lesson_number + "_" + "ex" + exercise_number + ".c";
 		
