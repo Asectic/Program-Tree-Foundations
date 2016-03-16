@@ -104,6 +104,13 @@ module.exports = function(passport){
 
 	});
 
+	router.get('/chapter2', function(req, res, next){
+
+		res.render('chapter2', {title: 'Chapter 2'});
+
+	});
+
+
 	router.get('/error', function(req, res, next){
 		//render the error page to the client
 		res.render('error');

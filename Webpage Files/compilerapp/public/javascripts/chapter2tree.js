@@ -2,9 +2,9 @@
 	var tree; 
 	
 	// Initializing values
-	tree = document.getElementById("tree"); 
-	node1 = createNode("Chapter 1: Basic Syntax of C", "/chapter1"); 
-	node2 = createNode("Chapter 2: Memory Allocation and Pointers", "/chapter2");
+	tree = document.getElementById("subtree"); 
+	node1 = createNode("Pointers", "/pointers"); 
+	node2 = createNode("Memory Model", "/memorymodel");
 	level1 = createLevel();
 	level2 = createLevel();
 	level3 = createLevel();
