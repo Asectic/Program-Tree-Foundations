@@ -166,10 +166,46 @@ module.exports = function(passport){
 			console.log("Successful compiling");
 			console.log(stdout.toString());
 			var pass = stdout.substring(stdout.length-18, stdout.length-2);
-			var validate = "Fail...";
+			var validate = false;
 			if (pass == "ALL TESTS PASSED"){
-				validate = "PASS!!!";
+				validate = true;
 			};
+			//user is logged in
+			if(req.isAuthenticated()){
+
+				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
+					if(err){
+						throw err;
+					}
+					if(!length){
+						throw new Error("exercise does not exist.");
+					}
+					//saves user's state on exercise(passed or failed)
+					userExercise.completed = validate;
+
+					if(validate){
+						userExercise.grade = "100";
+					}
+					else{
+						userExercise.grade = "0";
+					}
+					//save users code attempts and past results
+					userExercise.pastAttempts.push(code.toString() + "\n" + stdout.toString());
+
+					userExercise.save(function(err){
+                        if(err){
+                            //throw error if cannot save to database
+                            throw err;
+                        }
+                    });
+/*
+					//notify the lesson that the exercise is completed
+                    Lesson.findOne();
+                    */
+				});
+
+			}
+			//send them results only
 			res.send({result:validate, details: stdout.toString(), code: code.toString()});
 		}
 		});
@@ -178,12 +214,6 @@ module.exports = function(passport){
 	return router;
 }
 
-
-function checkLogin(req, res, next) {
-
-	return req.isAuthenticated();
-
-}
 
 
 
