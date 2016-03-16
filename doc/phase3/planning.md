@@ -14,20 +14,36 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 	- For each main tree node clicked, implement a set of sub tree nodes <b>on a separate page</b> from the main tree nodes
 	- <u>EX:</u> In chapter 2 "Pointers", "Memory Model", "Pointers and Arrays", etc
 	
+	<b>Nodes Implemented:</b>
+	- Two main chapter nodes ("Basic Syntax in C" and "Memory Allocation and Pointers")
+	- Two sub nodes for each chapter (<b>Chapter 1:</b> Basic Syntax, Variables; <b>Chapter 2:</b> Pointers, Memory Model)
+
 2. To implement the content of the webpage in two page formats
 
 	- For content pages that have a corresponding game, split the page below the navigation bar into two parts ("cotent_pages.css")
 	- For content pages with no game, just leave it all under one "main" div element
 
 	<b>Content Pages Implemented:</b>
-	- Pointers
-	- Memory Model
-	- Basic Syntax
-	- Variables
+	- Pointers (Under Chapter 1)
+	- Memory Model (Under Chapter 1)
+	- Basic Syntax (Under Chapter 2)
+	- Variables (Under Chapter 2)
 
-3. Finising the games for the content pages: memory model allocation
-4. Complete the login and register forms, enabling the page to redirect upon login or register user success 
+3. Finishing the games for the content pages: memory model allocation
+
+	- Incorporating image files (of sample code) into the game Javascript
+	- Enabling certain images to move upon user interaction
+	- Update the score when certain images reach certain chunks of the game (aka memory model)
+
+4. Complete the login and register forms, enabling the page to redirect upon user login or register success 
 5. Change the style of the webpage for the user, and applying it across all pages
+6. Implementing the exercises for the content pages and their test cases to check answers
+
+	<b>Exercises Implemented:</b>
+	- Pointer Exercises (Under Chapter 2)
+	- Variable Exercises (Under Chapter 1)
+
+7. Implementing database changes to the server
 
 Goals that weren't met in this phase:
 -------------------------------------
