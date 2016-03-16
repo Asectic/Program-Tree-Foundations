@@ -115,14 +115,7 @@ module.exports = function(passport){
 		//render the error page to the client
 		res.render('error');
 	});
-/*
-	//link to chapter 1 content page
-	router.get('/contentCh1', function(req, res, next){
 
-		res.render('contentCh1', {title: 'Chapter 1: Memory Allocation'});
-
-	});
-*/
 
 	router.get('/memoryGame', function(req, res, next){
 
