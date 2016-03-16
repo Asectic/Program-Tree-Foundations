@@ -58,6 +58,9 @@ body {
     border-radius: 20px; 
     border-style: solid; 
     border-color: #D3E4E9;
+
+    padding: 30px;
+    float: right;
 }
 
 h1 { 
@@ -164,9 +167,36 @@ p {
 form { 
     margin: 10px;
 }
+
 /*==================================================*/
-/*basic syntax styling*/
-.main{
-    float: left;
-    padding: 30px;
+/*pointer syntax styling*/
+.lesson2_exercises{
+    background: white; 
+    min-width: 450px;
+
+    width: 80%;
+    height: 100%;
+    margin-top: 20px; 
+    margin-left: 10%;
+    margin-right: 10%; 
+    border-radius: 20px; 
+    border-style: solid; 
+    border-color: #D3E4E9;
+
+    float: right;
+}
+.game{
+    background: white; 
+    min-width: 450px;
+
+    width: 80%;
+    height: 100%;
+    margin-top: 20px; 
+    margin-left: 10%;
+    margin-right: 10%; 
+    border-radius: 20px; 
+    border-style: solid; 
+    border-color: #D3E4E9;
+
+    float:left;
 }
