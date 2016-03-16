@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Variable </title>
+		<link rel="stylesheet" type="text/css" href="otherStyle.css">
+	</head>
+    
+	<body>
+		<div class="main">
+			<div id="lessonPortion">
+				<h1>Variables</h1>
+				<p> Most programs need to perform a series of calculation before producing output, and thus, need a way to store data temporarily during program execution. In C, as in most programming languages, these storage locations are called variables. </p>
+		
+				<h2>Types</h2>
+				<p>Every variable has a type, which specifies what kind of data it will hold. In other words, the type imparts the characteristics of that variables. It specifies what kind of data may be stored in it and what operations are permissible for that variable. C has a wide variety of types. For now, we will focus on just the following:
+					<ol>
+						<li><b>int</b> - this is short for integer. Essentially, this type will store a number between &#45;32767 and +32767</li>
+						<li><b>float</b> - Essentially these are just decimal point numbers. </li>
+						<li><b>char</b> - This is a single character.</li>			
+					</ol>
+				</p>
+		
+				<h2>Declarations</h2>
+				<p>In order to use a variable in a program, its type must be declared before using the variables. To declare a type you must specify the type of the variable and then give that variable a name. Here are some examples of declaring types: 
+					<ul>
+						<li>int height;</li> 
+						<li>float profit;</li> 
+						<li>char c;</li>
+						<li>char c[20]; - This statement creates what is called a &#34;string&#34;. A string is just a sequence of characters. This specific declaration says that our string will be a maximum of 20 characters. </li>
+					</ul>
+				</p>
+				<h3>Try declaring some on your own! </h3>
+				<div class="question">
+					<form action="javascript:checkAnswer1();">
+						Try declaring an integer: <br>
+    					<input type="text" id="answer1" style="width:280; height:30; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:16px">
+					</form>
+					<p id="result1"><p>
+				</div>
+				<div class="question">
+					<form action="javascript:checkAnswer2();">
+						Try declaring a float: <br>
+    					<input type="text" id="answer2" style="width:280; height:30; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:16px">
+					</form>
+					<p id="result2"><p>
+				</div>
+				<div class="question">
+					<form action="javascript:checkAnswer3();">
+						Try declaring a string that can hold a maximum of 30 character: <br>
+    					<input type="text" id="answer3" style="width:280; height:30; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:16px">
+					</form>
+					<p id="result3"><p>
+				</div>
+				<h2>Instantiating a Variable</h2>
+				<p>After we have declared the variable, we can then assign it a value. A variable can be assigned any value provided that it is of the same type. 
+					<ul>
+						<li>Integers are specified as digits. For example: int x = 5; </li>
+						<li>Floats are specified as decimals or just integers. For example: float x = 3.5;</li>
+						<li>Characters are specified using single quotes: char c = 'h'; </li>
+						<li>String are specified in double quotes. For example: char s[30] = "hello there";</li>
+					</ul>
+				</p>
+				<div class="nextbutton" id="goNext">Next</div>
+				<br><br><br>
+			</div>
+			<div id="exercises">
+				<h1>Exercises</h1>
+				<ol>
+					<li>Create a program that will compute x+y when x = 4, y = 5. </li>
+					<ul><li><b>Note:</b> arithmetics in C can be done using the following operators: +, -, /, * such that x + y will result in addition</li></ul>
+					<li>Create a program that will compute x*y when x=4, y=5</li>
+					<li>Create a program that will compute x/y when x=6, y=3</li>
+				</ol>				
+				<div class="backbutton" id="goBack">Back</div>
+				<br><br><br>
+			</div>
+		</div>
+	</body>
+	
+	<script type = "text/javascript" 
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type = "text/javascript" src="variables.js"></script>     
+</html>
