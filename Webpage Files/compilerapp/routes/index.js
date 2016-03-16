@@ -171,13 +171,14 @@ module.exports = function(passport){
 				validate = true;
 			};
 			//user is logged in
+			console.log(req.isAuthenticated());
 			if(req.isAuthenticated()){
 
 				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
 					if(err){
 						throw err;
 					}
-					if(!length){
+					if(!userExercise){
 						throw new Error("exercise does not exist.");
 					}
 					//saves user's state on exercise(passed or failed)
@@ -190,7 +191,7 @@ module.exports = function(passport){
 						userExercise.grade = "0";
 					}
 					//save users code attempts and past results
-					userExercise.pastAttempts.push(code.toString() + "\n" + stdout.toString());
+					userExercise.pastAttempts.push("LOL");
 
 					userExercise.save(function(err){
                         if(err){
