@@ -2,13 +2,25 @@
 <html>
 	<head>
 		<title> <%= title %> </title>
-		<link href="/stylesheets/otherStyle.css" type="text/css" rel="stylesheet" />
+		<link href="/stylesheets/pageStyle.css" type="text/css" rel="stylesheet" />
+		<!-- Latest compiled and minified CSS -->
+    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    	<!-- Latest compiled JavaScript -->
+    	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
     
 	<body>
 		<!-- Website Title and Navigation Bar -->
-		<div class="top" id="nav"><br>
-		    <font id = "order1" size="12" color=white face="fantasy"><b>C Foundations</b></font>
+		<div class="row"><br>
+			<div class = "col-lg-12 top text-center">
+	    		<font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+	    		<div class="btn-group">
+	  				<a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+	  				<a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
+	  				<a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
+	  				<a href="/login"><button type="button" class="btn btn-success">Login</button></a>
+				</div>
+			</div>
 		</div> 
 	    
 		<!-- Content Itself, opens when user clicks something.-->
@@ -28,16 +40,25 @@
 					<li><b>Functions</b> are blocks of executable codes </li>
 					<li><b>Statements</b> are commands to be performed when the program is run. </li>
 				</ul>
-				<pre>For now, it is enough to know that the only directive we will be using is: #include <stdio.h> and that the only function we will be using is int main(void){} </pre>
+				<h1>Main Function:</h1>
+				<p>For now, it is enough to know that the only directive we will be using is: 
+					<div class = "well">#include <stdio.h> </div>
+					and that the only function we will be using is 
+					<div class = "well"> int main(void){}</div> 
+				</p>
 				<ul>
 					<li>In C, the main function is mandatory. main is special because it gets called automatically when the program is executed. </li>
 					<li>The main function returns a value 0. This is a status code that is given to the operating system when the program terminates. It's okay if you do not fully understand this right now. It is most important to note that the "return 0;" will be the end of your main function for any of the programs that you write for these tutorials.  </li>
 				</ul>
-				<pre>A statement is a command to be executed when the program runs. C requires that statements end with a semicolon. We've seen an example of a statement - the return statement in the main function in which we return a zero. Another common statement is the printf statement. The printf statements looks like the following: printf("Are you learning yet? "); </pre>
+				<h1>Statement:</h1>
+				<p>A statement is a command to be executed when the program runs. C requires that statements end with a semicolon. We've seen an example of a statement - the return statement in the main function in which we return a zero. Another common statement is the printf statement. The printf statements looks like the following: </p>
+				<div class = "well">
+					printf("Are you learning yet? "); 
+				</div>
 				<ul>
 					<li>This will print the string - or in other words, it will make visible the information in the quotations - to the user of your program.  </li>
 				</ul>
-				<pre>Here is an example of a basic program that prints Hello world:</pre> 
+				<p>Here is an example of a basic program that prints Hello world:</p> 
 				<pre id="code">
 	#include <stdio.h>
 
