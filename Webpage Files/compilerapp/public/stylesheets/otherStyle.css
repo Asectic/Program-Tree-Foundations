@@ -1,6 +1,7 @@
 body {
 	background-color: #E6F0F3;
 	margin: 0px; 
+    overflow-x: hidden;
 }
 
 .top {
@@ -37,17 +38,35 @@ body {
 
 .main {
 	background: white; 
-	min-width: 450px;
-	min-height: 800px;
-	width: 80%;
-	height: 100%;
-	margin-top: 20px; 
-	margin-left: 10%;
-	margin-right: 10%; 
-	border-radius: 20px; 
+	width: 450px;
+	height: 500px;
 	border-style: solid; 
 	border-color: #D3E4E9;
+    
+    position: absolute;
+    left:15px; top:170px; right:10px; bottom:10px;
+    border-radius: 10px 10px 10px 10px; / Rounds the headers /
+    background: white;
+    color: black;
+    align-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+.game {
+    
+    position: absolute;
+    left:650px; top:120px; right:10px; bottom:10px;
+    border-radius: 10px 10px 10px 10px; / Rounds the headers /
+    background: white;
+    color: black;
+    align-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+
+
 
 h1 { 
 	margin: 10px;
@@ -76,3 +95,25 @@ p {
 	margin-right: 30px;
 	font-size: 20px; 
 }
+
+/* Options to Customize the Scrollbars ===================*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/ 
+    -webkit-border-radius: 10px;
+    background-color:#fff;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:#b3ccff; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+/* ========================================================*/

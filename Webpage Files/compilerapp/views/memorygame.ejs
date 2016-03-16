@@ -4,46 +4,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
+    position: absolute;
     border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
+    style="z-index: 5;
 }
+
 </style>
 </head>
 <body onload="startGame()">
+
+<canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
+</canvas>
 <script>
 
 var A1;
 var A2;
 var A3;
+var A4;
 var B;
 var S;
 var clickedd = false;
 var bool = false;
 var cur = "none";
 var points = 0;
+var canvas = document.getElementById("myCanvas"),
+ctx = canvas.getContext("2d");
+var background = new Image();
+var a1 = new Image();
+var a2 = new Image();
+var N = new Image();
+background.src = "/img/3.jpg";
+a1.src = "/img/a1.png"
+a2.src = "/img/a2.png"
+N.src = "/img/19.png"
+
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
 
 function startGame() {
     
-    A1 = new component(30, 30, "red", 100, 120);
-    A2 = new component(30, 30, "purple", 100, 200);
-    A3 = new component(30, 30, "green", 100, 40);
-    B = new stack(60, 60, 300, 60);
-    S = new score("30px", "Consolas", "black", 280, 30);
+    A1 = new component(30, 30, N.src, 250, 400, "image");
+    A2 = new component(110, 25, a1.src, 300, 400, "image");
+    A3 = new component(110, 25, a2.src, 420, 415, "image");
+    A4 = new component(30, 30, N.src, 530, 400, "image");
+    B = new stack(110, 25, 465, 90);
+    S = new score("30px", "Consolas", "black", 440, 50);
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = 600;
+        this.canvas.height = 463;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
         window.addEventListener("mousedown", function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked())){
+            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked() || A4.clicked())){
                 clickedd = true;
                 if (A1.clicked()){
                     cur = "1";
@@ -51,6 +72,8 @@ var myGameArea = {
                     cur = "2";
                 } else if (A3.clicked()){
                     cur = "3";
+                } else if (A4.clicked()){
+                    cur = "4";
                 }
             } else if (bool == true){
                 clickedd = false;
@@ -64,7 +87,12 @@ var myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
-function component(width, height, color, x, y) {
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -74,8 +102,15 @@ function component(width, height, color, x, y) {
     this.point = false;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        if (type == "image") {
+            ctx.drawImage(this.image, 
+            this.x, 
+            this.y,
+            this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
     this.clicked = function() {
         var myleft = this.x;
@@ -91,7 +126,7 @@ function component(width, height, color, x, y) {
     }
 }
 
-function score(width,height,color,x,y){
+function score(width, height, color, x, y){
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -115,23 +150,30 @@ function stack(width, height, x, y) {
     this.y = y;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = "purple";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y+60, this.width, this.height);
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y+120, this.width, this.height);
-        if (this.x < A1.x && this.x + width > A1.x && this.y + 120 < A1.y && this.y + 180 > A1.y && A1.point == false){
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 115 + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 173 + 10, this.width - 15, this.height - 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(this.x + 10, this.y + 259 + 10, this.width - 15, this.height - 10);
+        if (this.x - 10 < A1.x && this.x + this.width - 10 > A1.x && this.y - 10 < A1.y && this.y + this.height - 10 > A1.y && A1.point == false && cur != 1){
             points += 10;
             A1.point = true;
+
         }
-        if (this.x < A2.x && this.x + width > A2.x && this.y < A2.y && this.y + 60 > A2.y && A2.point == false){
+        if (this.x - 10 < A2.x && this.x + this.width - 10 > A2.x && this.y + 115 - 10 < A2.y && this.y + this.height + 115 - 10 > A2.y && A2.point == false && cur != 2){
             points += 10;
             A2.point = true;
         }
-        if (this.x < A3.x && this.x + width > A3.x && this.y + 60 < A3.y && this.y + 120 > A3.y && A3.point == false){
+        if (this.x - 10 < A3.x && this.x + this.width - 10 > A3.x && this.y + 173 - 10 < A3.y && this.y + this.height + 173 - 10 > A3.y && A3.point == false && cur != 3){
             points += 10;
             A3.point = true;
+        }
+        if (this.x - 10 < A4.x && this.x + this.width - 10 > A4.x && this.y + 259 - 10 < A4.y && this.y + this.height + 259 - 10 > A4.y && A4.point == false && cur != 4){
+            points += 10;
+            A4.point = true;
         }
     }
 }
@@ -155,17 +197,22 @@ function updateGameArea() {
         } else if (cur == "3"){
             A3.x = myGameArea.x - 25;
             A3.y = myGameArea.y - 25;            
+        } else if (cur == "4"){
+            A4.x = myGameArea.x - 25;
+            A4.y = myGameArea.y - 25;            
         }
+        
+
     }
-    A1.update();
-    A2.update();
-    A3.update();
     B.update();
     S.text = "Score: " + points;
     S.update();
+    A1.update();
+    A2.update();
+    A3.update();
+    A4.update();
 }
 
 </script>
-<p>Click on the pieces on the left and move them into their colour corresponding location to the right</p>
 </body>
 </html>
