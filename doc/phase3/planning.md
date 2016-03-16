@@ -30,7 +30,7 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 	- Variables (Under Chapter 2)
 
 3. Finishing the games for the content pages: memory model allocation
-4. Complete the login and register forms, enabling the page to redirect upon login or register user success 
+4. Complete the login and register forms, enabling the page to redirect upon user login or register success 
 5. Change the style of the webpage for the user, and applying it across all pages
 6. Implementing the exercises for the content pages and their test cases to check answers
 
