@@ -150,15 +150,20 @@ module.exports = function(passport){
 		}
 
 		//compiles the code with gcc and then executes the code
-		var child = exec('gcc ' + test_name + ' -o' + output_file + '&& ' + output_file, function(err, stdout, stderr){
+		var child = exec('gcc ' + test_name + ' -o' + output_file + '&& ' + output_file + "&& rm " + output_file, function(err, stdout, stderr){
 		if (stderr){
-			console.log("Failure");
+			console.log("Failed at compiling");
 			console.log(stderr.toString());
-			res.send({result:"fail", details: stderr.toString(), code: code.toString()});
+			res.send({result:"code compiling error", details: stderr.toString(), code: code.toString()});
 		}else{
-			console.log("Successful");
+			console.log("Successful compiling");
 			console.log(stdout.toString());
-			res.send({result:"pass", details: stdout.toString(), code: code.toString()});
+			var pass = stdout.substring(stdout.length-18, stdout.length-2);
+			var validate = "Fail...";
+			if (pass == "ALL TESTS PASSED"){
+				validate = "PASS!!!";
+			};
+			res.send({result:validate, details: stdout.toString(), code: code.toString()});
 		}
 		});
 	});
