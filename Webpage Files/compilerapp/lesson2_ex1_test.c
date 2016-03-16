@@ -22,12 +22,13 @@
  int main(int argc, char **argv) {
      char *result = all_tests();
      if (result != 0) {
+         printf("Tests run: %d\n", tests_run);
          printf("%s\n", result);
      }
      else {
+         printf("Tests run: %d\n", tests_run);
          printf("ALL TESTS PASSED\n");
      }
-     printf("Tests run: %d\n", tests_run);
  
      return result != 0;
  }
