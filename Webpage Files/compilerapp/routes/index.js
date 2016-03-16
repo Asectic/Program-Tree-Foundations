@@ -229,7 +229,7 @@ module.exports = function(passport){
                             //throw error if cannot save to database
                             throw err;
                         }
-                        console.log(The exercises are saved in here);
+                        console.log("The exercises are saved in here");
                     });
 
 					//notify the lesson that the exercise is completed
