@@ -3,47 +3,65 @@
 	<head>
 		<title> <%= title %> </title>
 		<link href="/stylesheets/content_pages.css" type="text/css" rel="stylesheet" /> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
     
-<!-- Website Title and Navigation Bar -->
-<div class="top"><br>
-    <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-    <a href="/">Home</a> | <a href="/lessons">Start Learning!</a> | <a href="/signup">Register</a> | <a href="/login">Login</a> 
-</div> 
-    
+<body>
+  <!-- Website Title and Navigation Bar -->
+  <div class="row"><br>
+    <div class = "col-lg-12 top text-center">
+        <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+        <div class="btn-group">
+          <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+          <a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
+          <a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
+          <a href="/login"><button type="button" class="btn btn-success">Login</button></a>
+      </div>
+    </div>
+  </div> 
 <!-- Programming Tree Interface Panel -->
     
 <!-- Content Itself, opens when user clicks something.-->
-<div class="main">
-    <center>
+<div class="row">
+    <div class="col-lg-6 main text-center">
+        <center>
 
-    <h1>Memory Model in the Virtual Address Space</h1>
+        <h1>Memory Model in the Virtual Address Space</h1>
         
-    <p>Every programmer know that there are two key separations when it comes to the computer and operating systems. There is the hardware, which is the physical representation of the computer and OS where instructions are stored and executed; and which its internal memory can be accessed by processes. There is also the virtual address space, where for each process or thread run, the variables and functions called in the process are allocated in a separate space from physical hardware. Consider the diagram below.</p>
+        <p>Every programmer know that there are two key separations when it comes to the computer and operating systems. There is the hardware, which is the physical representation of the computer and OS where instructions are stored and executed; and which its internal memory can be accessed by processes. There is also the virtual address space, where for each process or thread run, the variables and functions called in the process are allocated in a separate space from physical hardware. Consider the diagram below.</p>
         
-    <img src="http://i240.photobucket.com/albums/ff108/dwakira/memmodel_zpslmlxyenh.gif"><br><br>
+        <img src="http://i240.photobucket.com/albums/ff108/dwakira/memmodel_zpslmlxyenh.gif"><br><br>
         
-    <p>Stack frames in memory that is set aside as space for a thread that is in execution. It reserves a block and stores information such as whenever a function is called, and stores any local variables defined at the top of the Stack address space. When a function returns the block becomes unused and can be used the next time a function is called.</p>
+        <p>Stack frames in memory that is set aside as space for a thread that is in execution. It reserves a block and stores information such as whenever a function is called, and stores any local variables defined at the top of the Stack address space. When a function returns the block becomes unused and can be used the next time a function is called.</p>
         
-    <p>Heap on the other hand include global variables and stores new instances variables or classes allocated in memory. For example in Java, any data structure declared with the 'new' keyword is allocated onto the heap; whereas in C any variable declared with malloc() calls are stored.</p>
+        <p>Heap on the other hand include global variables and stores new instances variables or classes allocated in memory. For example in Java, any data structure declared with the 'new' keyword is allocated onto the heap; whereas in C any variable declared with malloc() calls are stored.</p>
         
-    <p>The diagram above is the staple virtual address memory design, where Stack is found on the top end of memory and the heap allocated on bottom portion of memory. In order for the different memory allocations and free of certain variables in memory to not interfere with each other heap and stack allocations are differentiated on opposite sides of the memory model.</p>
+        <p>The diagram above is the staple virtual address memory design, where Stack is found on the top end of memory and the heap allocated on bottom portion of memory. In order for the different memory allocations and free of certain variables in memory to not interfere with each other heap and stack allocations are differentiated on opposite sides of the memory model.</p>
         
-    <p>The stack allocates memory in a LIFO order while the heap does not have any forced allocation and deallocation pattern. This layout ensures that the programmer does not need to be concerned on how much size each process or variables would take in memory (e.g. int is 4 bytes, Person class is 24 bytes, etc) and need to take the tedious process of choosing where in the memory model to allocate each and every process in the address space.</p>
+        <p>The stack allocates memory in a LIFO order while the heap does not have any forced allocation and deallocation pattern. This layout ensures that the programmer does not need to be concerned on how much size each process or variables would take in memory (e.g. int is 4 bytes, Person class is 24 bytes, etc) and need to take the tedious process of choosing where in the memory model to allocate each and every process in the address space.</p>
         
-    </center>
+        </center>
+    </div>
+    <!-- Section for where the game should go -->        
+    <div class="col-lg-6 game text-center">
+        
+        <center>
+            <h1>Memory Allocation Game</h1>
+
+        </center>
+        
+    </div><!-- End of game div-->
+
 </div>
+<div class="row">
+    <div class="col-kg-12 exercise text-center">
+    </div>
+</div>
+</body>
     
-    
-<!-- Section for where the game should go -->        
-<div class="game">
-        
-    <center>
-    <h1>Memory Allocation Game</h1>
-    
-    
-    </center>
-        
-</div><!-- End of game div-->
      
 </html>

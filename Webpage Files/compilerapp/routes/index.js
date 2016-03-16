@@ -111,6 +111,11 @@ module.exports = function(passport){
 		res.render('basic_syntax', {title: 'Basic Syntax'});
 	});
 
+	router.get('/memorymodel', function(req, res, next){
+
+		res.render('memory_model', {title: 'Memory Model'});
+	});
+
 	//handle ajax post
 	router.post('/ajax_compile', function(req, res, next){
 		//infos for data base
