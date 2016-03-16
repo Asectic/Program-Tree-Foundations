@@ -183,7 +183,7 @@ form {
     border-style: solid; 
     border-color: #D3E4E9;
 
-    float: right;
+    clear left;
 }
 .game{
     background: white; 
@@ -197,6 +197,10 @@ form {
     border-radius: 20px; 
     border-style: solid; 
     border-color: #D3E4E9;
-
-    float:left;
+}
+#pull_right{
+    float: right;
+}
+#pull_left{
+    float: left;
 }
