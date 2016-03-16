@@ -30,3 +30,5 @@ March 15:
 - Added short content on memory model to go along with the memory model game
 - Added "content_pages.css" to apply the 2 way split for "main" div found under navigation bar
 - Fixed content pages to accompany the content_pages style
+
+- Revised otherStyles.css and created alternate version "nopages_content.css" for any webpage style with no game
