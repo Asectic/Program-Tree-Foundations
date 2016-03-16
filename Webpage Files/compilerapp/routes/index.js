@@ -72,7 +72,7 @@ module.exports = function(passport){
 	});
 
 	router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/', // redirect to the home page if signup is successful
+        successRedirect : '/signupsuccess', // redirect to the home page if signup is successful
         failureRedirect : '/error' // redirect to error page if signup failed
      }));
 
@@ -81,9 +81,22 @@ module.exports = function(passport){
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/', // redirect to the home page if signup is successful
+        successRedirect : '/loginsuccess', // redirect to the home page if signup is successful
         failureRedirect : '/error' // redirect to error page if signup failed
 	}));
+
+	router.get('/signupsuccess',isLoggedIn, function(req, res, next){
+
+		res.render('signupsuccess', {title: 'Signed up Successfully!', user: req.user});
+
+	});
+
+	router.get('/loginsuccess', isLoggedIn, function(req, res, next){
+
+
+		res.render('loginsuccess', {title: 'Logged In Successfully!', user: req.user});
+
+	});
 
 	router.get('/error', function(req, res, next){
 		//render the error page to the client
@@ -177,6 +190,7 @@ module.exports = function(passport){
 			};
 			//user is logged in
 			console.log(req.isAuthenticated());
+			/*
 			if(req.isAuthenticated()){
 
 				Exercise.findOne({'user_id' : req.user_id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, userExercise){
@@ -212,18 +226,38 @@ module.exports = function(passport){
 /*
 					//notify the lesson that the exercise is completed
                     Lesson.findOne();
-                    */
+                    
 				});
 
 			}
+*/
 			//send them results only
 			res.send({result:validate, details: stdout.toString(), code: code.toString()});
 		}
 		});
 	});
 
+		
+	// Logout
+	router.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+
 	return router;
 }
+
+function isLoggedIn(req,res,next){
+
+	if(req.isAuthenticated()){
+
+		return next();
+	}
+
+	res.redirect('/');
+}
+
+
 
 
 
