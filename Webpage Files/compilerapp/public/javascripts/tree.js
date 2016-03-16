@@ -4,12 +4,15 @@
 	// Initializing values
 	tree = document.getElementById("tree"); 
 	node1 = createNode("Chapter 1: Basic Syntax of C", "/basic"); 
-	node2 = createNode("Chapter 2: Memory Allocation and Pointers", "/pointers");
+	// node 2 should point to memory_model.ejs
+	node2 = createNode("Chapter 2.1: Memory Model", "/memory");
+    node3 = createNode("Chapter 2.2: Pointers", "/pointers")
 	level1 = createLevel();
 	level2 = createLevel();
 	level3 = createLevel();
 	addToLevel(1, node1);
 	addToLevel(2, node2);
+	addToLevel(3, node3);
 
 	function createLevel(){
 		var newLevel = document.createElement("div");
