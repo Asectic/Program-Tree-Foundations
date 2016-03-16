@@ -51,7 +51,8 @@ Goals that weren't met in this phase:
 In this phase we encountered the following problems in implementing the following goals...
 
 1. Game Implementation
-	- FILL IN HERE
+	- Difficulties deciding on how to implement the game pieces and a stack object in a way to represent the problem, settled on multiple canvases with the game pieces on one and the (visual) stack on the other.
+	- Had difficulties embeding the game into the web page, issues with images not showing up, window and object location all over the place. Images have been fixed through some file manipulation and code changes. Window and object location were previously hard coded and therefore encounters issues when embeding into a web page with other elements, will need to make some fairly large changes for the next phase to have it be properly embeded. Games will display through pop-up window for now
 
 2. CSS Layout to all Pages
 	- For one of the content pages, it was applied in a complete different style than other pages as "otherStyle.css". We were trying to configure the layout of other content pages as this one, but when it came to wanting it to have this style applied to all pages, for some reason the tree data structure in tree.js would not load properly - and only text with the redirections would appear. So the style of the page was reverted to an older version to make the tree nodes appear.
