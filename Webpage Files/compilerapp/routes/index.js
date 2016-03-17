@@ -255,16 +255,53 @@ module.exports = function(passport){
 						console.log(exercise_name);
 						throw new Error("exercise does not exist.");
 					}
-					//saves user's state on exercise(passed or failed)
-					userExercise.completed = validate;
 
 					if(validate){
+						//saves user's state on exercise(passed or failed)
+						userExercise.completed = validate;
 						userExercise.grade = "100";
+						console.log("100%!");
+
+						//notify the lesson that the exercise is completed
+                    	Lesson.findOne({'_id': userExercise.lesson_id}, function(err, lessonExercise){
+                    		console.log("HELLO");
+
+                    		if((lesson_number == "1") && !lessonExercise.passlesson1){
+
+                    			lessonExercise.passlesson1 = true
+                    		}
+
+                    		if((lesson_number == "2") && !lessonExercise.passlesson2){
+
+                    			lessonExercise.passlesson2 = true
+                    		}
+                    		
+                    		if((lesson_number == "3") && !lessonExercise.passlesson3 ){
+
+                    			lessonExercise.passlesson3 = true
+                    		}
+
+                    		//check that all 3 answers have been completed
+                    		if(lessonExercise.passlesson1 && lessonExercise.passlesson2 && lessonExercise.passlesson3){
+
+                    			lessonExercise.completed = true;
+                    		}
+
+                    		//save lesson's new completed statuss to database
+                    		lessonExercise.save(function(err){
+
+                    			if(err){
+
+                    				throw err;
+                    			}
+                    			console.log("The lesson has been updated with passed exercises.");
+                    		});                		
+                    	});
 					}
-					else{
-						userExercise.grade = "0";
-					}
+
 					//save users code attempts and past results
+					console.log(stdout.toString());
+					console.log(code.toString());
 					userExercise.pastAttempts.push("LOL");
 
 					userExercise.save(function(err){
@@ -275,16 +312,26 @@ module.exports = function(passport){
                         console.log("The exercises are saved in here");
                     });
 
-					//notify the lesson that the exercise is completed
-                   // Lesson.findOne();
-                    
+					//tell user that this lesson is done or not
+                    Lesson.findOne({'_id': userExercise.lesson_id}, function(err, lessonExercise){
+
+                   		//send them results and the finished status
+						res.send({result:validate, details: stdout.toString(), code: code.toString(), passlesson: lessonExercise.completed});
+						res.end(); 
+
+                    });
+                   
 				});
 
 			}
+			else{
 
-			//send them results only
-			res.send({result:validate, details: stdout.toString(), code: code.toString()});
+				//send them results only
+				res.send({result:validate, details: stdout.toString(), code: code.toString()});
+				res.end();
 			}
+
+		}
 		});
 	});
 

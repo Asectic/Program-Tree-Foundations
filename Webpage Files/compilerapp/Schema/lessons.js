@@ -10,6 +10,9 @@ var lessonSchema = mongoose.Schema({
 	user_id: String,
 	lessonNumber: String,
 	grade: {type: String, default: "0"},
+	passlesson1: {type: Boolean, default: false},
+	passlesson2: {type: Boolean, default: false},
+	passlesson3: {type: Boolean, default: false},
 	completed: {type: Boolean, default: false}
 
 
