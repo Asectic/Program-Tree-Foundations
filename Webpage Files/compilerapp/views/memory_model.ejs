@@ -2,12 +2,21 @@
 <html>
 	<head>
 		<title> <%= title %> </title>
-		<link href="/stylesheets/content_pages.css" type="text/css" rel="stylesheet" /> 
+		<link href="/stylesheets/pageStyle.css" type="text/css" rel="stylesheet" /> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
          <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+        canvas {
+            position: absolute;
+            border:1px solid #d3d3d3;
+            style="z-index: 5;
+        }
+
+        </style>
 	</head>
     
 <body>
@@ -27,266 +36,254 @@
     
 <!-- Content Itself, opens when user clicks something.-->
 <div class="row">
-    <div class="col-lg-6 main text-center">
-        <center>
+    <div class="col-lg-6">
+        <div class = "main">
+            <center>
 
-        <h1>Memory Model in the Virtual Address Space</h1>
-        
-        <p>Every programmer know that there are two key separations when it comes to the computer and operating systems. There is the hardware, which is the physical representation of the computer and OS where instructions are stored and executed; and which its internal memory can be accessed by processes. There is also the virtual address space, where for each process or thread run, the variables and functions called in the process are allocated in a separate space from physical hardware. Consider the diagram below.</p>
-        
-        <img src="http://i240.photobucket.com/albums/ff108/dwakira/memmodel_zpslmlxyenh.gif"><br><br>
-        
-        <p>Stack frames in memory that is set aside as space for a thread that is in execution. It reserves a block and stores information such as whenever a function is called, and stores any local variables defined at the top of the Stack address space. When a function returns the block becomes unused and can be used the next time a function is called.</p>
-        
-        <p>Heap on the other hand include global variables and stores new instances variables or classes allocated in memory. For example in Java, any data structure declared with the 'new' keyword is allocated onto the heap; whereas in C any variable declared with malloc() calls are stored.</p>
-        
-        <p>The diagram above is the staple virtual address memory design, where Stack is found on the top end of memory and the heap allocated on bottom portion of memory. In order for the different memory allocations and free of certain variables in memory to not interfere with each other heap and stack allocations are differentiated on opposite sides of the memory model.</p>
-        
-        <p>The stack allocates memory in a LIFO order while the heap does not have any forced allocation and deallocation pattern. This layout ensures that the programmer does not need to be concerned on how much size each process or variables would take in memory (e.g. int is 4 bytes, Person class is 24 bytes, etc) and need to take the tedious process of choosing where in the memory model to allocate each and every process in the address space.</p>
-        
-        </center>
-    </div>
-    <!-- Section for where the game should go -->        
-    <div class="col-lg-6 game text-center">
-        
-        <center>
-            <h1>Memory Allocation Game</h1>
-        <!-- -->
-        <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-canvas {
-    position: absolute;
-    border:1px solid #d3d3d3;
-    style="z-index: 5;
-}
-
-</style>
-</head>
-<body onload="startGame()">
-
-<canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
-</canvas>
-<script>
-
-var A1;
-var A2;
-var A3;
-var A4;
-var B;
-var C;
-var S;
-var clickedd = false;
-var bool = false;
-var cur = "none";
-var points = 0;
-var canvas = document.getElementById("myCanvas"),
-ctx = canvas.getContext("2d");
-var background = new Image();
-var a1 = new Image();
-var a2 = new Image();
-var N = new Image();
-var c = new Image();
-background.src = "img/3.jpg";
-a1.src = "img/a1.png";
-a2.src = "img/a2.png";
-N.src = "img/19.png";
-c.src = "img/Yes.png";
-
-background.onload = function(){
-    ctx.drawImage(background,0,0);   
-}
-
-function startGame() {
-    
-    A1 = new component(30, 30, N.src, 250, 400, "image");
-    A2 = new component(110, 25, a1.src, 300, 400, "image");
-    A3 = new component(110, 25, a2.src, 420, 415, "image");
-    A4 = new component(30, 30, N.src, 530, 400, "image");
-    C = new component(200, 200, c.src, 200, 120, "image");
-    B = new stack(110, 25, 465, 90);
-    S = new score("30px", "Consolas", "black", 440, 50);
-    myGameArea.start();
-}
-
-var myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.width = 600;
-        this.canvas.height = 463;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.interval = setInterval(updateGameArea, 20);
-        window.addEventListener("mousedown", function (e) {
-            myGameArea.x = e.pageX;
-            myGameArea.y = e.pageY;
-            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked() || A4.clicked())){
-                clickedd = true;
-                if (A1.clicked()){
-                    cur = "1";
-                } else if (A2.clicked()){
-                    cur = "2";
-                } else if (A3.clicked()){
-                    cur = "3";
-                } else if (A4.clicked()){
-                    cur = "4";
-                }
-            } else if (bool == true){
-                clickedd = false;
-                cur = "none";
-            }
+            <h1>Memory Model in the Virtual Address Space</h1>
             
-        })
+            <p>Every programmer know that there are two key separations when it comes to the computer and operating systems. There is the hardware, which is the physical representation of the computer and OS where instructions are stored and executed; and which its internal memory can be accessed by processes. There is also the virtual address space, where for each process or thread run, the variables and functions called in the process are allocated in a separate space from physical hardware. Consider the diagram below.</p>
+            
+            <img src="http://i240.photobucket.com/albums/ff108/dwakira/memmodel_zpslmlxyenh.gif"><br><br>
+            
+            <p>Stack frames in memory that is set aside as space for a thread that is in execution. It reserves a block and stores information such as whenever a function is called, and stores any local variables defined at the top of the Stack address space. When a function returns the block becomes unused and can be used the next time a function is called.</p>
+            
+            <p>Heap on the other hand include global variables and stores new instances variables or classes allocated in memory. For example in Java, any data structure declared with the 'new' keyword is allocated onto the heap; whereas in C any variable declared with malloc() calls are stored.</p>
+            
+            <p>The diagram above is the staple virtual address memory design, where Stack is found on the top end of memory and the heap allocated on bottom portion of memory. In order for the different memory allocations and free of certain variables in memory to not interfere with each other heap and stack allocations are differentiated on opposite sides of the memory model.</p>
+            
+            <p>The stack allocates memory in a LIFO order while the heap does not have any forced allocation and deallocation pattern. This layout ensures that the programmer does not need to be concerned on how much size each process or variables would take in memory (e.g. int is 4 bytes, Person class is 24 bytes, etc) and need to take the tedious process of choosing where in the memory model to allocate each and every process in the address space.</p>
+            
+            </center>
+        </div><!-- End of Main-->
+    </div><!-- End of main column-->
+    <!-- Section for where the game should go -->        
+    <div class="col-lg-6">
+        <div class = "game" onload="startGame()">
+            <center>
+                <h1>Memory Allocation Game</h1>
+                <canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
+                </canvas>
+                <script>
 
-    }, 
-    clear : function(){
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-}
-function component(width, height, color, x, y, type) {
-    this.type = type;
-    if (type == "image") {
-        this.image = new Image();
-        this.image.src = color;
-    }
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
-    this.x = x;
-    this.y = y;
-    this.point = false;
-    this.update = function() {
-        ctx = myGameArea.context;
-        if (type == "image") {
-            ctx.drawImage(this.image, 
-            this.x, 
-            this.y,
-            this.width, this.height);
-        } else {
-            ctx.fillStyle = color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-    }
-    this.clicked = function() {
-        var myleft = this.x;
-        var myright = this.x + (this.width);
-        var mytop = this.y;
-        var mybottom = this.y + (this.height);
-        var clicked = true;
-        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
-         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
-            clicked = false;
-        }
-        return clicked;
-    }
-}
+                var A1;
+                var A2;
+                var A3;
+                var A4;
+                var B;
+                var C;
+                var S;
+                var clickedd = false;
+                var bool = false;
+                var cur = "none";
+                var points = 0;
+                var canvas = document.getElementById("myCanvas"),
+                ctx = canvas.getContext("2d");
+                var background = new Image();
+                var a1 = new Image();
+                var a2 = new Image();
+                var N = new Image();
+                var c = new Image();
+                background.src = "img/3.jpg";
+                a1.src = "img/a1.png";
+                a2.src = "img/a2.png";
+                N.src = "img/19.png";
+                c.src = "img/Yes.png";
 
-function score(width, height, color, x, y){
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
-    this.x = x;
-    this.y = y;    
-    this.update = function() {
-        ctx = myGameArea.context;
-        ctx.font = this.width + " " + this.height;
-        ctx.fillStyle = color;
-        ctx.fillText(this.text, this.x, this.y);
-    }
-}
+                background.onload = function(){
+                    ctx.drawImage(background,0,0);   
+                }
 
-function stack(width, height, x, y) {
-    this.width = width;
-    this.height = height;  
-    this.x = x;
-    this.y = y;
-    this.update = function() {
-        ctx = myGameArea.context;
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x + 10, this.y + 10, this.width - 15, this.height - 10);
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x + 10, this.y + 115 + 10, this.width - 15, this.height - 10);
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x + 10, this.y + 173 + 10, this.width - 15, this.height - 10);
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x + 10, this.y + 259 + 10, this.width - 15, this.height - 10);
-        if (this.x - 10 < A1.x && this.x + this.width - 10 > A1.x && this.y - 10 < A1.y && this.y + this.height - 10 > A1.y && A1.point == false && cur != 1){
-            points += 10;
-            A1.point = true;
+                function startGame() {
+                    
+                    A1 = new component(30, 30, N.src, 250, 400, "image");
+                    A2 = new component(110, 25, a1.src, 300, 400, "image");
+                    A3 = new component(110, 25, a2.src, 420, 415, "image");
+                    A4 = new component(30, 30, N.src, 530, 400, "image");
+                    C = new component(200, 200, c.src, 200, 120, "image");
+                    B = new stack(110, 25, 465, 90);
+                    S = new score("30px", "Consolas", "black", 440, 50);
+                    myGameArea.start();
+                }
 
-        }
-        if (this.x - 10 < A2.x && this.x + this.width - 10 > A2.x && this.y + 115 - 10 < A2.y && this.y + this.height + 115 - 10 > A2.y && A2.point == false && cur != 2){
-            points += 10;
-            A2.point = true;
-        }
-        if (this.x - 10 < A3.x && this.x + this.width - 10 > A3.x && this.y + 173 - 10 < A3.y && this.y + this.height + 173 - 10 > A3.y && A3.point == false && cur != 3){
-            points += 10;
-            A3.point = true;
-        }
-        if (this.x - 10 < A4.x && this.x + this.width - 10 > A4.x && this.y + 259 - 10 < A4.y && this.y + this.height + 259 - 10 > A4.y && A4.point == false && cur != 4){
-            points += 10;
-            A4.point = true;
-        }
-    }
-}
+                var myGameArea = {
+                    canvas : document.createElement("canvas"),
+                    start : function() {
+                        this.canvas.width = 600;
+                        this.canvas.height = 463;
+                        this.context = this.canvas.getContext("2d");
+                        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                        this.interval = setInterval(updateGameArea, 20);
+                        window.addEventListener("mousedown", function (e) {
+                            myGameArea.x = e.pageX;
+                            myGameArea.y = e.pageY;
+                            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked() || A4.clicked())){
+                                clickedd = true;
+                                if (A1.clicked()){
+                                    cur = "1";
+                                } else if (A2.clicked()){
+                                    cur = "2";
+                                } else if (A3.clicked()){
+                                    cur = "3";
+                                } else if (A4.clicked()){
+                                    cur = "4";
+                                }
+                            } else if (bool == true){
+                                clickedd = false;
+                                cur = "none";
+                            }
+                            
+                        })
 
-function updateGameArea() {
-    myGameArea.clear();
-    if (bool == false && clickedd) {
-        window.addEventListener("mousemove", function (e) {
-            myGameArea.x = e.pageX;
-            myGameArea.y = e.pageY;
-            })
-        bool = true;
-    }
-    if (bool && clickedd){
-        if (cur == "1") {
-            A1.x = myGameArea.x - 25;
-            A1.y = myGameArea.y - 25;           
-        } else if (cur == "2"){
-            A2.x = myGameArea.x - 25;
-            A2.y = myGameArea.y - 25;            
-        } else if (cur == "3"){
-            A3.x = myGameArea.x - 25;
-            A3.y = myGameArea.y - 25;            
-        } else if (cur == "4"){
-            A4.x = myGameArea.x - 25;
-            A4.y = myGameArea.y - 25;            
-        }
-        
+                    }, 
+                    clear : function(){
+                        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                    }
+                }
+                function component(width, height, color, x, y, type) {
+                    this.type = type;
+                    if (type == "image") {
+                        this.image = new Image();
+                        this.image.src = color;
+                    }
+                    this.width = width;
+                    this.height = height;
+                    this.speedX = 0;
+                    this.speedY = 0;    
+                    this.x = x;
+                    this.y = y;
+                    this.point = false;
+                    this.update = function() {
+                        ctx = myGameArea.context;
+                        if (type == "image") {
+                            ctx.drawImage(this.image, 
+                            this.x, 
+                            this.y,
+                            this.width, this.height);
+                        } else {
+                            ctx.fillStyle = color;
+                            ctx.fillRect(this.x, this.y, this.width, this.height);
+                        }
+                    }
+                    this.clicked = function() {
+                        var myleft = this.x;
+                        var myright = this.x + (this.width);
+                        var mytop = this.y;
+                        var mybottom = this.y + (this.height);
+                        var clicked = true;
+                        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
+                         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+                            clicked = false;
+                        }
+                        return clicked;
+                    }
+                }
 
-    }
-    B.update();
-    S.text = "Score: " + points;
-    S.update();
-    A1.update();
-    A2.update();
-    A3.update();
-    A4.update();
-    if (points == 40)  {
-        C.update();
-        setTimeout(function(){
-            location.reload();
-        },3000);
-    }
-}
+                function score(width, height, color, x, y){
+                    this.width = width;
+                    this.height = height;
+                    this.speedX = 0;
+                    this.speedY = 0;    
+                    this.x = x;
+                    this.y = y;    
+                    this.update = function() {
+                        ctx = myGameArea.context;
+                        ctx.font = this.width + " " + this.height;
+                        ctx.fillStyle = color;
+                        ctx.fillText(this.text, this.x, this.y);
+                    }
+                }
 
-</script>
-</body>
-</html>
+                function stack(width, height, x, y) {
+                    this.width = width;
+                    this.height = height;  
+                    this.x = x;
+                    this.y = y;
+                    this.update = function() {
+                        ctx = myGameArea.context;
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(this.x + 10, this.y + 10, this.width - 15, this.height - 10);
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(this.x + 10, this.y + 115 + 10, this.width - 15, this.height - 10);
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(this.x + 10, this.y + 173 + 10, this.width - 15, this.height - 10);
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(this.x + 10, this.y + 259 + 10, this.width - 15, this.height - 10);
+                        if (this.x - 10 < A1.x && this.x + this.width - 10 > A1.x && this.y - 10 < A1.y && this.y + this.height - 10 > A1.y && A1.point == false && cur != 1){
+                            points += 10;
+                            A1.point = true;
 
-        <!-- -->
-        </center>
-        
-    </div><!-- End of game div-->
+                        }
+                        if (this.x - 10 < A2.x && this.x + this.width - 10 > A2.x && this.y + 115 - 10 < A2.y && this.y + this.height + 115 - 10 > A2.y && A2.point == false && cur != 2){
+                            points += 10;
+                            A2.point = true;
+                        }
+                        if (this.x - 10 < A3.x && this.x + this.width - 10 > A3.x && this.y + 173 - 10 < A3.y && this.y + this.height + 173 - 10 > A3.y && A3.point == false && cur != 3){
+                            points += 10;
+                            A3.point = true;
+                        }
+                        if (this.x - 10 < A4.x && this.x + this.width - 10 > A4.x && this.y + 259 - 10 < A4.y && this.y + this.height + 259 - 10 > A4.y && A4.point == false && cur != 4){
+                            points += 10;
+                            A4.point = true;
+                        }
+                    }
+                }
+
+                function updateGameArea() {
+                    myGameArea.clear();
+                    if (bool == false && clickedd) {
+                        window.addEventListener("mousemove", function (e) {
+                            myGameArea.x = e.pageX;
+                            myGameArea.y = e.pageY;
+                            })
+                        bool = true;
+                    }
+                    if (bool && clickedd){
+                        if (cur == "1") {
+                            A1.x = myGameArea.x - 25;
+                            A1.y = myGameArea.y - 25;           
+                        } else if (cur == "2"){
+                            A2.x = myGameArea.x - 25;
+                            A2.y = myGameArea.y - 25;            
+                        } else if (cur == "3"){
+                            A3.x = myGameArea.x - 25;
+                            A3.y = myGameArea.y - 25;            
+                        } else if (cur == "4"){
+                            A4.x = myGameArea.x - 25;
+                            A4.y = myGameArea.y - 25;            
+                        }
+                        
+
+                    }
+                    B.update();
+                    S.text = "Score: " + points;
+                    S.update();
+                    A1.update();
+                    A2.update();
+                    A3.update();
+                    A4.update();
+                    if (points == 40)  {
+                        C.update();
+                        setTimeout(function(){
+                            location.reload();
+                        },3000);
+                    }
+                }
+
+                </script>
+                <!-- -->
+            </center>
+        </div><!--end of game -->
+    </div><!-- End of game column-->
 
 </div>
 <div class="row">
-    <div class="col-kg-12 exercise text-center">
+    <div class="col-lg-12">
+        <div class = "exercise">
+            <center>
+                <h1>Exercise</h1>
+            </center>
+        </div>
     </div>
 </div>
 </body>
