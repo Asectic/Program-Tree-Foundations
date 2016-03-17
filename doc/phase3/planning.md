@@ -48,17 +48,17 @@ For phase 3, the main goals of the "Programming Tree" webpage implementations we
 Goals that weren't met in this phase:
 -------------------------------------
 
-In this phase we encountered the following problems in implementing the following goals...
+In this phase the group members encountered the following problems in implementing the following goals...
 
 1. Game Implementation
 	- Difficulties deciding on how to implement the game pieces and a stack object in a way to represent the problem, settled on multiple canvases with the game pieces on one and the (visual) stack on the other.
-	- Had difficulties embeding the game into the web page, issues with images not showing up, window and object location all over the place. Images have been fixed through some file manipulation and code changes. Window and object location were previously hard coded and therefore encounters issues when embeding into a web page with other elements, will need to make some fairly large changes for the next phase to have it be properly embeded. Games will display through pop-up window for now
+	- Had difficulties embeding the game into the web page, issues with images not showing up, window and object location all over the place. Images have been fixed through some file manipulation and code changes. Window and object location were previously hard coded and therefore encounters issues when embeding into a web page with other elements, will need to make some fairly large changes for the next phase to have it be properly embeded. Games will display through pop-up window for now.
 
 2. CSS Layout to all Pages
 	- For one of the content pages, it was applied in a complete different style than other pages as "otherStyle.css". We were trying to configure the layout of other content pages as this one, but when it came to wanting it to have this style applied to all pages, for some reason the tree data structure in tree.js would not load properly - and only text with the redirections would appear. So the style of the page was reverted to an older version to make the tree nodes appear.
-	- We also encountered some problems in the layout when it came to merging the content with its corresponding game. While the basic css layout was created based on "otherStyle.css" called "content_pages.css", merging the game with the content caused some serious problems in layout.
+	- The group also encountered some problems in the layout when it came to merging the content with its corresponding game. While the basic css layout was created based on "otherStyle.css" called "content_pages.css", merging the game with the content caused some serious problems in layout.
 	
 	<b>Suggestions to workaround styling problems</b>:
-	- There is no major suggestions when it comes to styling, other than decision matters and keeping the css file references consistent across all content and webpage files.
+	- Create a (working) content-game layout page via CSS that does not conflict with the main CSS layout, but functionally looks the same to the main layout in all other aspects
 
 
