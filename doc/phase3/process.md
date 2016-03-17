@@ -85,10 +85,10 @@ The sizes of tasks were decided according to four basic criteria:
 Update Meetings:
 -----------------
 Meeting One: Date: March 7, 2016, 2:00-3:00PM | Skype | Attendance: Everyone
-   •	Came up with tasks for this phase of project.
-      o	Want to finish most of the implementation so that the last phase only has content to add/stylistic changes to make
-      o	Gamification features will be left for last phase with a small minority implemented this phase
-   •	Divided tasks amongst members
+   - Came up with tasks for this phase of project.
+      - Want to finish most of the implementation so that the last phase only has content to add/stylistic changes to make
+      - Gamification features will be left for last phase with a small minority implemented this phase
+   - Divided tasks amongst members
 
 Meeting Two: Date: March 11 2016, 5:00-6:00pm | BA3200 | Attendance: Everyone
    -	Everyone presented what they had done and what they had worked on: 
