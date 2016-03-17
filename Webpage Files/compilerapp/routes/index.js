@@ -300,9 +300,8 @@ module.exports = function(passport){
 					}
 
 					//save users code attempts and past results
-					console.log(stdout.toString());
-					console.log(code.toString());
-					userExercise.pastAttempts.push("LOL");
+					console.log(code.toString() + "\n" + stdout.toString());
+					userExercise.pastAttempts.push(code.toString() + "\n" + stdout.toString());
 
 					userExercise.save(function(err){
                         if(err){
