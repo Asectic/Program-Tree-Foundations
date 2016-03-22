@@ -1,10 +1,26 @@
 <html>
 	<head>
 		<title> <%= title %> </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style>
+			td {width: 50%;}
+			td a {width: 100%; display: block;}
+		</style>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.24.3/js/jquery.tablesorter.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
-		<div>
+	<table id="codehistory" class="table table-bordered table-hover tablesorter text-left">
+		<thead>
+			<tr>
+				<th><span class="glyphicon glyphicon-tag"></span>&nbsp;Item Name</th>
+				<th><span class="glyphicon glyphicon-user"></span>&nbsp;Description</th>
+			</tr>
+		</thead>
+		<tbody>
 
 	    <% for (var i=0; i< result.pastAttempts.length; i++){%>
 			<tr>
@@ -16,6 +32,7 @@
 			</tr>
 		<%} %>
 
-		</div>
+		</tbody>
+	</table>
 	</body>
 </html>
