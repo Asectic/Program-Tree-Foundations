@@ -341,7 +341,10 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
-	router.get('/codehistory', isLoggedIn, function(req, res, next){
+	router.post('/codehistory', isLoggedIn, function(req, res, next){
+		console.log("---------------" + req.body.lesson_number + "---------------------------");
+		console.log(req.body.exercise_name);
+
 
 		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': req.body.lesson_number, 'name': req.body.exercise_name}, function(err, exercise){
 

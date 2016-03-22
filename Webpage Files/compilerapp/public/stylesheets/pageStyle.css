@@ -49,18 +49,21 @@ body {
 .main {
     background: white; 
     min-width: 450px;
-
-    width: 80%;
-    height: 100%;
     margin-top: 20px; 
-    margin-left: 10%;
-    margin-right: 10%; 
+    margin-left: 5%;
+    margin-right: 5%; 
     border-radius: 20px; 
     border-style: solid; 
     border-color: #D3E4E9;
 
     padding: 30px;
-    float: right;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    height:100vh;
+
+
 }
 
 h1 { 
@@ -174,29 +177,31 @@ form {
     background: white; 
     min-width: 450px;
 
-    width: 80%;
-    height: 100%;
     margin-top: 20px; 
-    margin-left: 10%;
-    margin-right: 10%; 
+    margin-left: 5%;
+    margin-right: 5%; 
     border-radius: 20px; 
     border-style: solid; 
     border-color: #D3E4E9;
-
-    clear left;
+    
+    overflow-y: scroll;
+    height:100vh;
 }
 .game{
     background: white; 
     min-width: 450px;
 
-    width: 80%;
-    height: 100%;
     margin-top: 20px; 
-    margin-left: 10%;
-    margin-right: 10%; 
+    margin-left: 5%;
+    margin-right: 5%; 
     border-radius: 20px; 
     border-style: solid; 
     border-color: #D3E4E9;
+
+    overflow-y: scroll;
+    height:100vh;
+    z-index:-5;
+
 }
 #pull_right{
     float: right;

@@ -8,16 +8,15 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
         canvas {
-            position: absolute;
+            position: relative;
             border:1px solid #d3d3d3;
             style="z-index: 5;
         }
-
         </style>
-	</head>
+    </head>
     
 <body>
   <!-- Website Title and Navigation Bar -->
@@ -36,6 +35,227 @@
     
 <!-- Content Itself, opens when user clicks something.-->
 <div class="row">
+    <div class="col-lg-6">
+        <div class = "game" onload="startGame()">
+        <canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000;">
+        </canvas>
+        <script>
+
+
+        var background;
+        var S1;
+        var S2;
+        var S3;
+        var H1;
+        var H2;
+        var H3;
+        var B;
+        var C;
+
+        var clickedd = false;
+        var bool = false;
+        var cur = "none";
+        var done = false;
+
+        var s1 = new Image();
+        var s2 = new Image();
+        var s3 = new Image();
+        var h1 = new Image();
+        var h2 = new Image();
+        var h3 = new Image();
+        var c = new Image();
+        var back = new Image();
+
+        s1.src = "img/FA.png";
+        s2.src = "img/LV.png";
+        s3.src = "img/SL.png";
+        h1.src = "img/GV.png";
+        h2.src = "img/SM.png";
+        h3.src = "img/VR.png";
+        c.src = "img/Yes.png";
+        back.src = "img/SvH.jpg";
+
+        function startGame() {
+            
+            S1 = new component(80, 60, s1.src, 50, 370, "image");
+            S2 = new component(80, 60, s2.src, 130, 370, "image");
+            S3 = new component(80, 60, s3.src, 210, 370, "image");
+            H1 = new component(80, 60, h1.src, 290, 370, "image");
+            H2 = new component(80, 60, h2.src, 370, 370, "image");
+            H3 = new component(80, 60, h3.src, 450, 370, "image");
+
+            C = new component(200, 200, c.src, 200, 150, "image");
+            B = new stack(150, 140, 28, 138);
+
+            background = new component(600, 463, back.src, 0, 0, "image");
+
+            myGameArea.start();
+        }
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = 600;
+                this.canvas.height = 463;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.interval = setInterval(updateGameArea, 20);
+                window.addEventListener("mousedown", function (e) {
+                    myGameArea.x = e.pageX;
+                    myGameArea.y = e.pageY;
+                    if (clickedd == false && (S1.clicked() || S2.clicked() || S3.clicked() || H1.clicked() || H2.clicked() || H3.clicked())){
+                        clickedd = true;
+                        if (S1.clicked()){
+                            cur = "1";
+                        } else if (S2.clicked()){
+                            cur = "2";
+                        } else if (S3.clicked()){
+                            cur = "3";
+                        } else if (H1.clicked()){
+                            cur = "4";
+                        } else if (H2.clicked()){
+                            cur = "5";
+                        } else if (H3.clicked()){
+                            cur = "6";
+                        } 
+                    } else if (bool == true){
+                        clickedd = false;
+                        cur = "none";
+                    }
+                    
+                })
+
+            }, 
+            clear : function(){
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+        }
+        function component(width, height, color, x, y, type) {
+            this.type = type;
+            if (type == "image") {
+                this.image = new Image();
+                this.image.src = color;
+            }
+            this.width = width;
+            this.height = height;
+            this.speedX = 0;
+            this.speedY = 0;    
+            this.x = x;
+            this.y = y;
+            this.point = false;
+            this.update = function() {
+                ctx = myGameArea.context;
+                if (type == "image") {
+                    ctx.drawImage(this.image, 
+                    this.x, 
+                    this.y,
+                    this.width, this.height);
+                } else {
+                    ctx.fillStyle = color;
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+            }
+            this.clicked = function() {
+                var myleft = this.x;
+                var myright = this.x + (this.width);
+                var mytop = this.y;
+                var mybottom = this.y + (this.height);
+                var clicked = true;
+                if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
+                 || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+                    clicked = false;
+                }
+                return clicked;
+            }
+        }
+
+        function stack(width, height, x, y) {
+            this.width = width;
+            this.height = height;   
+            this.x = x;
+            this.y = y;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = "red";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.fillStyle = "blue";
+                ctx.fillRect(this.x + 395, this.y, this.width, this.height);
+                if (this.x - 10 < S1.x && 
+                    this.x - 10 < S2.x &&
+                    this.x - 10 < S3.x && 
+                    this.x + this.width - 10 > S1.x &&
+                    this.x + this.width - 10 > S2.x &&
+                    this.x + this.width - 10 > S3.x &&
+                    this.y - 10 < S1.y &&
+                    this.y - 10 < S2.y &&
+                    this.y - 10 < S3.y &&
+                    this.y - 10 < H1.y &&
+                    this.y - 10 < H2.y &&
+                    this.y - 10 < H3.y &&
+                    this.y + this.height - 10 > S1.y &&
+                    this.y + this.height - 10 > S2.y &&
+                    this.y + this.height - 10 > S3.y &&
+                    this.y + this.height - 10 > H1.y &&
+                    this.y + this.height - 10 > H2.y &&
+                    this.y + this.height - 10 > H3.y && cur == "none") {
+
+                    done = true;
+                }
+            }
+        }
+
+        function updateGameArea() {
+            myGameArea.clear();
+            if (bool == false && clickedd) {
+                window.addEventListener("mousemove", function (e) {
+                    myGameArea.x = e.pageX;
+                    myGameArea.y = e.pageY;
+                    })
+                bool = true;
+            }
+            if (bool && clickedd){
+                if (cur == "1") {
+                    S1.x = myGameArea.x - 50;
+                    S1.y = myGameArea.y - 50;           
+                } else if (cur == "2"){
+                    S2.x = myGameArea.x - 50;
+                    S2.y = myGameArea.y - 50;            
+                } else if (cur == "3"){
+                    S3.x = myGameArea.x - 50;
+                    S3.y = myGameArea.y - 50;            
+                } else if (cur == "4"){
+                    H1.x = myGameArea.x - 50;
+                    H1.y = myGameArea.y - 50;            
+                } else if (cur == "5"){
+                    H2.x = myGameArea.x - 50;
+                    H2.y = myGameArea.y - 50;            
+                } else if (cur == "6"){
+                    H3.x = myGameArea.x - 50;
+                    H3.y = myGameArea.y - 50;            
+                }
+            }
+            background.update();
+            B.update();
+            S1.update();
+            S2.update();
+            S3.update();
+            H1.update();
+            H2.update();
+            H3.update();
+
+            if (done == true)  {
+                C.update();
+                setTimeout(function(){
+                    location.reload();
+                },3000);
+            }
+        }
+
+        </script>
+                        <!-- -->
+        </div><!--end of game -->
+    </div><!-- End of game column-->
+
     <div class="col-lg-6">
         <div class = "main">
             <center>
@@ -57,225 +277,7 @@
             </center>
         </div><!-- End of Main-->
     </div><!-- End of main column-->
-    <!-- Section for where the game should go -->        
-    <div class="col-lg-6">
-        <div class = "game" onload="startGame()">
-            <center>
-                <h1>Memory Allocation Game</h1>
-                <canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
-                </canvas>
-                <script>
-
-                var A1;
-                var A2;
-                var A3;
-                var A4;
-                var B;
-                var C;
-                var S;
-                var clickedd = false;
-                var bool = false;
-                var cur = "none";
-                var points = 0;
-                var canvas = document.getElementById("myCanvas"),
-                ctx = canvas.getContext("2d");
-                var background = new Image();
-                var a1 = new Image();
-                var a2 = new Image();
-                var N = new Image();
-                var c = new Image();
-                background.src = "img/3.jpg";
-                a1.src = "img/a1.png";
-                a2.src = "img/a2.png";
-                N.src = "img/19.png";
-                c.src = "img/Yes.png";
-
-                background.onload = function(){
-                    ctx.drawImage(background,0,0);   
-                }
-
-                function startGame() {
-                    
-                    A1 = new component(30, 30, N.src, 250, 400, "image");
-                    A2 = new component(110, 25, a1.src, 300, 400, "image");
-                    A3 = new component(110, 25, a2.src, 420, 415, "image");
-                    A4 = new component(30, 30, N.src, 530, 400, "image");
-                    C = new component(200, 200, c.src, 200, 120, "image");
-                    B = new stack(110, 25, 465, 90);
-                    S = new score("30px", "Consolas", "black", 440, 50);
-                    myGameArea.start();
-                }
-
-                var myGameArea = {
-                    canvas : document.createElement("canvas"),
-                    start : function() {
-                        this.canvas.width = 600;
-                        this.canvas.height = 463;
-                        this.context = this.canvas.getContext("2d");
-                        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-                        this.interval = setInterval(updateGameArea, 20);
-                        window.addEventListener("mousedown", function (e) {
-                            myGameArea.x = e.pageX;
-                            myGameArea.y = e.pageY;
-                            if (clickedd == false && (A1.clicked() || A2.clicked() || A3.clicked() || A4.clicked())){
-                                clickedd = true;
-                                if (A1.clicked()){
-                                    cur = "1";
-                                } else if (A2.clicked()){
-                                    cur = "2";
-                                } else if (A3.clicked()){
-                                    cur = "3";
-                                } else if (A4.clicked()){
-                                    cur = "4";
-                                }
-                            } else if (bool == true){
-                                clickedd = false;
-                                cur = "none";
-                            }
-                            
-                        })
-
-                    }, 
-                    clear : function(){
-                        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                    }
-                }
-                function component(width, height, color, x, y, type) {
-                    this.type = type;
-                    if (type == "image") {
-                        this.image = new Image();
-                        this.image.src = color;
-                    }
-                    this.width = width;
-                    this.height = height;
-                    this.speedX = 0;
-                    this.speedY = 0;    
-                    this.x = x;
-                    this.y = y;
-                    this.point = false;
-                    this.update = function() {
-                        ctx = myGameArea.context;
-                        if (type == "image") {
-                            ctx.drawImage(this.image, 
-                            this.x, 
-                            this.y,
-                            this.width, this.height);
-                        } else {
-                            ctx.fillStyle = color;
-                            ctx.fillRect(this.x, this.y, this.width, this.height);
-                        }
-                    }
-                    this.clicked = function() {
-                        var myleft = this.x;
-                        var myright = this.x + (this.width);
-                        var mytop = this.y;
-                        var mybottom = this.y + (this.height);
-                        var clicked = true;
-                        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
-                         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
-                            clicked = false;
-                        }
-                        return clicked;
-                    }
-                }
-
-                function score(width, height, color, x, y){
-                    this.width = width;
-                    this.height = height;
-                    this.speedX = 0;
-                    this.speedY = 0;    
-                    this.x = x;
-                    this.y = y;    
-                    this.update = function() {
-                        ctx = myGameArea.context;
-                        ctx.font = this.width + " " + this.height;
-                        ctx.fillStyle = color;
-                        ctx.fillText(this.text, this.x, this.y);
-                    }
-                }
-
-                function stack(width, height, x, y) {
-                    this.width = width;
-                    this.height = height;  
-                    this.x = x;
-                    this.y = y;
-                    this.update = function() {
-                        ctx = myGameArea.context;
-                        ctx.fillStyle = "white";
-                        ctx.fillRect(this.x + 10, this.y + 10, this.width - 15, this.height - 10);
-                        ctx.fillStyle = "white";
-                        ctx.fillRect(this.x + 10, this.y + 115 + 10, this.width - 15, this.height - 10);
-                        ctx.fillStyle = "white";
-                        ctx.fillRect(this.x + 10, this.y + 173 + 10, this.width - 15, this.height - 10);
-                        ctx.fillStyle = "white";
-                        ctx.fillRect(this.x + 10, this.y + 259 + 10, this.width - 15, this.height - 10);
-                        if (this.x - 10 < A1.x && this.x + this.width - 10 > A1.x && this.y - 10 < A1.y && this.y + this.height - 10 > A1.y && A1.point == false && cur != 1){
-                            points += 10;
-                            A1.point = true;
-
-                        }
-                        if (this.x - 10 < A2.x && this.x + this.width - 10 > A2.x && this.y + 115 - 10 < A2.y && this.y + this.height + 115 - 10 > A2.y && A2.point == false && cur != 2){
-                            points += 10;
-                            A2.point = true;
-                        }
-                        if (this.x - 10 < A3.x && this.x + this.width - 10 > A3.x && this.y + 173 - 10 < A3.y && this.y + this.height + 173 - 10 > A3.y && A3.point == false && cur != 3){
-                            points += 10;
-                            A3.point = true;
-                        }
-                        if (this.x - 10 < A4.x && this.x + this.width - 10 > A4.x && this.y + 259 - 10 < A4.y && this.y + this.height + 259 - 10 > A4.y && A4.point == false && cur != 4){
-                            points += 10;
-                            A4.point = true;
-                        }
-                    }
-                }
-
-                function updateGameArea() {
-                    myGameArea.clear();
-                    if (bool == false && clickedd) {
-                        window.addEventListener("mousemove", function (e) {
-                            myGameArea.x = e.pageX;
-                            myGameArea.y = e.pageY;
-                            })
-                        bool = true;
-                    }
-                    if (bool && clickedd){
-                        if (cur == "1") {
-                            A1.x = myGameArea.x - 25;
-                            A1.y = myGameArea.y - 25;           
-                        } else if (cur == "2"){
-                            A2.x = myGameArea.x - 25;
-                            A2.y = myGameArea.y - 25;            
-                        } else if (cur == "3"){
-                            A3.x = myGameArea.x - 25;
-                            A3.y = myGameArea.y - 25;            
-                        } else if (cur == "4"){
-                            A4.x = myGameArea.x - 25;
-                            A4.y = myGameArea.y - 25;            
-                        }
-                        
-
-                    }
-                    B.update();
-                    S.text = "Score: " + points;
-                    S.update();
-                    A1.update();
-                    A2.update();
-                    A3.update();
-                    A4.update();
-                    if (points == 40)  {
-                        C.update();
-                        setTimeout(function(){
-                            location.reload();
-                        },3000);
-                    }
-                }
-
-                </script>
-                <!-- -->
-            </center>
-        </div><!--end of game -->
-    </div><!-- End of game column-->
-
+    <!-- Section for where the game should go -->  
 </div>
 <div class="row">
     <div class="col-lg-12">
