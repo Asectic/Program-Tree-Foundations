@@ -57,23 +57,6 @@
       $("#lesson2_e2_bt").click(function(){$("#lesson2_e2").submit()});
       $("#lesson2_e3_bt").click(function(){$("#lesson2_e3").submit()});
     
-      $("#lesson2_e1_view_bt").click(function(){
-          $.get("/codehistory/2/exercise1",
-          function(data, status){
-          });
-      });
-      
-      $("#lesson2_e2_view_bt").click(function(){
-          $.get("/codehistory/2/exercise2",
-          function(data, status){
-          });
-      });
-      
-      $("#lesson2_e3_view_bt").click(function(){
-          $.gett("/codehistory/2/exercise3",
-          function(data, status){
-          });
-      });
     });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -616,7 +599,6 @@
               Name: <input type="text" name="name">
 
               <button name = "lesson2_e2_bt" type="submit"> Submit</button>
-              <button name = "lesson2_e3_view_bt" type="submit"> View History</button>
 
               </form>
               <textarea name = "lesson_name" form="lesson2_e2" style="display:none;">Pointers</textarea>
@@ -629,6 +611,9 @@
             ...
         }</textarea>
             <br>
+            <form action ="/codehistory/2/exercise2" method="get">
+              <button name = "lesson2_e2_view_bt" type="submit"> View History</button>
+            </form>
             <h1>Result</h1>
             <center>
             <div class = "result" id="lesson2_e2_result">Check your solution</div>
@@ -642,7 +627,7 @@
               <form action="/ajax_compile"method="post" id="lesson2_e3">
               Name: <input type="text" name="name">
               <button name = "lesson2_e3_bt" type="submit"> Submit</button>
-              <button name = "lesson2_e3_view_bt" type="submit"> View History</button>
+            
               </form>
               <textarea name = "lesson_name" form="lesson2_e3" style="display:none;">Pointers</textarea>
               <textarea name = "lesson_number" form="lesson2_e3" style="display:none;">2</textarea>
@@ -662,6 +647,9 @@
           ...
         }</textarea>
             <br>
+            <form action ="/codehistory/2/exercise3" method="get">
+              <button name = "lesson2_e3_view_bt" type="submit"> View History</button>
+            </form>
             <h1>Result</h1>
             <center>
             <div class = "result" id="lesson2_e3_result">Check your solution</div>

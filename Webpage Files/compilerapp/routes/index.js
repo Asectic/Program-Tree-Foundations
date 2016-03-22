@@ -349,9 +349,6 @@ module.exports = function(passport){
 		console.log(exercise_name);
 		console.log(lesson_number);
 	
-
-
-
 		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': lesson_number, 'name': exercise_name}, function(err, exercise){
 
 			if(err){
@@ -364,17 +361,11 @@ module.exports = function(passport){
 			}
 
 			res.render('codehistory', { title: "Code History", result: exercise});
-			//res.render('codehistory', { title: "Code History", result: exercise});
 
 		});
 
 	});
-/*
-	router.get('/codehistory', isLoggedIn, function(req, res, next){
 
-		res.render('codehistory', { title: "Code History", result: exercise});
-	});
-*/
 	return router;
 }
 
