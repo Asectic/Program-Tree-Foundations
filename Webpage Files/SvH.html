@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
-    position: absolute;
+    position: relative;
     border:1px solid #d3d3d3;
     style="z-index: 5;
 }
@@ -13,10 +13,10 @@ canvas {
 </head>
 <body onload="startGame()">
 
-<canvas id="myCanvas" width="600" height="463" style="border:1px solid #000000; z-index: -1;">
-</canvas>
 <script>
 
+
+var background;
 var S1;
 var S2;
 var S3;
@@ -30,10 +30,7 @@ var clickedd = false;
 var bool = false;
 var cur = "none";
 var done = false;
-var canvas = document.getElementById("myCanvas"),
-ctx = canvas.getContext("2d");
 
-var background = new Image();
 var s1 = new Image();
 var s2 = new Image();
 var s3 = new Image();
@@ -41,8 +38,8 @@ var h1 = new Image();
 var h2 = new Image();
 var h3 = new Image();
 var c = new Image();
+var back = new Image();
 
-background.src = "img/SvH.jpg";
 s1.src = "img/FA.png";
 s2.src = "img/LV.png";
 s3.src = "img/SL.png";
@@ -50,10 +47,7 @@ h1.src = "img/GV.png";
 h2.src = "img/SM.png";
 h3.src = "img/VR.png";
 c.src = "img/Yes.png";
-
-background.onload = function(){
-    ctx.drawImage(background,0,0);   
-}
+back.src = "img/SvH.jpg";
 
 function startGame() {
     
@@ -66,6 +60,9 @@ function startGame() {
 
     C = new component(200, 200, c.src, 200, 150, "image");
     B = new stack(150, 140, 28, 138);
+
+    background = new component(600, 463, back.src, 0, 0, "image");
+
     myGameArea.start();
 }
 
@@ -211,6 +208,7 @@ function updateGameArea() {
             H3.y = myGameArea.y - 50;            
         }
     }
+    background.update();
     B.update();
     S1.update();
     S2.update();
@@ -218,6 +216,7 @@ function updateGameArea() {
     H1.update();
     H2.update();
     H3.update();
+
     if (done == true)  {
         C.update();
         setTimeout(function(){
