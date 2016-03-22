@@ -341,12 +341,15 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
-	router.post('/codehistory', isLoggedIn, function(req, res, next){
-		console.log("---------------" + req.body.lesson_number + "---------------------------");
-		console.log(req.body.exercise_name);
+	router.get('/codehistory/lessonnumber/:lessonnum/exercisename/:exercisename', isLoggedIn, function(req, res, next){
+
+		var lesson_number = req.params.lessonnum;
+		var exercise_name = req.params.exercisename;
+	
 
 
-		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': req.body.lesson_number, 'name': req.body.exercise_name}, function(err, exercise){
+
+		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': lesson_number, 'name': exercise_name}, function(err, exercise){
 
 			if(err){
 
@@ -357,10 +360,16 @@ module.exports = function(passport){
 				throw new Error("exercise does not exist.");
 			}
 
-			res.render('codehistory', { title: "Code History", result: exercise});
+			res.redirect('/codehistory');
+			//res.render('codehistory', { title: "Code History", result: exercise});
 
 		});
 
+	});
+
+	router.get('/codehistory', isLoggedIn, function(req, res, next){
+
+		res.render('codehistory', { title: "Code History", result: exercise});
 	});
 
 	return router;

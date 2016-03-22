@@ -58,31 +58,19 @@
       $("#lesson2_e3_bt").click(function(){$("#lesson2_e3").submit()});
     
       $("#lesson2_e1_view_bt").click(function(){
-          $.post("/codehistory",
-          {
-              lesson_number: "2",
-              exercise_name: "exercise1"
-          },
+          $.get("/codehistory/2/exercise1",
           function(data, status){
           });
       });
       
       $("#lesson2_e2_view_bt").click(function(){
-          $.post("/codehistory",
-          {
-              lesson_number: "2",
-              exercise_name: "exercise2"
-          },
+          $.get("/codehistory/2/exercise2",
           function(data, status){
           });
       });
       
       $("#lesson2_e3_view_bt").click(function(){
-          $.post("/codehistory",
-          {
-              lesson_number: "2",
-              ex_name: "exercise3"
-          },
+          $.gett("/codehistory/2/exercise3",
           function(data, status){
           });
       });
