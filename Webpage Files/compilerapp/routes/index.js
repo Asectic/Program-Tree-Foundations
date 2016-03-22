@@ -343,7 +343,7 @@ module.exports = function(passport){
 
 	router.get('/codehistory', isLoggedIn, function(req, res, next){
 
-		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, exercise){
+		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': req.body.lesson_number, 'name': req.body.exercise_name}, function(err, exercise){
 
 			if(err){
 
