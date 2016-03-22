@@ -341,10 +341,13 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
-	router.get('/codehistory/lessonnumber/:lessonnum/exercisename/:exercisename', isLoggedIn, function(req, res, next){
+	router.get('/codehistory/:lessonnum/:exercisename', isLoggedIn, function(req, res, next){
 
 		var lesson_number = req.params.lessonnum;
 		var exercise_name = req.params.exercisename;
+		console.log(req.user._id);
+		console.log(exercise_name);
+		console.log(lesson_number);
 	
 
 
@@ -355,7 +358,7 @@ module.exports = function(passport){
 
 				throw err;
 			}
-			else if(!results.length){
+			else if(!exercise.length){
 
 				throw new Error("exercise does not exist.");
 			}
