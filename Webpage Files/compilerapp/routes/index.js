@@ -341,6 +341,25 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
+	router.get('/codehistory', isLoggedIn, function(req, res, next){
+
+		Exercise.findOne({'user_id' : req.user._id, 'lessonNumber': lesson_number, 'name':exercise_name}, function(err, exercise){
+
+			if(err){
+
+				throw err;
+			}
+			else if(!results.length){
+
+				throw new Error("exercise does not exist.");
+			}
+
+			res.render('codehistory', { title: "Code History", result: exercise});
+
+		});
+
+	});
+
 	return router;
 }
 

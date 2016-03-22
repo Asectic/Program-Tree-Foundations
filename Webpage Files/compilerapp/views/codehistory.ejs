@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title> <%= title %> </title>
+	</head>
+
+	<body>
+		<div>
+
+	    <% for (var i=0; i< result.pastAttempts.length; i++){%>
+			<tr>
+				<td>
+
+					<p> <%= result.pastAttempts[i] %>  </p>
+					
+				</td>
+			</tr>
+		<%} %>
+
+		</div>
+	</body>
+</html>
