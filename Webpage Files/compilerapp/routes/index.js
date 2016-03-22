@@ -358,23 +358,23 @@ module.exports = function(passport){
 
 				throw err;
 			}
-			else if(!exercise.length){
+			else if(!exercise){
 
 				throw new Error("exercise does not exist.");
 			}
 
-			res.redirect('/codehistory');
+			res.render('codehistory', { title: "Code History", result: exercise});
 			//res.render('codehistory', { title: "Code History", result: exercise});
 
 		});
 
 	});
-
+/*
 	router.get('/codehistory', isLoggedIn, function(req, res, next){
 
 		res.render('codehistory', { title: "Code History", result: exercise});
 	});
-
+*/
 	return router;
 }
 
