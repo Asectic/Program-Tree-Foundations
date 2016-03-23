@@ -16,8 +16,8 @@
 	<table id="codehistory" class="table table-bordered table-hover tablesorter text-left">
 		<thead>
 			<tr>
-				<th><span class="glyphicon glyphicon-tag"></span>&nbsp;Item Name</th>
-				<th><span class="glyphicon glyphicon-user"></span>&nbsp;Description</th>
+				<th><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Code</th>
+				<th><span class="glyphicon glyphicon-ok"></span>&nbsp;Result</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,8 +26,12 @@
 			<tr>
 				<td>
 
-					<p> <%= result.pastAttempts[i] %>  </p>
+					<p> <%= result.pastAttempts[i][0] %>  </p>
 					
+				</td>
+
+				<td>
+					<p> <%= result.pastAttempts[i][1] %> </p>
 				</td>
 			</tr>
 		<%} %>
