@@ -199,13 +199,23 @@ form {
     border-color: #D3E4E9;
 
     overflow-y: scroll;
+    overflow-x:scroll;
     height:100vh;
     z-index:-5;
 
 }
-#pull_right{
-    float: right;
+
+object{
+    height: 100%;
+    width: 100%;
 }
-#pull_left{
-    float: left;
+
+#pointer_content{
+    height: 100%;
+    width: 100%;
+}
+
+#mem_content{
+    height: 100%;
+    width: 100%;
 }
