@@ -176,7 +176,7 @@ module.exports = function(passport){
 						if(lessons.passlesson3){
 							percent_completed += 1;
 						}
-					}
+					
 					res.render('pointer_exercise', {title: 'Pointer', user: req.user_id, ex_status: exercises_status, lesson_status: percent_completed/3 });
 				});
 
