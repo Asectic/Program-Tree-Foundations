@@ -2,7 +2,7 @@ body {
     background-color: lightgrey;
 }
 
-/* Main elements of the page s*/
+/* Main elements of the page  and all relevant div elements go here */
 .top {
     
     /* TL TR BR BL */
@@ -38,7 +38,6 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 
 /* ====================================================================== */
 
@@ -93,8 +92,15 @@ h2, h3 {
     background-color: transparent;
 }
 
+h4 {
+    color: black;
+    font-size: 10px;
+    background-color: transparent;
+}
+
 .result{
     border: solid;
     padding: 30px;
     width: 600px;
 }
+
