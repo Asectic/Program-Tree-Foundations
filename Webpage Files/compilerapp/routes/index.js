@@ -153,7 +153,36 @@ module.exports = function(passport){
 	router.get('/pointers', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('pointer_exercise', {title: 'Pointer', user: req.user_id});
+			
+			Exercise.findOne({'user_id': req.user._id, 'lessonNumber': 2}, function(err, exercises){
+
+				var exercises_status = [];
+				var percent_completed = 0;
+
+				for(var i = 0; i < exercises.length; i++){
+
+					exercises_status.push(exercises.completed);
+
+				}
+
+				Lesson.findOne({'user_id': req.user_id, 'lessonNumber': 2}, function(err, lessons){
+
+					for(var i = 0; i < lessons.length; i++){
+						if(lessons.passlesson1){
+							percent_completed += 1;
+						}
+						if(lessons.passlesson2){
+							percent_completed += 1;
+						}
+						if(lessons.passlesson3){
+							percent_completed += 1;
+						}
+					}
+					res.render('pointer_exercise', {title: 'Pointer', user: req.user_id, ex_status: exercises_status, lesson_status: percent_completed/3 });
+				});
+
+			});
+
 		}
 
 		res.render('pointer_exercise', {title: 'Pointer'});
