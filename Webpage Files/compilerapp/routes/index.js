@@ -167,7 +167,6 @@ module.exports = function(passport){
 
 				Lesson.findOne({'user_id': req.user_id, 'lessonNumber': 2}, function(err, lessons){
 
-					for(var i = 0; i < lessons.length; i++){
 						if(lessons.passlesson1){
 							percent_completed += 1;
 						}
