@@ -154,7 +154,7 @@ module.exports = function(passport){
 
 		if(req.isAuthenticated()){
 			
-			Exercise.findOne({'user_id': req.user._id, 'lessonNumber': 2}, function(err, exercises){
+			Exercise.findOne({'user_id': req.user._id, 'lessonNumber': "2"}, function(err, exercises){
 
 				var exercises_status = [];
 				var percent_completed = 0;
@@ -165,7 +165,7 @@ module.exports = function(passport){
 
 				}
 
-				Lesson.findOne({'user_id': req.user_id, 'lessonNumber': 2}, function(err, lessons){
+				Lesson.findOne({'user_id': req.user_id, 'lessonNumber': "2"}, function(err, lessons){
 
 						if(lessons.passlesson1){
 							percent_completed += 1;
@@ -177,7 +177,7 @@ module.exports = function(passport){
 							percent_completed += 1;
 						}
 					
-					res.render('pointer_exercise', {title: 'Pointer', user: req.user_id, ex_status: exercises_status, lesson_status: percent_completed/3 });
+					res.render('pointer_exercise', {title: 'Pointer', user: req.user_id, ex_status: exercises_status, lesson_status: percent_completed });
 				});
 
 			});
