@@ -8,6 +8,19 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+            <script type="text/javascript">
+                    <!--
+                        function toggle_visibility(id) {
+                           var e = document.getElementById(id);
+                           if(e.style.display == 'block')
+                              e.style.display = 'none';
+                           else
+                              e.style.display = 'block';
+                        }
+                    //-->
+            </script>
+        
     </head>
     
 <body onload = "load_game()">
@@ -15,12 +28,13 @@
   <div class="row"><br>
     <div class = "col-lg-12 top text-center">
         <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-        <div class="btn-group">
-          <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
-          <a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
-          <a href="/login"><button type="button" class="btn btn-success">Login</button></a>
-          <a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
-      </div>
+                <ul>
+                    <br><font size="6" color=white face="fantasy">Progamming Tree Foundations</font><br>
+                    <li><a href="/">Home</a></li>                    
+                    <li><a href="/lessons">Lessons</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Register</a></li>
+                </ul>
     </div>
   </div> 
 <!-- Programming Tree Interface Panel -->
@@ -55,21 +69,47 @@
             <p>The diagram above is the staple virtual address memory design, where Stack is found on the top end of memory and the heap allocated on bottom portion of memory. In order for the different memory allocations and free of certain variables in memory to not interfere with each other heap and stack allocations are differentiated on opposite sides of the memory model.</p>
             
             <p>The stack allocates memory in a LIFO order while the heap does not have any forced allocation and deallocation pattern. This layout ensures that the programmer does not need to be concerned on how much size each process or variables would take in memory (e.g. int is 4 bytes, Person class is 24 bytes, etc) and need to take the tedious process of choosing where in the memory model to allocate each and every process in the address space.</p>
+               
+            <div id="popupBoxTwoPosition">
+                <div class="popupBoxWrapper">
+                    <div class="popupBoxContent">
+
+                        <!-- Exercise Content -->
+                        <center>
+                            <h2>Exercises</h2>
+
+                            <p>To be implemented soon. </p>
+
+
+                        <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">[CLOSE]</a></p>
+                        </center>
+
+
+                    </div> <!-- popupBoxContent end-->
+                </div>  <!-- popupBoxWrapper end-->
+            </div><!-- popupBoxTwoPosition end-->     
+                
+                    <h1>Exercises: Memory Allocation</h1> <br>
+        <!-- End of exercises popup content -->  
+
+        <!-- THE BUTTONS OR NODE STYLINGS WOULD GO HERE -->
+        <div id="wrapper">
+            <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">Problems</a></p>   
+        </div> <!--  Wrapper end-->
             
+                
             </center>
+            
+            
+            
         </div><!-- End of Main-->
     </div><!-- End of main column-->
     <!-- Section for where the game should go -->  
 </div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class = "exercise">
-            <center>
-                <h1>Exercise</h1>
-            </center>
-        </div>
-    </div>
-</div>
+    
+
+    
+                                        
 </body>
     
      

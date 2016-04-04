@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      
+    <!--<script type="text/javascript" src="/public/javascripts/popup.js"></script>  -->
+    <script type="text/javascript">
+			<!--
+			    function toggle_visibility(id) {
+			       var e = document.getElementById(id);
+			       if(e.style.display == 'block')
+			          e.style.display = 'none';
+			       else
+			          e.style.display = 'block';
+			    }
+			//-->
+    </script>
     <script>
     $(document).ready(function() {
       $("#lesson2_e1").submit(function(e){
@@ -57,6 +70,7 @@
       $("#lesson2_e2_bt").click(function(){$("#lesson2_e2").submit()});
       $("#lesson2_e3_bt").click(function(){$("#lesson2_e3").submit()});
     });
+        
     </script>
   </head>
     
@@ -66,18 +80,20 @@
   <div class="row"><br>
     <div class = "col-lg-12 top text-center">
         <font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-        <div class="btn-group">
-          <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
-          <a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
-          <a href="/login"><button type="button" class="btn btn-success">Login</button></a>
-          <a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
-      </div>
+                <ul>
+                    <br><font size="6" color=white face="fantasy">Progamming Tree Foundations</font><br>
+                    <li><a href="/">Home</a></li>                    
+                    <li><a href="/lessons">Lessons</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Register</a></li>
+                </ul>
     </div>
   </div> 
     
 <!-- Programming Tree Interface Panel -->
   <div class = "row">
     <div class = "col-lg-6">
+        
       <!-- Section for where the game should go --> 
         <div class = "game">
             <div id ="pointer_content"> Game: Memory Allocation and Pointers.</div>
@@ -87,6 +103,7 @@
               }
             </script>           
         </div><!--end of game -->
+        
     </div> <!--End of game column-->
 
     <div class = "col-lg-6">
@@ -335,120 +352,139 @@
       </center>
           </tbody>
           </table>   
+          
+        
+        <!-- POPUPS FOR EXERCISES-->  
+                    
+        <div id="popupBoxTwoPosition">
+            <div class="popupBoxWrapper">
+                <div class="popupBoxContent">
+
+                    <!-- Exercise Content -->
+                    <center>
+                        <h2>Exercises</h2>
+                        <q1>
+                            <h1>EX.1</h1>
+                            Complete the function print_addr() and print the memory address of x using both printf and print_addr.<br>
+                            Compare the Results.<br>
+
+                            <form action="/ajax_compile" method="post" id="lesson2_e1"><br>
+                            Name: <input type="text" name="name">
+                            <button name = "lesson2_e1_bt" type="submit"> Submit</button>
+                            </form>
+
+                            <textarea name = "lesson_name" form="lesson2_e1" style="display:none;">Pointers</textarea>
+                            <textarea name = "lesson_number" form="lesson2_e1" style="display:none;">2</textarea>
+                            <textarea name = "exercise_name" form="lesson2_e1" style="display:none;">exercise1</textarea>
+
+                            <textarea rows="15" cols="70" name="code" form="lesson2_e1">#include <stdio.h>
+                            int * print_addr(int x){
+                               ...
+                            }</textarea><!-- End of first command -->
+
+                            <br>
+                                    <form action ="/codehistory/2/exercise1" method="get">
+                                      <button name = "lesson2_e1_view_bt" type="submit"> View History</button>
+                                    </form>
+                                    <h1>Result</h1>
+                                    <center>
+                                    <div class = "result" id="lesson2_e1_result">Check your solution</div>
+                                    </center>
+                                    </q1>
+                                    <br><br>
+                                    <q2>
+                                        <h1>EX.2</h1>
+                                      Complete the function swap() to swap the value stored at input1 and input2. 
+                                      <br>
+                                      <form action="/ajax_compile"method="post" id="lesson2_e2">
+                                      Name: <input type="text" name="name">
+
+                                      <button name = "lesson2_e2_bt" type="submit"> Submit</button>
+
+                                      </form>
+                                      <textarea name = "lesson_name" form="lesson2_e2" style="display:none;">Pointers</textarea>
+                                      <textarea name = "lesson_number" form="lesson2_e2" style="display:none;">2</textarea>
+                                      <textarea name = "exercise_name" form="lesson2_e2" style="display:none;">exercise2</textarea>
+
+                                      <textarea rows="15" cols="70" name="code" form="lesson2_e2">#include <stdio.h>
+
+                                  void swap(<input1>, <input2>){
+                                    ...
+                                }</textarea>
+                                    <br>
+                                    <form action ="/codehistory/2/exercise2" method="get">
+                                      <button name = "lesson2_e2_view_bt" type="submit"> View History</button>
+                                    </form>
+                                    <h1>Result</h1>
+                                    <center>
+                                    <div class = "result" id="lesson2_e2_result">Check your solution</div>
+                                    </center>
+                                    </q2>
+                                    <br><br>
+                                    <q3>
+                                        <h1>Ex.3</h1>
+                                      Complete the function *new_student() for creating new struct Student.   
+                                      <br>
+                                      <form action="/ajax_compile"method="post" id="lesson2_e3">
+                                      Name: <input type="text" name="name">
+                                      <button name = "lesson2_e3_bt" type="submit"> Submit</button>
+
+                                      </form>
+                                      <textarea name = "lesson_name" form="lesson2_e3" style="display:none;">Pointers</textarea>
+                                      <textarea name = "lesson_number" form="lesson2_e3" style="display:none;">2</textarea>
+                                      <textarea name = "exercise_name" form="lesson2_e3" style="display:none;">exercise3</textarea>
+                                      <textarea rows="15" cols="70" name="code" form="lesson2_e3">#include <stdio.h>
+
+                                #include <stdlib.h>
+
+                                struct Student {
+                                    char *name;
+                                    int u_id;
+                                    int year;
+                                    char *program;
+                                };
+
+                                  //a function that creates a Student
+                                struct Student *new_student(<name>, <u_id>, <year>, <program>){
+                                  ...
+                                }
+                                    </textarea>
+
+                                    <br>
+                                    <form action ="/codehistory/2/exercise3" method="get">
+                                      <button name = "lesson2_e3_view_bt" type="submit"> View History</button>
+                                    </form>
+                                    <h1>Result</h1>
+                                    <center>
+                                    <div class = "result" id="lesson2_e3_result">Check your solution</div>
+                                    </center>
+                                    </q3>
+                                    <br><br>
+
+                        </q1>
+                                          
+                                          
+                    <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">[CLOSE]</a></p>
+                    </center>
+                                        
+
+                </div> <!-- popupBoxContent end-->
+            </div>  <!-- popupBoxWrapper end-->
+        </div><!-- popupBoxTwoPosition end-->
+
+          
+        <h1>Exercises: Pointers</h1> <br>
+        <!-- End of exercises popup content -->  
+
+        <!-- THE BUTTONS OR NODE STYLINGS WOULD GO HERE -->
+        <div id="wrapper">
+            <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">Problems</a></p>   
+        </div> <!--  Wrapper end-->
+          
         </center>
       </div><!-- End of content or main -->
     </div><!-- End of main column-->
   </div><!-- End of 1st row-->
-    
-  <!-- EXERCISES FOR THE CONTENT --> 
-
-  <div class = "row">
-    <div class = "col-lg-12">
-      <div class = "exercise">
-        <center>
-            <h2>Exercises</h2>
-           <q1>
-              <h1>EX.1</h1>
-              Complete the function print_addr() and print the memory address of x using both printf and print_addr.
-              <br>Compare the results. 
-              <br>
-              <form action="/ajax_compile" method="post" id="lesson2_e1">
-              <br>
-              Name: <input type="text" name="name">
-              <button name = "lesson2_e1_bt" type="submit"> Submit</button>
-
-              </form>
-              <textarea name = "lesson_name" form="lesson2_e1" style="display:none;">Pointers</textarea>
-              <textarea name = "lesson_number" form="lesson2_e1" style="display:none;">2</textarea>
-              <textarea name = "exercise_name" form="lesson2_e1" style="display:none;">exercise1</textarea>
-
-              <textarea rows="15" cols="70" name="code" form="lesson2_e1">#include <stdio.h>
-
-
-        int * print_addr(int x){
-          ...
-        }</textarea>
-            <br>
-            <form action ="/codehistory/2/exercise1" method="get">
-              <button name = "lesson2_e1_view_bt" type="submit"> View History</button>
-            </form>
-            <h1>Result</h1>
-            <center>
-            <div class = "result" id="lesson2_e1_result">Check your solution</div>
-            </center>
-            </q1>
-            <br><br>
-            <q2>
-                <h1>EX.2</h1>
-              Complete the function swap() to swap the value stored at input1 and input2. 
-              <br>
-              <form action="/ajax_compile"method="post" id="lesson2_e2">
-              Name: <input type="text" name="name">
-
-              <button name = "lesson2_e2_bt" type="submit"> Submit</button>
-
-              </form>
-              <textarea name = "lesson_name" form="lesson2_e2" style="display:none;">Pointers</textarea>
-              <textarea name = "lesson_number" form="lesson2_e2" style="display:none;">2</textarea>
-              <textarea name = "exercise_name" form="lesson2_e2" style="display:none;">exercise2</textarea>
-
-              <textarea rows="15" cols="70" name="code" form="lesson2_e2">#include <stdio.h>
-                
-          void swap(<input1>, <input2>){
-            ...
-        }</textarea>
-            <br>
-            <form action ="/codehistory/2/exercise2" method="get">
-              <button name = "lesson2_e2_view_bt" type="submit"> View History</button>
-            </form>
-            <h1>Result</h1>
-            <center>
-            <div class = "result" id="lesson2_e2_result">Check your solution</div>
-            </center>
-            </q2>
-            <br><br>
-            <q3>
-                <h1>Ex.3</h1>
-              Complete the function *new_student() for creating new struct Student.   
-              <br>
-              <form action="/ajax_compile"method="post" id="lesson2_e3">
-              Name: <input type="text" name="name">
-              <button name = "lesson2_e3_bt" type="submit"> Submit</button>
-            
-              </form>
-              <textarea name = "lesson_name" form="lesson2_e3" style="display:none;">Pointers</textarea>
-              <textarea name = "lesson_number" form="lesson2_e3" style="display:none;">2</textarea>
-              <textarea name = "exercise_name" form="lesson2_e3" style="display:none;">exercise3</textarea>
-              <textarea rows="15" cols="70" name="code" form="lesson2_e3">#include <stdio.h>
-        #include <stdlib.h>
-
-        struct Student {
-            char *name;
-            int u_id;
-            int year;
-            char *program;
-        };
-
-          //a function that creates a Student
-        struct Student *new_student(<name>, <u_id>, <year>, <program>){
-          ...
-        }</textarea>
-            <br>
-            <form action ="/codehistory/2/exercise3" method="get">
-              <button name = "lesson2_e3_view_bt" type="submit"> View History</button>
-            </form>
-            <h1>Result</h1>
-            <center>
-            <div class = "result" id="lesson2_e3_result">Check your solution</div>
-            </center>
-            </q3>
-            <br><br>
-      </center>
-      </div>
-      <!--End of exercise-->
-    </div><!--End of exercise column-->
-  </div><!-- End of 2nd row-->
-
 
 </body>   
      
