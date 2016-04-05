@@ -15,9 +15,11 @@ module.exports = function(passport){
 
 		if(req.isAuthenticated()){
 
-			res.render('index', { title: 'Progamming Tree Foundations', user: req.user });
+			res.render('index', { title: 'Progamming Tree Foundations', user: req.user, loggedIn: req.isAuthenticated() });
 		}
-  		res.render('index', { title: 'Progamming Tree Foundations' });
+  		else{
+  			res.render('index', { title: 'Progamming Tree Foundations', loggedIn: req.isAuthenticated() });
+  		}
 	});
 
 	//display the textbox page where the code will be typed
@@ -68,22 +70,22 @@ module.exports = function(passport){
 
 		if(req.isAuthenticated()){
 
-			res.render('lessons', {title: 'Progamming Tree Foundations', user: req.user});
+			res.render('lessons', {title: 'Progamming Tree Foundations', user: req.user, loggedIn: req.isAuthenticated()});
 		}
-
-		res.render('lessons', {title: 'Progamming Tree Foundations'});
-
+		else{
+			res.render('lessons', {title: 'Progamming Tree Foundations', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	router.get('/signup', function(req, res, next){
 
 		if(req.isAuthenticated()){
 			
-			res.render('signup', {title: 'Progamming Tree Foundations', user: req.user});
+			res.render('signup', {title: 'Progamming Tree Foundations', user: req.user, loggedIn: req.isAuthenticated()});
 		}
-
-		res.render('signup', {title: 'Progamming Tree Foundations'});
-
+		else{
+			res.render('signup', {title: 'Progamming Tree Foundations', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	router.post('/signup', passport.authenticate('local-signup', {
@@ -94,9 +96,11 @@ module.exports = function(passport){
 	router.get('/login', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('login', {title: 'Progamming Tree Foundations', user: req.user});
+			res.render('login', {title: 'Progamming Tree Foundations', user: req.user, loggedIn: req.isAuthenticated()});
 		}
-		res.render('login', {title: 'Progamming Tree Foundations'});
+		else{
+			res.render('login', {title: 'Progamming Tree Foundations', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
@@ -106,35 +110,35 @@ module.exports = function(passport){
 
 	router.get('/signupsuccess',isLoggedIn, function(req, res, next){
 
-		res.render('signupsuccess', {title: 'Signed up Successfully!', user: req.user});
+		res.render('signupsuccess', {title: 'Signed up Successfully!', user: req.user, loggedIn: req.isAuthenticated()});
 
 	});
 
 	router.get('/loginsuccess', isLoggedIn, function(req, res, next){
 
 
-		res.render('loginsuccess', {title: 'Logged In Successfully!', user: req.user});
+		res.render('loginsuccess', {title: 'Logged In Successfully!', user: req.user, loggedIn: req.isAuthenticated()});
 
 	});
 
 	router.get('/chapter1', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('chapter1', {title: 'Chapter 1', user: req.user_id});
+			res.render('chapter1', {title: 'Chapter 1', user: req.user_id, loggedIn: req.isAuthenticated()});
 		}
-
-		res.render('chapter1', {title: 'Chapter 1'});
-
+		else{
+			res.render('chapter1', {title: 'Chapter 1', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	router.get('/chapter2', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('chapter2', {title: 'Chapter 2', user: req.user_id});
+			res.render('chapter2', {title: 'Chapter 2', user: req.user_id, loggedIn: req.isAuthenticated()});
 		}
-
-		res.render('chapter2', {title: 'Chapter 2'});
-
+		else{
+			res.render('chapter2', {title: 'Chapter 2', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 
@@ -146,7 +150,7 @@ module.exports = function(passport){
 
 	router.get('/memoryGame', function(req, res, next){
 
-		res.render('memorygame', {title: 'Memory Model Game'});
+		res.render('memorygame', {title: 'Memory Model Game', loggedIn: req.isAuthenticated()});
 	});
 
 	//new addon
@@ -177,7 +181,7 @@ module.exports = function(passport){
 							percent_completed += 1;
 						}
 					console.log(req.user._id);
-					res.render('pointer_exercise', {title: 'Pointer', user: req.user._id, ex_status: exercises_status, lesson_status: percent_completed });
+					res.render('pointer_exercise', {title: 'Pointer', user: req.user._id, ex_status: exercises_status, lesson_status: percent_completed, loggedIn: req.isAuthenticated() });
 				});
 
 			});
@@ -185,7 +189,8 @@ module.exports = function(passport){
 		}
 		else{
 
-		res.render('pointer_exercise', {title: 'Pointer'});
+		res.render('pointer_exercise', {title: 'Pointer', loggedIn: req.isAuthenticated()});
+		
 		}
 	});
 
@@ -193,28 +198,33 @@ module.exports = function(passport){
 	router.get('/basic', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('basic_syntax', {title: 'Basic Syntax', user: req.user_id});
+			res.render('basic_syntax', {title: 'Basic Syntax', user: req.user_id, loggedIn: req.isAuthenticated()});
 		}
-
-		res.render('basic_syntax', {title: 'Basic Syntax'});
+		else{
+			res.render('basic_syntax', {title: 'Basic Syntax', loggedIn: req.isAuthenticated()});
+		}
+		
 	});
 
 	router.get('/memorymodel', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('memory_model', {title: 'Memory Model', user: req.user_id});
+			res.render('memory_model', {title: 'Memory Model', user: req.user_id, loggedIn: req.isAuthenticated()});
 		}
 
-
-		res.render('memory_model', {title: 'Memory Model'});
+		else{
+			res.render('memory_model', {title: 'Memory Model', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	router.get('/variable', function(req, res, next){
 
 		if(req.isAuthenticated()){
-			res.render('variable', {title: 'Variable', user: req.user_id});
+			res.render('variable', {title: 'Variable', user: req.user_id, loggedIn: req.isAuthenticated()});
 		}
-		res.render('variable', {title: 'Variable'});
+		else{
+			res.render('variable', {title: 'Variable', loggedIn: req.isAuthenticated()});
+		}
 	});
 
 	//handle ajax post
@@ -391,7 +401,7 @@ module.exports = function(passport){
 				throw new Error("exercise does not exist.");
 			}
 
-			res.render('codehistory', { title: "Code History", result: exercise});
+			res.render('codehistory', { title: "Code History", result: exercise, loggedIn: req.isAuthenticated()});
 
 		});
 
