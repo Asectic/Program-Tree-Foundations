@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> <%= title %> </title>
+    <title> <%= lesson_status %> </title>
       
     <link href="/stylesheets/pageStyle.css" type="text/css" rel="stylesheet" /> 
 
@@ -37,7 +37,7 @@
               $("#lesson2_e2_result").append(data.details);
           });
 
-          e.preventDefault(); // avoid to execute the actual submit of the form.
+          e.preventDefault(); // avoid to execute the actual submit of the lesson_status
       });
 
       $("#lesson2_e3").submit(function(e){
