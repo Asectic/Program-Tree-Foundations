@@ -158,15 +158,13 @@ module.exports = function(passport){
 
 		if(req.isAuthenticated()){
 			
-			Exercise.findOne({'user_id': req.user._id, 'lessonNumber': "2"}, function(err, exercises){
+			Exercise.find({'user_id': req.user._id, 'lessonNumber': "2", 'completed' : "true"}, function(err, exercises){
 
 				var exercises_status = [];
 				var percent_completed = 0;
 
 				for(var i = 0; i < exercises.length; i++){
-
-					exercises_status.push(exercises.completed);
-
+					exercises_status.push(exercises[i].name);
 				}
 
 				Lesson.findOne({'user_id': req.user._id, 'lessonNumber': "2"}, function(err, lessons){
@@ -181,15 +179,17 @@ module.exports = function(passport){
 							percent_completed += 1;
 						}
 					console.log(req.user._id);
+					console.log(exercises_status);
+					console.log(percent_completed);
+					console.log(req.isAuthenticated());
 					res.render('pointer_exercise', {title: 'Pointer', user: req.user._id, ex_status: exercises_status, lesson_status: percent_completed, loggedIn: req.isAuthenticated() });
 				});
 
 			});
 
-		}
-		else{
+		}else{
 
-		res.render('pointer_exercise', {title: 'Pointer', loggedIn: req.isAuthenticated()});
+			res.render('pointer_exercise', {title: 'Pointer', loggedIn: req.isAuthenticated()});
 		
 		}
 	});
