@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    position: relative;
+    border:1px solid #d3d3d3;
+    style="z-index: 5;
+}
+</style>
+</head>
+<body onload="startGame()">
+
+<script>
+var background;
+
+var S1;
+var S2;
+var S3;
+var S4;
+var S5;
+var S6;
+var S7;
+
+var C;
+
+var clickedd = false;
+var bool = false;
+var cur = [];
+var done = false;
+var c = new Image();
+var back = new Image();
+c.src = "img/Yes.png";
+back.src = "img/syn.png";
+function startGame() {
+    
+    S1 = new component(22, 22, "rgba(225,0,0,0.6)", 145, 90, "piece");
+    S2 = new component(22, 22, "rgba(225,0,0,0.6)", 45, 225, "piece");
+    S3 = new component(22, 22, "rgba(225,0,0,0.6)", 85, 255, "piece");
+    S4 = new component(22, 22, "rgba(225,0,0,0.6)", 110, 405, "piece");
+    S5 = new component(22, 22, "rgba(225,0,0,0.6)", 145, 585, "piece");
+    S6 = new component(22, 22, "rgba(225,0,0,0.6)", 142, 720, "piece");
+    S7 = new component(22, 22, "rgba(225,0,0,0.6)", 110, 870, "piece");
+    C = new component(200, 200, c.src, 200, 350, "image");
+    background = new component(678, 946, back.src, 0, 0, "image");
+    myGameArea.start();
+}
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 678;
+        this.canvas.height = 946;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener("mousedown", function (e) {
+            myGameArea.x = e.pageX - 6;
+            myGameArea.y = e.pageY - 6;
+
+            if (S1.clicked() && cur.indexOf("1") < 0){
+                cur.push("1");
+            } else if (S2.clicked() && cur.indexOf("2") < 0){
+                cur.push("2");
+            } else if (S3.clicked() && cur.indexOf("3") < 0){
+                cur.push("3");
+            } else if (S4.clicked() && cur.indexOf("4") < 0){
+                cur.push("4");
+            } else if (S5.clicked() && cur.indexOf("5") < 0){
+                cur.push("5");
+            } else if (S6.clicked() && cur.indexOf("6") < 0){
+                cur.push("6");
+            } else if (S7.clicked() && cur.indexOf("7") < 0){
+                cur.push("7");
+            } 
+
+        })
+    }, 
+    clear : function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.point = false;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage(this.image, 
+            this.x, 
+            this.y,
+            this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.clicked = function() {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var clicked = true;
+        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y)
+         || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+            clicked = false;
+        }
+        return clicked;
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    if (bool == false && clickedd) {
+        bool = true;
+    }
+    background.update();
+    if (cur.indexOf("1") >= 0) {
+        S1.update();
+    }
+    if (cur.indexOf("2") >= 0){
+        S2.update();     
+    }       
+    if (cur.indexOf("3") >= 0){
+        S3.update();       
+    }      
+    if (cur.indexOf("4") >= 0){
+        S4.update();       
+    }      
+    if (cur.indexOf("5") >= 0){
+        S5.update();   
+    }        
+    if (cur.indexOf("6") >= 0){
+        S6.update();     
+    }      
+    if (cur.indexOf("7") >= 0){
+        S7.update();           
+    }
+    
+    if (cur.length > 6)  {
+        C.update();
+        setTimeout(function(){
+            location.reload();
+        },3000);
+    }
+}
+</script>
+</body>
+</html>
