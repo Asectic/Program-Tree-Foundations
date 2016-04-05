@@ -7,9 +7,15 @@
     	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     	<!-- Latest compiled JavaScript -->
     	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    	<script>
+      	function run_script(){
+          document.getElementById("syntax_content").innerHTML='<object type="text/html" data="/stylesheets/Syntax.html" ></object>';
+      	}
+      	</script>
 	</head>
     
-	<body>
+	<body onload="run_script()">
 		<!-- Website Title and Navigation Bar -->
 		<div class="row"><br>
 			<div class = "col-lg-12 top text-center">
@@ -27,11 +33,7 @@
 	<div class="row">
 		<div class = "col-lg-6">
 			<div class = "game">
-				<center>
-					<h1>
-						Game
-					</h1>
-				</center>
+					<div id ="syntax_content"> </div> 
 			</div><!--End of game-->
 		</div><!--End of game column-->		
 		<div class = "col-lg-6">
