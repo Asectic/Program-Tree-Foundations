@@ -8,13 +8,25 @@ body {
     overflow-x: hidden;
 }
 
+
+#fixed-menu
+{
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    background-color: #f00;
+    padding: 10px;
+}
+
+
 /* Main elements of the page  and all relevant div elements go here */
 .top {
 
+    position: fixed;
     /*background: linear-gradient(#A2ADBC, #D9E2E1, #A2ADBC);*/
     background: #333;
     
-    position: absolute;
+    position: fixed;
     height: 93px;
     align-content: center;
     
@@ -35,13 +47,75 @@ body {
 }
 
 .welcome {
-    position: fixed;
+    width: 100%;
+    height: 600px;
     background-color: transparent;
-    top:60px;
-    width: 90%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding: 10px;
 }
+
+.spacer
+{
+    width: 100%;
+    height: 95px;
+}
+
+/* Navigation Bar CSS ================================================ */
+ul {
+    /* Keep navi fixed even when user scrolls down page*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+    text-align:center;
+    padding: 10px;
+    
+}
+
+li {
+    float: left;
+    margin: 0 auto;
+    border-right: 1px solid #bbb;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+    display: inline;
+    
+}
+
+li:last-child {
+    border-right: none;
+    margin: 0 auto;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+}
+
+li a {
+    display: block;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+li a:hover {
+    background-color: #111;
+}
+/* ====================================================================== */
+
+
+
+
+
 
 /* ====================================================================== */
 
@@ -126,56 +200,4 @@ input.form-control {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-/* Navigation Bar CSS */
-ul {
-    /* Keep navi fixed even when user scrolls down page*/
-    position: fixed;
-    top: 0;
-    width: 100%;
-    
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    background-position: center;
-    align-content: center;
-    text-align:center;
-    padding: 10px;
-}
 
-li {
-    float: left;
-    border-right: 1px solid #bbb;
-    background-color: #333;
-    background-position: center;
-    align-content: center;
-    display: inline;
-    
-}
-
-li:last-child {
-    border-right: none;
-    background-color: #333;
-    background-position: center;
-    align-content: center;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-.spacer
-{
-    width: 100%;
-    height: 95px;
-}
