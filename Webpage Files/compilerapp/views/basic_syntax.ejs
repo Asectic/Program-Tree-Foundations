@@ -7,33 +7,64 @@
     	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     	<!-- Latest compiled JavaScript -->
     	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript">
+			<!--
+			    function toggle_visibility(id) {
+			       var e = document.getElementById(id);
+			       if(e.style.display == 'block')
+			          e.style.display = 'none';
+			       else
+			          e.style.display = 'block';
+			    }
+			//-->
+        </script>
+        
 	</head>
     
 	<body>
 		<!-- Website Title and Navigation Bar -->
 		<div class="row"><br>
 			<div class = "col-lg-12 top text-center">
-	    		<font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
+	    		<!--<font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
 	    		<div class="btn-group">
-	  				<a href="/"><button type="button" class="btn btn-primary">Home</button></a>
-	  				<a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
-	  				<a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
-	  				<a href="/login"><button type="button" class="btn btn-success">Login</button></a>
-				</div>
+                  <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+                  <a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
+                  <a href="/login"><button type="button" class="btn btn-success">Login</button></a>
+                  <a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
+				</div>-->
+                
+                <ul>
+                    <br><font size="6" color="white" face="fantasy">Progamming Tree Foundations</font><br>
+                    <li><a href="/">Home</a></li>                    
+                    <li><a href="/lessons">Lessons</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Register</a></li>
+                </ul>
+
 			</div>
 		</div> 
 	    
+        
 		<!-- Content Itself, opens when user clicks something.-->
 	<div class="row">
-		<div class = "col-lg-6">
-			<div class = "game">
-				<center>
-					<h1>
-						Game
-					</h1>
-				</center>
-			</div><!--End of game-->
-		</div><!--End of game column-->		
+
+        <div class = "col-lg-6">
+        
+          <!-- Section for where the game should go --> 
+            <div class = "game">
+                <div id ="pointer_content"> Game: Memory Allocation and Pointers.</div>
+                <script>
+                   function load_game(){
+                  document.getElementById("pointer_content").innerHTML='<object type="text/html" data="/stylesheets/game.html" ></object>';
+                  }
+                </script>           
+            </div><!--end of game -->
+
+        </div> <!--End of game column-->
+        
+        
+        
 		<div class = "col-lg-6">
 			<div class="main">
 			    <h1>Basic Structure of a C program:</h1>
@@ -46,21 +77,19 @@
 			statements 
 		}
 					</pre>
-					<ul>
-						<li><b>Directives</b> are commands that editing commands thaat modify the program prior to compilation </li>
-						<li><b>Functions</b> are blocks of executable codes </li>
-						<li><b>Statements</b> are commands to be performed when the program is run. </li>
-					</ul>
+
+						1. <b>Directives</b> are commands that editing commands thaat modify the program prior to compilation <br>
+						2. <b>Functions</b> are blocks of executable codes <br>
+						3. <b>Statements</b> are commands to be performed when the program is run. <br>
+
 					<h1>Main Function:</h1>
 					<p>For now, it is enough to know that the only directive we will be using is: 
 						<div class = "well">#include <stdio.h> </div>
 						and that the only function we will be using is 
 						<div class = "well"> int main(void){}</div> 
 					</p>
-					<ul>
-						<li>In C, the main function is mandatory. main is special because it gets called automatically when the program is executed. </li>
-						<li>The main function returns a value 0. This is a status code that is given to the operating system when the program terminates. It's okay if you do not fully understand this right now. It is most important to note that the "return 0;" will be the end of your main function for any of the programs that you write for these tutorials.  </li>
-					</ul>
+						1.In C, the main function is mandatory. main is special because it gets called automatically when the program is executed. <br><br>
+						2. The main function returns a value 0. This is a status code that is given to the operating system when the program terminates. It's okay if you do not fully understand this right now. It is most important to note that the "return 0;" will be the end of your main function for any of the programs that you write for these tutorials.  <br>
 					<h1>Statement:</h1>
 					<p>A statement is a command to be executed when the program runs. C requires that statements end with a semicolon. We've seen an example of a statement - the return statement in the main function in which we return a zero. Another common statement is the printf statement. The printf statements looks like the following: </p>
 					<div class = "well">
@@ -71,28 +100,57 @@
 					</ul>
 					<p>Here is an example of a basic program that prints Hello world:</p> 
 					<pre id="code">
-		#include <stdio.h>
+   #include <stdio.h>
 
-		int main(void){
-			printf("Hello world!"); 
-			return 0; 
-		} 
+   int main(void){
+      printf("Hello world!"); 
+      return 0; 
+   }
 
-					</pre>
+				    </pre>
 
 				</p> 
+                
+        <!-- POPUPS FOR EXERCISES-->  
+                    
+        <div id="popupBoxTwoPosition">
+            <div class="popupBoxWrapper">
+                <div class="popupBoxContent">
+
+                    <!-- Exercise Content: TO GO HERE -->
+                    <center>
+                        <h1>Exercises</h1>
+                        
+                        <p>TO BE IMPLEMENTED SOON. </p>
+                        
+                    </center>
+                                          
+                    <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">[CLOSE]</a></p>
+                     
+
+                </div> <!-- popupBoxContent end-->
+            </div>  <!-- popupBoxWrapper end-->
+        </div><!-- popupBoxTwoPosition end-->
+
+          
+        <h1>Basic Syntax: Exercises</h1> <br>
+        <!-- End of exercises popup content -->  
+
+        <!-- THE BUTTONS OR NODE STYLINGS WOULD GO HERE -->
+        <div id="wrapper">
+            <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">Problems</a></p>   
+        </div> <!--  Wrapper end-->
+                
+        <!-- END OF EXERCISES AND POPUP-->        
+                
+                
 			</div><!--End of main -->
 		</div><!-- End of main column-->
 	</div><!--End of 1st row-->
-	<div class="row">
-		<div class = "exercise">
-			<center>
-				<h1>
-					Exercise
-				</h1>
-			</center>
-		</div><!--End of exercise column-->
-	</div><!-- End of 2nd row-->
+
+        
+        
+        
 	</body>
 	
 	<script type = "text/javascript" 

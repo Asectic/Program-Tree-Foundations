@@ -7,29 +7,53 @@
     	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     	<!-- Latest compiled JavaScript -->
     	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript">
+			<!--
+			    function toggle_visibility(id) {
+			       var e = document.getElementById(id);
+			       if(e.style.display == 'block')
+			          e.style.display = 'none';
+			       else
+			          e.style.display = 'block';
+			    }
+			//-->
+            </script>
+        
 	</head>
     
 	<body>
 		<!-- Website Title and Navigation Bar -->
 		<div class="row"><br>
 			<div class = "col-lg-12 top text-center">
-	    		<font size="6" color=navy face="fantasy">Progamming Tree Foundations</font><br>
-	    		<div class="btn-group">
-	  				<a href="/"><button type="button" class="btn btn-primary">Home</button></a>
-	  				<a href="/lessons"><button type="button" class="btn btn-info">Lessons</button></a>
-	  				<a href="/signup"><button type="button" class="btn btn-warning">Register</button></a>
-	  				<a href="/login"><button type="button" class="btn btn-success">Login</button></a>
-				</div>
+                <ul>
+                    <br><font size="6" color=white face="fantasy">Progamming Tree Foundations</font><br>
+                    <li><a href="/">Home</a></li>                    
+                    <li><a href="/lessons">Lessons</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Register</a></li>
+                </ul>
 			</div>
 		</div>
+        
+        <!-- Content for the pages -->
 		<div class = "row">
-			<div class = "col-lg-6">
-				<div class = "game">
-					<center>
-						<h1>Game</h1>
-					</center>
-				</div> <!--end of game div-->
-			</div>
+            
+            <div class = "col-lg-6">
+        
+              <!-- Section for where the game should go --> 
+                <div class = "game">
+                    <div id ="pointer_content"> Game: Memory Allocation and Pointers.</div>
+                    <script>
+                       function load_game(){
+                      document.getElementById("pointer_content").innerHTML='<object type="text/html" data="/stylesheets/game.html" ></object>';
+                      }
+                    </script>           
+                </div><!--end of game -->
+
+            </div> <!--End of game column-->
+            
+            
 			<div class = "col-lg-6">
 				<div class="main">
 					<div id="lessonPortion">
@@ -41,9 +65,9 @@
 						<div class = "well">
 							<h4>
 							<ol>
-								<li><b>int</b> - this is short for integer. Essentially, this type will store a number between &#45;32767 and +32767</li>
-								<li><b>float</b> - Essentially these are just decimal point numbers. </li>
-								<li><b>char</b> - This is a single character.</li>			
+								1. <b>int</b> - this is short for integer. Essentially, this type will store a number between &#45;32767 and +32767<br>
+								2. <b>float</b> - Essentially these are just decimal point numbers. <br>
+								3. <b>char</b> - This is a single character.<br>			
 							</ol>
 							</h4>
 						</div>
@@ -53,12 +77,13 @@
 						<p>In order to use a variable in a program, its type must be declared before using the variables. To declare a type you must specify the type of the variable and then give that variable a name. Here are some examples of declaring types: 
 						<div class = "well">	
 							<h4>
-							<ul>
-								<li>int height;</li> 
-								<li>float profit;</li> 
-								<li>char c;</li>
-								<li>char c[20]; - This statement creates what is called a &#34;string&#34;. A string is just a sequence of characters. This specific declaration says that our string will be a maximum of 20 characters. </li>
-							</ul>
+							
+								int height;<br>
+								float profit;<br> 
+								char c;<br><br>
+								# This statement creates what is called a &#34;string&#34;. A string is just a sequence of characters. This specific declaration says that our string will be a maximum of 20 characters. <br><br>
+                                char c[20];<br>
+                            
 							</h4>
 						</div>
 						</p>
@@ -87,38 +112,55 @@
 							</div>
 						</div>
 						<h2>Instantiating a Variable</h2>
-						<p>After we have declared the variable, we can then assign it a value. A variable can be assigned any value provided that it is of the same type. 
-							<ul>
-								<li>Integers are specified as digits. For example: int x = 5; </li>
-								<li>Floats are specified as decimals or just integers. For example: float x = 3.5;</li>
-								<li>Characters are specified using single quotes: char c = 'h'; </li>
-								<li>String are specified in double quotes. For example: char s[30] = "hello there";</li>
-							</ul>
+						<p>After we have declared the variable, we can then assign it a value. A variable can be assigned any value provided that it is of the same type.<br><br>
+								- Integers are specified as digits. For example: int x = 5; <br>
+								- Floats are specified as decimals or just integers. For example: float x = 3.5;<br>
+								- Characters are specified using single quotes: char c = 'h'; <br>
+								- String are specified in double quotes. For example: char s[30] = "hello there";<br>
 						</p>
-						<div class="nextbutton" id="goNext">Next</div>
-						<br><br><br>
 					</div>
-					<div id="exercises">
-						<h1>Exercises</h1>
-						<ol>
-							<li>Create a program that will compute x+y when x = 4, y = 5. </li>
-							<ul><li><b>Note:</b> arithmetics in C can be done using the following operators: +, -, /, * such that x + y will result in addition</li></ul>
-							<li>Create a program that will compute x*y when x=4, y=5</li>
-							<li>Create a program that will compute x/y when x=6, y=3</li>
-						</ol>				
-						<div class="backbutton" id="goBack">Back</div>
-						<br><br><br>
-					</div>
+        
+                     <!-- POPUPS FOR EXERCISES-->  
+
+                    <div id="popupBoxTwoPosition">
+                        <div class="popupBoxWrapper">
+                            <div class="popupBoxContent">
+
+                                <!-- Exercise Content -->
+                                    <h1>Exercises</h1>
+                                    <center>
+                                    <ol>
+                                        1. Create a program that will compute x+y when x = 4, y = 5. 
+                                           (<b>Note:</b> arithmetics in C can be done using the following operators: +, -, /, * such that x + y will result in addition)<br><br>
+                                        2. Create a program that will compute x*y when x=4, y=5<br>
+                                        3. Create a program that will compute x/y when x=6, y=3<br>
+                                    </ol>
+                                    </center>
+                                    <br>
+                                    <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">[CLOSE]</a></p>
+
+                            </div> <!-- popupBoxContent end-->
+                        </div>  <!-- popupBoxWrapper end-->
+                    </div><!-- popupBoxTwoPosition end-->
+
+
+                    <h1>Variables: Exercises</h1> <br>
+                    <!-- End of exercises popup content -->  
+
+                    <!-- THE BUTTONS OR NODE STYLINGS WOULD GO HERE -->
+                    <div id="wrapper">
+                        <p><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition')">Problems</a></p>   
+                    </div> <!--  Wrapper end-->
+        
+        
+        
 				</div>  <!--end of main div-->
 			</div><!--end of main column-->
+
+
+
 	</div> <!--end of 1st row -->
-	<div class = "row">
-		<div class = "exercise">
-			<center>
-				<h1>Exercise</h1>
-			</center>
-		</div><!-- End of exercise column-->
-	</div><!-- end of 2nd row-->
+
 	</body>
 	
 	<script type = "text/javascript" 

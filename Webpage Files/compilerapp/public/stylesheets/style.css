@@ -1,21 +1,33 @@
 body {
     background-color: lightgrey;
+	background-attachment: fixed;
+	background-image: url("http://i240.photobucket.com/albums/ff108/dwakira/edited_zpsofletsg2.png");
+    background-size: cover;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* Main elements of the page s*/
+
+#fixed-menu
+{
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    background-color: #f00;
+    padding: 10px;
+}
+
+
+/* Main elements of the page  and all relevant div elements go here */
 .top {
+
+    position: fixed;
+    /*background: linear-gradient(#A2ADBC, #D9E2E1, #A2ADBC);*/
+    background: #333;
     
-    /* TL TR BR BL */
-    border-radius: 10px 10px 10px 10px; /* Rounds the headers */
-	border-style: solid !important;
-	border-width: 2px;
-	border-color: #A2ADBC;
-    /* #A2ADBC background-color: #D9E2E1;*/
-    background: linear-gradient(#A2ADBC, #D9E2E1, #A2ADBC);
-    
-    position: absolute;
-    left:10px; top: 10px; bottom: 0px; right:10px;
-    height: 100px;
+    position: fixed;
+    height: 93px;
     align-content: center;
     
     color: white;
@@ -26,18 +38,83 @@ body {
 .main {
     position: absolute;
     left: 10px; top:120px; right:10px; bottom:10px;
-    background-color: white;
     color: black;
-    /* TL TR BR BL */
-    border-radius: 10px 10px 10px 10px; /* Rounds the headers */
-	border-style: solid !important;
-	border-width: 1px;
-	border-color: white;
+    background-color: transparent;
     text-align:center;
     align-content: center;
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.welcome {
+    width: 100%;
+    height: 600px;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.spacer
+{
+    width: 100%;
+    height: 95px;
+}
+
+/* Navigation Bar CSS ================================================ */
+ul {
+    /* Keep navi fixed even when user scrolls down page*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+    text-align:center;
+    padding: 10px;
+    
+}
+
+li {
+    float: left;
+    margin: 0 auto;
+    border-right: 1px solid #bbb;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+    display: inline;
+    
+}
+
+li:last-child {
+    border-right: none;
+    margin: 0 auto;
+    background-color: #333;
+    background-position: center;
+    align-content: center;
+}
+
+li a {
+    display: block;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+li a:hover {
+    background-color: #111;
+}
+/* ====================================================================== */
+
+
+
+
 
 
 /* ====================================================================== */
@@ -93,8 +170,34 @@ h2, h3 {
     background-color: transparent;
 }
 
+h4 {
+    color: black;
+    font-size: 10px;
+    background-color: transparent;
+}
+
 .result{
     border: solid;
     padding: 30px;
     width: 600px;
 }
+
+input.form-control {
+    display: block;
+    width: 90%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
