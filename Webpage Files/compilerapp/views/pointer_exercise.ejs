@@ -17,12 +17,6 @@
     <script>
       function run_script(){
           document.getElementById("pointer_content").innerHTML='<object type="text/html" data="/stylesheets/game.html" ></object>';
-          var login = <%= loggedIn %>
-          if(login){
-            //alert("loged in");
-          }else{
-            //alert("not loged in");
-          }
       }
 
     $(document).ready(function() {
@@ -90,9 +84,6 @@
     <div class = "col-lg-6">
       <!-- Section for where the game should go --> 
         <div class = "game">
-              <div id = "status">
-                unknown
-              </div>
             <div id ="pointer_content"> </div>          
         </div><!--end of game -->
     </div> <!--End of game column-->
@@ -355,7 +346,7 @@
       <div class = "exercise">
         <center>
            <q1>
-              <h1>EX.1<div id = "ex1_pass">Incomplete</div></h1>
+              <h1>EX.1</h1>
               Complete the function print_addr() and print the memory address of x using both printf and print_addr.
               <br>Compare the results. 
               <br>
@@ -386,7 +377,7 @@
             </q1>
             <br><br>
             <q2>
-                <h1>EX.2<div id = "ex2_pass">Incomplete</div></h1>
+                <h1>EX.2</h1>
               Complete the function swap() to swap the value stored at input1 and input2. 
               <br>
               <form action="/ajax_compile"method="post" id="lesson2_e2">
@@ -415,7 +406,7 @@
             </q2>
             <br><br>
             <q3>
-                <h1>Ex.3 <div id = "ex3_pass">Incomplete</div></h1>
+                <h1>Ex.3</h1>
               Complete the function *new_student() for creating new struct Student.   
               <br>
               <form action="/ajax_compile"method="post" id="lesson2_e3">
