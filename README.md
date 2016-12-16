@@ -22,6 +22,8 @@ Repo Directory:
 
 The server file is named "app.js" and it is inside appfiles/compilerapp
 
+--
+
 Logistics of the Programming Tree
 ----------------------------------
 
@@ -59,15 +61,3 @@ When a subtree lesson node is selected, the concepts of the lesson and its relev
 The right hand side of the page will be reserved for any comments which will provide the user with the background information of how certain concepts or bits in code work “behind” the scenes. This will provide the student with more comprehensive information in order to better their understanding of the concept at hand.
 
 If the current lesson is the last node of the subtree, after the student completes the exercise for that lesson they will be directed to the “final test” page, where this test will incorporate everything they have learned from the current subtree.
-
-Project Breakdown – Between the Members
---------------------------
-
-- One member to come up with a template for the programming tree and maintaining the programming tree
-- Other member(s) will implement the user account system; while most member will implement different parts of the programming tree (different topics)
-
-Anticipated Challenges
---------------------------
-
-- Learning to program the web – since not all members have experience programming or is comfortable in programming in HTML & CSS and JavaScript
-- Deciding what topics to implement to the main node tree system – choosing what aspects of C should be taught, and which topics should be in which order of the interactive programming tree.
