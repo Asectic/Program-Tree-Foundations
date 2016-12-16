@@ -1,13 +1,10 @@
--------------------
-CSC301 Winter 2016: Project Team #8
-------------------
 
-------------------------------------------------
-Project Idea: “Programming” Tree Style Education System
--------------------------------------------------
+CSC301 Winter 2016 - Project Team #8:
+--------------------------------------------
+“Programming” Tree Education System
+--------------------------------------------
 
-------------------
-About this Project
+About this Project:
 --------------------
 
 Our project revolves around implementing a “programming trees” system, which will be used to incrementally teach students different disciplines of programming. For this project our primary language we will be using to teach is C. This project will be aimed towards helping students who are either learning the language for the first time, or will be wishing to review and have more practise in grasping certain aspects of the language.
@@ -20,7 +17,11 @@ Rationale
 
 The main focus of our website is to supplement the user’s knowledge on C programming, to help better their understanding of the language. Where with our interactive system of being able to track the user’s learning progress through the programming tree and through the exercises and tests, users will be able to understand the concepts more efficiently as supposed to learning through a lecture environment at school. With the visual interface and interactive system we will implement, a combination of spatial and kinesethic learning is incorporated.
 
+Repo Directory:
 ----------------------------------
+
+The server file is named "app.js" and it is inside appfiles/compilerapp
+
 Logistics of the Programming Tree
 ----------------------------------
 
@@ -38,7 +39,6 @@ Hierarchy:
 
 Every node in the programming tree will consist of problem sets with varying levels of difficulty, where the first few nodes on the main tree will start off with easier concepts of C programming and then progressively delving onto the more difficult concepts as the user goes through the programming tree.
 
--------------------------
 Components of the Website
 --------------------------
 
@@ -60,14 +60,12 @@ The right hand side of the page will be reserved for any comments which will pro
 
 If the current lesson is the last node of the subtree, after the student completes the exercise for that lesson they will be directed to the “final test” page, where this test will incorporate everything they have learned from the current subtree.
 
---------------------------
 Project Breakdown – Between the Members
 --------------------------
 
 - One member to come up with a template for the programming tree and maintaining the programming tree
 - Other member(s) will implement the user account system; while most member will implement different parts of the programming tree (different topics)
 
---------------------------
 Anticipated Challenges
 --------------------------
 
